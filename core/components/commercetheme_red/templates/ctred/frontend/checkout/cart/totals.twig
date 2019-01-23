@@ -1,0 +1,177 @@
+<div class="cart-totals">
+    {% set totalIndex = 1 %}
+
+    {% if tax_exclusive %}
+        .. to do ..
+
+
+        <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+        <span class="c-cart-totals-label c-cart-totals-label-subtotal">
+            {{ lex('commerce.subtotal') }}
+        </span>
+            <span class="c-cart-totals-value c-cart-totals-subtotal">
+            {{ order.subtotal_formatted }}
+        </span>
+        </div>
+        {% for shipment in shipments %}
+            {% if shipment.method.id > 0 %}
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                <span class="c-cart-totals-label c-cart-totals-label-shipping c-cart-totals-label-shipment">
+                    {{ shipment.method.name }}
+                </span>
+                    <span class="c-cart-totals-value c-cart-totals-shipping">
+                    {{ shipment.fee_formatted }}
+                </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% if order.discount != 0 %}
+            {% set totalIndex = totalIndex + 1 %}
+            <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+            <span class="c-cart-totals-label c-cart-totals-label-discount">
+                {{ lex('commerce.discount') }}
+            </span>
+                <span class="c-cart-totals-value c-cart-totals-discount">
+                -&nbsp;{{ order.discount_formatted }}
+            </span>
+            </div>
+            {% set totalIndex = totalIndex + 1 %}
+            <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+            <span class="c-cart-totals-label c-cart-totals-label-total-before-tax">
+                {{ lex('commerce.total_before_tax') }}
+            </span>
+                <span class="c-cart-totals-value c-cart-totals-total-before-tax">
+                {{ order.total_before_tax_formatted }}
+            </span>
+            </div>
+        {% endif %}
+        {% if order.tax != 0 %}
+            {% if tax_exclusive %}
+
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                <span class="c-cart-totals-label c-cart-totals-label-total-ex-tax">
+                    {{ lex('commerce.total_ex_tax') }}
+                </span>
+                    <span class="c-cart-totals-value c-cart-totals-total-ex-tax">
+                    {{ order.total_ex_tax_formatted }}
+                </span>
+                </div>
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                <span class="c-cart-totals-label c-cart-totals-label-taxes">
+                    {{ lex('commerce.taxes') }}
+                </span>
+                    <span class="c-cart-totals-value c-cart-totals-taxes">
+                    {{ order.tax_formatted }}
+                </span>
+                </div>
+
+            {% else %}
+
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                <span class="c-cart-totals-label c-cart-totals-label-taxes">
+                    {{ lex('commerce.tax_included') }}
+                </span>
+                    <span class="c-cart-totals-value c-cart-totals-taxes">
+                    {{ order.tax_formatted }}
+                </span>
+                </div>
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                    <span class="c-cart-totals-label c-cart-totals-label-total-before-tax">
+                        {{ lex('commerce.total_before_tax') }}
+                    </span>
+                            <span class="c-cart-totals-value c-cart-totals-total-before-tax">
+                        {{ order.total_before_tax_formatted }}
+                    </span>
+                </div>
+
+            {% endif %}
+        {% endif %}
+        {% if order.transaction != 0 %}
+            {% set totalIndex = totalIndex + 1 %}
+            <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+            <span class="c-cart-totals-label c-cart-totals-label-transaction">
+                {{ lex('commerce.transaction') }}
+            </span>
+                <span class="c-cart-totals-value c-cart-totals-transaction">
+                {{ order.transaction_formatted }}
+            </span>
+            </div>
+        {% endif %}
+        {% set totalIndex = totalIndex + 1 %}
+        <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+        <span class="c-cart-totals-label c-cart-totals-label-total">
+            {{ lex('commerce.total') }}
+        </span>
+            <span class="c-cart-totals-value c-cart-totals-total">
+            {{ order.total_formatted }}
+        </span>
+        </div>
+
+    {% else %}
+
+        {#
+            Typically it's nice to add a "You save: € XX.XX" to the cart footer, but I feel like it's
+            pretty obvious already in this particular cart design where the savings are, so skipping it here
+
+        {% if order.discount != 0 %}
+            {% set totalIndex = totalIndex + 1 %}
+            <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                <span class="c-cart-totals-simple-value c-cart-totals-savings">
+                    {{ lex('commerce.cart.item.discount', {'discount': order.discount_formatted}) }}
+                </span>
+            </div>
+        {% endif %}
+        #}
+
+        <span class="cart-item__discount"></span>
+
+        {% for shipment in shipments %}
+            {% if shipment.method.id > 0 %}
+                {% set totalIndex = totalIndex + 1 %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                    <span class="c-cart-totals-label c-cart-totals-label-shipping c-cart-totals-label-shipment">
+                        {{ shipment.method.name }}
+                    </span>
+                        <span class="c-cart-totals-value c-cart-totals-shipping">
+                        {{ shipment.fee_formatted }}
+                    </span>
+                </div>
+            {% else %}
+                <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+                    <span class="c-cart-totals-label c-cart-totals-label-shipping c-cart-totals-label-shipment">
+                        {{ lex('commerce.shipping') }}
+                    </span>
+                    <span class="c-cart-totals-value c-cart-totals-shipping">
+                        <em>Calculated during checkout</em>
+                    </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% set totalIndex = totalIndex + 1 %}
+        <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+            <span class="c-cart-totals-label c-cart-totals-label-total c-cart-totals__bold">
+                {{ lex('commerce.total') }}
+            </span>
+            <span class="c-cart-totals-value c-cart-totals-total c-cart-totals__bold">
+                {{ order.total_formatted }}
+            </span>
+        </div>
+
+        {% set totalIndex = totalIndex + 1 %}
+        <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
+            <span class="c-cart-totals-simple-value c-cart-totals-taxes-included">
+                {#{{ order.tax_formatted }}#}
+                <span class="cart-item__tax_incl">{{ lex('commerce.cart.item.incl_taxes', {'tax': order.tax_formatted}) }}</span>
+            </span>
+        </div>
+
+    {% endif %}
+
+
+</div>

@@ -1,0 +1,46 @@
+<div class="c-checkout c-cart c-checkout-cart">
+    {% include 'frontend/response-messages.twig' %}
+
+    {% if items|length > 0 %}
+        {#<div class="row">#}
+            {#<div class="col-lg-9">#}
+
+                <h1 class="d-sm-flex align-items-center cart-title">
+                    {{ lex('checkout.step_cart') }}
+
+                    <span class="ml-sm-auto cart__total_items">
+                        {{ lex('commerce.order.item_count', {quantity: order.total_quantity}) }}
+                    </span>
+
+                    <form method="POST" action="{{ current_url }}" class="c-submit ml-4 cart-title__checkout">
+                        <input type="hidden" name="checkout" value="1">
+                        <button class="c-button c-primary-button" type="submit">{{ lex('commerce.checkout') }}</button>
+                    </form>
+                </h1>
+
+                {% include 'frontend/checkout/cart/items.twig' %}
+
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-4 text-left">
+                        {% include 'frontend/checkout/cart/aside.twig' %}
+                    </div>
+                    <div class="col-md-8 text-right">
+                        {% include 'frontend/checkout/cart/totals.twig' %}
+                        <div class="c-cart-totals-wrapper">
+                            <form method="POST" action="{{ current_url }}" class="c-submit">
+                                <input type="hidden" name="checkout" value="1">
+                                <button class="c-button c-primary-button" type="submit">{{ lex('commerce.checkout') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {#</div>#}
+            {#<div class="col-lg-3">#}
+                {% include 'frontend/checkout/cart/callout.twig' %}
+            {#</div>#}
+        {#</div>#}
+    {% else %}
+        <p><a href="{{ shop_root_url }}">{{ lex('commerce.cart.no_items_yet') }} {{ lex('commerce.cart.continue_shopping') }}</a></p>
+    {% endif %}
+</div>

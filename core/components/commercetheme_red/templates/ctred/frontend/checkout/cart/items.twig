@@ -1,0 +1,92 @@
+<form class="c-cart-items-form cart-items" action="{{ current_url }}" method="post">
+    <input type="hidden" name="update_cart" value="1">
+
+    {% for item in items %}
+        <div class="cart-item row">
+            <div class="cart-item__imagecontainer col-sm-3 col-md-2">
+                {% if item.image %}
+                    <img src="{{ item.image }}" class="cart-item__image" alt="{{ item.name }}" onerror="this.style.display = 'none';">
+                {% endif %}
+            </div>
+            <div class="cart-item__product col-sm-6 col-md-5">
+                <h3 class="cart-item__name">
+                    {% if item.link %}
+                        <a href="{{ item.link }}" title="{{ item.name }}">{{ item.name }}</a>
+                    {% else %}
+                        {{ item.name }}
+                    {% endif %}
+                </h3>
+                <p class="cart-item__description">
+                    {{ lex('commerce.cart.product_code') }}: {{ item.sku|e }}
+                    {% if item.description %} | {{ item.description|e }} {% endif %}
+                </p>
+
+                <div class="cart-item__actions">
+                {% if item.allow_update %}
+                    <button class="cart-item__remove" name="remove_item" value="{{ item.id }}">
+                        {{ lex('commerce.cart.remove_product') }}
+                    </button>
+                {% endif %}
+                </div>
+            </div>
+
+            <div class="cart-item__quantity col-sm-3 col-md-2 text-sm-center">
+                {% if item.allow_update %}
+                    <div class="cart-item__quantityfld d-sm-flex">
+                        <button class="cart-item__quantityfld_minus" title="Remove 1" disabled>-</button>
+                        <input type="number"
+                               class="cart-item__quantity cart-item__quantityfld_input"
+                               name="items[{{ item.id }}]"
+                               value="{{ item.quantity }}"
+                               id="item-{{ loop.index0 }}-quantity"
+                               min="1"
+                               step="1"
+                               {% if item.product and item.product.stock %}max="{{ item.product.stock }}"{% endif %}
+                               aria-label="{{ lex('commerce.quantity') }}"
+                               title="{{ lex('commerce.quantity') }}"
+                        >
+                        <button class="cart-item__quantityfld_plus" title="Add 1" disabled>+</button>
+                    </div>
+                {% else %}
+                    <span class="cart-item__quantity cart-item__quantity_text">{{ item.quantity }}</span>
+                {% endif %}
+            </div>
+            <div class="cart-item__numbers col-sm-12 col-md-3 text-sm-right">
+                {% spaceless %}
+                {% if tax_exclusive %}
+                    {% if item.discount != 0 %}
+                        <span class="cart-item__discount">{{ lex('commerce.cart.item.discount', {'discount': item.discount_formatted}) }}</span>
+                        <br>
+                        <span class="cart-item__subtotal_old">{{ item.subtotal_formatted }}</span>
+                        <span class="cart-item__subtotal cart-item__subtotal_ex_tax">{{ item.total_ex_tax_formatted }}</span>
+                    {% else %}
+                        <span class="cart-item__subtotal cart-item__subtotal_ex_tax">{{ item.total_ex_tax_formatted }}</span>
+                    {% endif %}
+
+                    {% if item.tax != 0 %}
+                        <br>
+                        <span class="cart-item__tax">{{ lex('commerce.cart.item.plus_taxes', {'tax': item.tax_formatted}) }}</span>
+                        <br>
+                        <span class="cart-item__total_incl_tax">{{ item.total_formatted }}</span>
+                    {% endif %}
+                {% else %}
+                    {% if item.discount != 0 %}
+                        <span class="cart-item__discount">{{ lex('commerce.cart.item.discount', {'discount': item.discount_formatted}) }}</span>
+                        <br>
+                        <span class="cart-item__subtotal_old">{{ item.subtotal_formatted }}</span>
+                        <span class="cart-item__subtotal">{{ item.total_before_tax_formatted }}</span>
+                    {% else %}
+                        <span class="cart-item__subtotal">{{ item.total_before_tax_formatted }}</span>
+                    {% endif %}
+                    {% if item.tax != 0 %}
+                        <br>
+                        <span class="cart-item__tax_incl">{{ lex('commerce.cart.item.incl_taxes', {'tax': item.tax_formatted}) }}</span>
+                    {% endif %}
+                {% endif %}
+                {% endspaceless %}
+
+            </div>
+        </div>
+
+    {% endfor %}
+</form>

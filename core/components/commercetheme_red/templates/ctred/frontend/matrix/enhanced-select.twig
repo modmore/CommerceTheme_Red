@@ -1,0 +1,40 @@
+<div class="form-row add-to-cart__matrix_selection">
+    <div class="form-group col-md-6">
+        <label for="select-row-{{ matrix.id }}">{{ matrix.row_name }}</label>
+        <select class="form-control add-to-cart__matrix_rowselect" id="select-row-{{ matrix.id }}">
+            {% for row in rows %}
+                {% if row.active %}
+                    <option value="{{ row.id }}">{{ row.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="select-column-{{ matrix.id }}">{{ matrix.column_name }}</label>
+        <select name="product" class="form-control add-to-cart__matrix_colselect" id="select-column-{{ matrix.id }}">
+            <option value=""></option>
+            {% for row in rows %}
+                {% if row.active %}
+                    {% for column in columns %}
+                        {% if column.active %}
+                            {% set productId = map[row.id][column.id] %}
+                            {% set product = products[productId] %}
+                            <option
+                                    value="{{ productId }}"
+                                    class="matrix-row-{{ row.id }}-product matrix-column-{{ column.id }}-product"
+                                    data-sku="{{ product.sku }}"
+                                    data-stock="{{ product.stock }}"
+                                    data-image="{{ product.image }}"
+                                    data-price="{{ product.price }}"
+                                    data-price-formatted="{{ product.price_formatted }}"
+                                    data-enhanced-name="{{ column.name }}"
+                            >
+                                {{ product.name }}
+                            </option>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+</div>

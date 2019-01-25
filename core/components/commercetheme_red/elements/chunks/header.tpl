@@ -28,15 +28,11 @@
                     &tpl=`@INLINE <li[[+classes]]><a href="[[+link]]" [[+attributes]] class="nav-link">[[+menutitle]]</a>[[+wrapper]]</li>`
                 ]]
 
-                <div class="navbar-text header-cart">
-                    [[!commerce.get_cart? &toPlaceholders=`cart`]]
-                    [[!+cart.total_quantity:notempty=`
-                        <a href="[[~[[++commerce.cart_resource]]]]" class="btn btn-primary">
-                            [[!+cart.total_quantity]] items in cart
-                        </a>
-                    `:default=`
-                        <em>Cart is empty.</em>
-                    `]]
+                [[!commerce.get_cart? &toPlaceholders=`cart`]]
+                <div class="navbar-text header-cart minicart__wrapper" style="[[!+cart.total_quantity:eq=`0`:then=`display: none;`]]">
+                    <a href="[[~[[++commerce.cart_resource]]]]" class="btn btn-primary">
+                        <span class="minicart__items">[[!+cart.total_quantity]]</span> items
+                    </a>
                 </div>
             </div>
         </nav>

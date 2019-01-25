@@ -9706,10 +9706,10 @@ h3 {
   transition: opacity 0.5s ease-in-out;
 }
 
-.spinner-loader * {
+.commerce-loader * {
   opacity: 0.3;
 }
-.spinner-loader:after {
+.commerce-loader:after {
   content: " ";
   display: block;
   width: 3rem;

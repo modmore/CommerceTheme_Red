@@ -98,7 +98,7 @@
 
                 function updateCart() {
                     let oldNumbers = cartRow.querySelector('.cart-item__numbers');
-                    oldNumbers.classList.add('spinner-loader');
+                    oldNumbers.classList.add('commerce-loader');
                     _request('POST', CommerceConfig.cart_url, new FormData(input.form), _refreshCart);
                 }
             });
@@ -108,7 +108,7 @@
         if (couponForm) {
             couponForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                couponForm.classList.add('spinner-loader');
+                couponForm.classList.add('commerce-loader');
                 _request('POST', CommerceConfig.cart_url, new FormData(couponForm), _refreshCart);
             });
         }

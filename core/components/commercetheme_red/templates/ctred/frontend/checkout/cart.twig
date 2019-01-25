@@ -10,7 +10,7 @@
                         {{ lex('commerce.order.item_count', {quantity: order.total_quantity}) }}
                     </span>
 
-                    <form method="POST" action="{{ current_url }}" class="c-submit ml-4 cart-title__checkout">
+                    <form method="POST" action="{{ current_url }}" class="c-submit ml-4 cart__checkout cart-title__checkout">
                         <input type="hidden" name="checkout" value="1">
                         <button class="c-button c-primary-button" type="submit">{{ lex('commerce.checkout') }}</button>
                     </form>
@@ -30,7 +30,7 @@
                     <div class="col-md-8 text-right cart__totals">
                         {% include 'frontend/checkout/cart/totals.twig' %}
                         <div class="c-cart-totals-wrapper">
-                            <form method="POST" action="{{ current_url }}" class="c-submit">
+                            <form method="POST" action="{{ current_url }}" class="cart__checkout">
                                 <input type="hidden" name="checkout" value="1">
                                 <button class="c-button c-primary-button" type="submit">{{ lex('commerce.checkout') }}</button>
                             </form>

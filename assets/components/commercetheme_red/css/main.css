@@ -9702,6 +9702,38 @@ h3 {
   text-align: left;
 }
 
+.cart-item__numbers span {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.cart-item__numbers__loading span {
+  opacity: 0.3;
+}
+.cart-item__numbers__loading:after {
+  content: " ";
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border-width: 6px;
+  border-color: #007bff transparent #007bff transparent;
+  animation: spinner 1.2s linear infinite;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto 1rem;
+  border-style: solid;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .cart-item__single_price {
   color: #495057;
 }
@@ -9815,6 +9847,16 @@ h3 {
 .cart-item__quantityfld_input::-webkit-inner-spin-button, .cart-item__quantityfld_input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.cart-item__quantityfld_update.cart-item__quantityfld_update__hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  padding: 0;
+  visibility: hidden;
 }
 
 .c-cart-total-item, .c-cart-total-item-even {

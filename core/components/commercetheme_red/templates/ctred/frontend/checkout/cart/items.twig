@@ -2,7 +2,7 @@
     <input type="hidden" name="update_cart" value="1">
 
     {% for item in items %}
-        <div class="cart-item row">
+        <div class="cart-item row" id="cart-item-{{ item.id }}">
             <div class="cart-item__imagecontainer col-sm-3 col-md-2">
                 {% if item.image %}
                     <img src="{{ item.image }}" class="cart-item__image" alt="{{ item.name }}" onerror="this.style.display = 'none';">
@@ -46,6 +46,7 @@
                                title="{{ lex('commerce.quantity') }}"
                         >
                         <button class="cart-item__quantityfld_plus" title="Add 1" disabled>+</button>
+                        <button class="btn btn-sm cart-item__quantityfld_update" type="submit">{{ lex('commerce.cart.update') }}</button>
                     </div>
                 {% else %}
                     <span class="cart-item__quantity cart-item__quantity_text">{{ item.quantity }}</span>

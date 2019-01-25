@@ -9707,7 +9707,7 @@ h3 {
 }
 
 .commerce-loader * {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .commerce-loader:after {
   content: " ";

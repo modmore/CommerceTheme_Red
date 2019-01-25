@@ -112,6 +112,24 @@
                 _request('POST', CommerceConfig.cart_url, new FormData(couponForm), _refreshCart);
             });
         }
+
+        let checkoutForms = cart.querySelectorAll('.cart__checkout');
+        checkoutForms.forEach(function(checkoutForm) {
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                cart.classList.add('commerce-loader');
+                _request('POST', CommerceConfig.cart_url, new FormData(checkoutForm), function(response) {
+                    if (response.success && response.redirect) {
+                        window.location = response.redirect;
+                    }
+                    else {
+                        _refreshCart(response);
+                        cart.classList.remove('commerce-loader');
+                    }
+                });
+            });
+
+        });
     }
 
     function _refreshCart(response) {

@@ -98,9 +98,18 @@
 
                 function updateCart() {
                     let oldNumbers = cartRow.querySelector('.cart-item__numbers');
-                    oldNumbers.classList.add('cart-item__numbers__loading');
+                    oldNumbers.classList.add('spinner-loader');
                     _request('POST', CommerceConfig.cart_url, new FormData(input.form), _refreshCart);
                 }
+            });
+        }
+
+        let couponForm = cart.querySelector('.c-cart-coupon-form');
+        if (couponForm) {
+            couponForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                couponForm.classList.add('spinner-loader');
+                _request('POST', CommerceConfig.cart_url, new FormData(couponForm), _refreshCart);
             });
         }
     }

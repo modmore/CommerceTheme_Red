@@ -9706,10 +9706,10 @@ h3 {
   transition: opacity 0.5s ease-in-out;
 }
 
-.cart-item__numbers__loading span {
+.spinner-loader * {
   opacity: 0.3;
 }
-.cart-item__numbers__loading:after {
+.spinner-loader:after {
   content: " ";
   display: block;
   width: 3rem;
@@ -9722,7 +9722,8 @@ h3 {
   top: 0;
   right: 0;
   bottom: 0;
-  margin: auto 1rem;
+  left: 0;
+  margin: auto;
   border-style: solid;
 }
 @keyframes spinner {

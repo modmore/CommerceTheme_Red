@@ -173,10 +173,15 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   }
 }
 .cart-item__numbers__loading {
-  span {
+  //span {
+  //  opacity: 0.3;
+  //}
+}
+
+.spinner-loader {
+  * {
     opacity: 0.3;
   }
-
   &:after {
     content: " ";
     display: block;
@@ -190,7 +195,8 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
     top: 0;
     right: 0;
     bottom: 0;
-    margin: auto 1rem;
+    left: 0;
+    margin: auto;
     border-style: solid;
   }
   @keyframes spinner {
@@ -202,6 +208,7 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
     }
   }
 }
+
 
 .cart-item__single_price {
   //margin-left: 2rem;

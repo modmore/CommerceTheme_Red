@@ -1,0 +1,22 @@
+{% if response.message|length %}
+    <div class="alert alert-primary">
+        {{ response.message }}
+    </div>
+{% endif %}
+{% if response.errors|length > 0 %}
+    {% for error in response.errors %}
+        {% if error.field == '' %}
+            <div class="alert alert-danger" role="alert">
+                {{ error.message }}
+            </div>
+        {% else %}
+            {#
+                Field errors are usually handled in the form, but if you want them to be shown at the top, you can use something like this:
+
+                <div class="c-cart-error">
+                    {{ lex('commerce.address.' ~ error.field) }}: {{ error.message }}
+                </div>
+            #}
+        {% endif %}
+    {% endfor %}
+{% endif %}

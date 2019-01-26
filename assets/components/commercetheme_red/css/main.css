@@ -9933,6 +9933,22 @@ h3 {
   margin-bottom: 0;
 }
 
+.c-steps-indicator {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.c-step {
+  text-align: center;
+  flex: 1;
+}
+.c-step a {
+  padding: 0.5em;
+  display: block;
+}
+
 .c-cart-totals-wrapper {
   margin: 1rem 0;
 }

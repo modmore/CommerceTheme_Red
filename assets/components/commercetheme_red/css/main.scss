@@ -412,6 +412,22 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   margin-bottom: 0;
 }
 
+// Steps stuff
+
+.c-steps-indicator {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  align-items: center;
+}
+.c-step {
+  text-align: center;
+  flex: 1;
+  a {
+    padding: 0.5em;
+    display: block;
+  }
+}
 
 
 // Styling cart/checkout elements with inherited classes

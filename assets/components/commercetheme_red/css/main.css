@@ -10010,4 +10010,64 @@ h3 {
   border-top: 1px solid #e9ecef;
 }
 
+.c-method-gateway-form, .c-method-details {
+  display: none;
+  padding-top: 1em;
+}
+
+.c-method-wrapper {
+  position: relative;
+}
+
+.c-method-radio {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+}
+
+.c-method-radio:checked + .c-method-section {
+  background: #ccf4ff;
+}
+.c-method-radio:checked + .c-method-section .c-method-gateway-form, .c-method-radio:checked + .c-method-section .c-method-details {
+  display: block;
+}
+
+.c-method-section {
+  margin: 1em 0 1em 0;
+  padding: 0.5em;
+}
+.c-method-section > label {
+  cursor: pointer;
+  padding-left: 1.67em;
+  margin-bottom: 0;
+  width: 100%;
+}
+.c-method-description {
+  margin-bottom: 0;
+}
+
+.c-checkout-previous-address-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-new-shipping-address-wrapper, .c-new-billing-address-wrapper, .c-same-billing-address-wrapper {
+  width: 100%;
+}
+
+.c-shipping-address-wrapper, .c-billing-address-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.c-shipping-address-section, .c-billing-address-section {
+  border: 1px solid #e9ecef;
+  border-radius: 3px;
+  flex: 1;
+  margin-right: 1rem;
+  margin-top: 0;
+  padding: 1rem;
+}
+
 /*# sourceMappingURL=main.css.map */

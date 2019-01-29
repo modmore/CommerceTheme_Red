@@ -1,0 +1,25 @@
+<div class="c-method-wrapper c-{{ type }}-address-wrapper">
+    <input type="radio"
+           name="{{ type }}_address"
+           class="c-method-radio c-{{ type }}-address-radio"
+           id="{{ type }}-address-{{ address.id }}-{{ address.id }}"
+           value="{{ address.id }}"
+           {% if current_address == address.id %}checked="checked"{% endif %}
+    >
+    <div class="c-method-section c-{{ type }}-address-section">
+        <label for="{{ type }}-address-{{ address.id }}-{{ address.id }}">
+            {{ address|format_address('div') }}
+
+            {% if address.email|length > 0 %}
+                <div class="email">{{ address.email }}</div>
+            {% endif %}
+
+            {% if address.properties.vat_registration|length > 0 %}
+                <div class="vat">{{ address.properties.vat_registration }}</div>
+            {% endif %}
+            {% if address.phone|length > 0 %}
+                <div class="tel">{{ lex('commerce.address.phone') }}: {{ address.phone }}</div>
+            {% endif %}
+        </label>
+    </div>
+</div>

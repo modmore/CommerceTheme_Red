@@ -1,0 +1,82 @@
+<div class="c-checkout-shipping-address">
+    <div class="form-group {% if error_shipping_fullname %}error{% endif %}">
+        <label for="address-shipping-fullname">{{ lex('commerce.address.name') }}</label>
+        <input type="text" class="form-control" name="address[shipping][fullname]" id="address-shipping-fullname" value="{{ address_shipping_fullname }}">
+        {% if error_shipping_fullname %}<span class="form-group-error">{{ error_shipping_fullname }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_email %}error{% endif %}">
+        <label for="address-shipping-email">{{ lex('commerce.address.email') }}</label>
+        <input type="text" class="form-control" name="address[shipping][email]" id="address-shipping-email" value="{{ address_shipping_email }}">
+        {% if error_shipping_email %}<span class="form-group-error">{{ error_shipping_email }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_company %}error{% endif %}">
+        <label for="address-shipping-company">{{ lex('commerce.address.company') }} <small>{{ lex('commerce.address.optional') }}</small></label>
+        <input type="text" class="form-control" name="address[shipping][company]" id="address-shipping-company" value="{{ address_shipping_company }}">
+        {% if error_shipping_company %}<span class="form-group-error">{{ error_shipping_company }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_address1 %}error{% endif %}">
+        <label for="address-shipping-address1">{{ lex('commerce.address.address') }}</label>
+        <input type="text" class="form-control" name="address[shipping][address1]" id="address-shipping-address1" value="{{ address_shipping_address1 }}">
+        {% if error_shipping_address1 %}<span class="form-group-error">{{ error_shipping_address1 }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_address2 %}error{% endif %}">
+        <label for="address-shipping-address2">{{ lex('commerce.address.address2') }} <small>{{ lex('commerce.address.optional') }}</small></label>
+        <input type="text" class="form-control" name="address[shipping][address2]" id="address-shipping-address2" value="{{ address_shipping_address2 }}">
+        {% if error_shipping_address2 %}<span class="form-group-error">{{ error_shipping_address2 }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_zip %}error{% endif %}">
+        <label for="address-shipping-zip">{{ lex('commerce.address.zip') }}</label>
+        <input type="text" class="form-control" name="address[shipping][zip]" id="address-shipping-zip" value="{{ address_shipping_zip }}">
+        {% if error_shipping_zip %}<span class="form-group-error">{{ error_shipping_zip }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_city %}error{% endif %}">
+        <label for="address-shipping-city">{{ lex('commerce.address.city') }}</label>
+        <input type="text" class="form-control" name="address[shipping][city]" id="address-shipping-city" value="{{ address_shipping_city }}">
+        {% if error_shipping_city %}<span class="form-group-error">{{ error_shipping_city }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_state %}error{% endif %}">
+        <label for="address-shipping-state">{{ lex('commerce.address.state') }}</label>
+        <input type="text" class="form-control" name="address[shipping][state]" id="address-shipping-state" value="{{ address_shipping_state }}">
+        {% if error_shipping_state %}<span class="form-group-error">{{ error_shipping_state }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_country %}error{% endif %}">
+        <label for="address-shipping-country">{{ lex('commerce.address.country') }}</label>
+        <select name="address[shipping][country]" class="form-control" id="address-shipping-country">
+            <option value=""></option>
+            {% for country in countries %}
+                <option value="{{ country.iso }}" {% if address_shipping_country == country.iso %}selected="selected"{% endif %}>{{ country.shortname }}</option>
+            {% endfor %}
+        </select>
+        {% if error_shipping_country %}<span class="form-group-error">{{ error_shipping_country }}</span>{% endif %}
+    </div>
+
+    <div class="form-group {% if error_shipping_phone %}error{% endif %}">
+        <label for="address-shipping-phone">{{ lex('commerce.address.phone') }} <small>{{ lex('commerce.address.optional') }}</small></label>
+        <input type="text" class="form-control" name="address[shipping][phone]" id="address-shipping-phone" value="{{ address_shipping_phone }}">
+        {% if error_shipping_phone %}<span class="form-group-error">{{ error_shipping_phone }}</span>{% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="address-shipping-remember">
+            <input type="checkbox" name="address[shipping][remember]" id="address-shipping-remember" value="1" checked="checked">
+            {{ lex('commerce.remember_address') }}
+        </label>
+    </div>
+
+    {% if user_profile_address_prefilled %}
+        <div class="form-group">
+            <label for="address-shipping-update-profile">
+                <input type="checkbox" name="address[shipping][properties][update_profile]" id="address-shipping-update-profile" value="1">
+                {{ lex('commerce.module.userprofileaddress.remember_address') }}
+            </label>
+        </div>
+    {% endif %}
+</div>

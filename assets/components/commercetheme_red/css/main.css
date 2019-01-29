@@ -9996,10 +9996,11 @@ h3 {
   flex: 1;
 }
 
-.checkout-cart__summary {
-  padding-left: 2rem;
+@media (min-width: 768px) {
+  .c-checkout-summary {
+    padding-left: 2rem;
+  }
 }
-
 .checkout__cart-item {
   padding-top: 1rem;
   padding-bottom: 1rem;

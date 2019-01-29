@@ -1,0 +1,63 @@
+{% include 'frontend/response-messages.twig' %}
+
+<div class="checkout__account mt-md-5">
+    <div class="d-md-flex">
+
+        <div class="d-md-flex flex-column checkout_login">
+            <div class="card checkout_login__inner">
+                <h2 class="card-header">{{ lex('commerce.account.welcome_back') }}</h2>
+                <div class="card-body">
+                    <p>{{ lex('commerce.account.welcome_back.login') }}</p>
+                    <form action="[[~[[++commerce.login_resource]]]]" method="post">
+                        <input type="hidden" name="service" value="login">
+                        <input type="hidden" name="returnUrl" value="{{ current_url }}">
+
+                        <div class="form-group">
+                            <label for="c-login-username">[[%username]]</label>
+                            <input type="text" class="form-control" name="username" id="c-login-username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-login-password">[[%password]]</label>
+                            <input type="password" class="form-control" name="password" id="c-login-password">
+                        </div>
+
+                        <div class="form-group d-lg-flex mb-0">
+                            <div class="form-check pb-3 pb-lg-0 pt-lg-2">
+                                <input type="checkbox" class="form-check-input"  id="c-login-rememberme" name="rememberme" value="1" checked>
+                                <label for="c-login-rememberme" class="form-check-label">
+                                    {{ lex('commerce.account.remember_me') }}
+                                </label>
+                            </div>
+
+                            <button type="submit" class="ml-auto btn btn-primary">
+                                {{ lex('commerce.account.welcome_back.submit') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-md-flex flex-column justify-content-center checkout_guest mt-4 px-4">
+            <div class="checkout_guest__inner">
+                <h2>{{ lex('commerce.account.new', { name: '[[++site_name]]' }) }}</h2>
+                {% if allow_guest_checkout %}
+                    <p>{{ lex('commerce.account.new.choose') }}</p>
+
+                    <form action="{{ current_url }}" method="post" class="checkout-form">
+                        <input type="hidden" name="set_guest_checkout" value="1">
+                        <button type="submit" class="btn btn-outline-primary">{{ lex('commerce.account.new.as_guest') }}</button>
+                        <a href="[[~[[++commerce.register_resource]]]]" class="btn btn-outline-primary">
+                            {{ lex('commerce.account.new.create_account') }}
+                        </a>
+                    </form>
+                {% else %}
+                    <p>{{ lex('commerce.account.new.account_required') }}</p>
+                    <a href="[[~[[++commerce.register_resource]]]]" class="btn btn-outline-primary">
+                        {{ lex('commerce.account.new.create_account') }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

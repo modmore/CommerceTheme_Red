@@ -1,5 +1,5 @@
 (function() {
-    let cart;
+    let cart, checkout;
 
     onReady(function () {
         initializeMatrixSelects();
@@ -8,7 +8,21 @@
         if (cart) {
             initializeCartEnhancements(cart);
         }
-        updateMiniCart()
+        checkout = document.querySelector('.c-checkout-wrapper');
+        if (checkout) {
+            initializeCheckoutEnhancements(checkout);
+        }
+        updateMiniCart();
+
+        window.onpopstate = function() {
+            if (checkout && window.location.href.indexOf(CommerceConfig.checkout_url) !== -1) {
+                checkout.classList.add('commerce-loader');
+                _request('GET', window.location.href, null, _handleCheckoutResponse);
+            }
+            else {
+                window.location = window.location.href;
+            }
+        };
     });
 
     function onReady (callback) {
@@ -149,6 +163,69 @@
 
         _updateMiniCartResponse(response);
     }
+
+    function initializeCheckoutEnhancements(checkout) {
+        let forms = checkout.querySelectorAll('.checkout-form');
+        forms.forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                checkout.classList.add('commerce-loader');
+
+                _request('POST', form.getAttribute('action'), new FormData(form), _handleCheckoutResponse);
+            });
+        });
+    }
+
+    function _handleCheckoutResponse(result) {
+        console.log(result);
+
+        let responseDom = document.createElement('div');
+        if (result.output) {
+            responseDom.innerHTML = result.output;
+        }
+        else {
+            responseDom.innerHTML = result;
+        }
+        checkout.querySelector('.c-step-wrapper').innerHTML = responseDom.innerHTML;
+
+        if (result.redirect) {
+            // Account for GET or POST-style redirects
+            if (result.redirect_method === 'GET') {
+                // Make sure we only redirect to the same origin
+                if (result.redirect.substring(0, location.origin.length) !== location.origin) {
+                    window.location = result.redirect;
+                }
+                else {
+                    window.history.pushState(null, '', result.redirect);
+                    _request('GET', result.redirect, null, _handleCheckoutResponse);
+                }
+            }
+            // For POST redirects (i.e. some payment gateways), create a dynamic form with the redirect_data and submit it
+            else if (result.redirect_method === 'POST') {
+                let form = document.createElement('form');
+                form.setAttribute('action', result.redirect);
+                form.setAttribute('method', 'POST');
+
+                result.redirect_data.forEach(function(index, value) {
+                    let input = document.createElement('input');
+                    input.setAttribute('type', 'hidden');
+                    input.setAttribute('name', index);
+                    input.setAttribute('value', value);
+                    form.appendChild(input);
+                });
+
+                checkout.appendChild(form);
+                form.submit();
+            }
+        }
+        else {
+            checkout.classList.remove('commerce-loader');
+        }
+
+        initializeCheckoutEnhancements(checkout);
+    }
+
+
 
     function initializeMatrixSelects() {
         let matrixSelector = document.querySelectorAll('.add-to-cart__matrix');

@@ -1,31 +1,34 @@
-
 <main role="main" class="container">
-    <div class="c-wrapper">
-        {% if commerce_mode == 'test' %}
-            <div class="alert alert-info">
-                {{ lex('commerce.shop_in_testmode') }}
-            </div>
-        {% endif %}
+    <div class="c-wrapper c-checkout-wrapper">
+        {#{% if commerce_mode == 'test' %}#}
+            {#<div class="alert alert-info">#}
+                {#{{ lex('commerce.shop_in_testmode') }}#}
+            {#</div>#}
+        {#{% endif %}#}
 
-        <div class="c-steps-wrapper">
-            <ol class="c-steps-indicator c-steps-{{ steps|length }}">
-                {% spaceless %}
-                {% for stepKey, step in steps %}
-                    <li class="c-step {% if stepKey == currentKey %}active{% endif %}">
-                        {% if step.allowed %}<a href="{{ step.link }}">{% endif %}
-                            {{ lex('checkout.step_' ~ stepKey) }}
-                        {% if step.allowed %}</a>{% endif %}
-                    </li>
-                {% endfor %}
-                {% endspaceless %}
-            </ol>
+        <div class="container">
+            <nav aria-label="Checkout steps">
+                <ol class="breadcrumb checkout__steps">
+                    {% for stepKey, step in steps %}
+                        <li class="breadcrumb-item checkout__step {% if stepKey == currentKey %}active{% endif %}" {% if stepKey == currentKey %}aria-current="page"{% endif %}>
+                            {% if step.allowed %}
+                                <a href="{{ step.link }}">
+                                    {{ lex('checkout.step_' ~ stepKey) }}
+                                </a>
+                            {% else %}
+                                {{ lex('checkout.step_' ~ stepKey) }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
         </div>
 
         <div class="c-messages">
             {% include 'frontend/response-messages.twig' %}
         </div>
 
-        <div class="c-step-wrapper">
+        <div class="c-step-wrapper d-md-flex">
             {% autoescape false %}
             {{ output }}
             {% endautoescape %}

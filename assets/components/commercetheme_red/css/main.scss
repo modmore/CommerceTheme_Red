@@ -177,9 +177,14 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   //  opacity: 0.3;
   //}
 }
-
+.c-checkout-wrapper {
+  > * {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
 .commerce-loader {
-  * {
+  > * {
     opacity: 0.5;
   }
   &:after {
@@ -412,23 +417,6 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   margin-bottom: 0;
 }
 
-// Steps stuff
-
-.c-steps-indicator {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  align-items: center;
-}
-.c-step {
-  text-align: center;
-  flex: 1;
-  a {
-    padding: 0.5em;
-    display: block;
-  }
-}
-
 
 // Styling cart/checkout elements with inherited classes
 .c-cart-totals-wrapper {
@@ -496,4 +484,24 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
 .c-button {
   @extend .btn;
   @extend .btn-primary;
+}
+
+// Checkout => shared bits
+.c-step-wrapper {
+
+}
+.c-checkout-step {
+  flex: 1;
+}
+.checkout-cart__summary {
+  padding-left: 2rem;
+}
+.checkout__cart-item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $gray-200;
+
+  &:first-of-type {
+    border-top: 1px solid $gray-200;
+  }
 }

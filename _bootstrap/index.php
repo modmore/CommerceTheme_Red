@@ -23,22 +23,22 @@ $componentPath = dirname(dirname(__FILE__));
 
 $elements = [
     'modTemplate' => [
-        'Red - Cart' => $componentPath . 'core/components/commercetheme_red/elements/templates/cart.tpl',
-        'Red - Category' => $componentPath . 'core/components/commercetheme_red/elements/templates/category.tpl',
-        'Red - Checkout' => $componentPath . 'core/components/commercetheme_red/elements/templates/checkout.tpl',
-        'Red - Product' => $componentPath . 'core/components/commercetheme_red/elements/templates/product.tpl',
+        'Red - Cart' => $componentPath . '/core/components/commercetheme_red/elements/templates/cart.tpl',
+        'Red - Category' => $componentPath . '/core/components/commercetheme_red/elements/templates/category.tpl',
+        'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',
+        'Red - Product' => $componentPath . '/core/components/commercetheme_red/elements/templates/product.tpl',
     ],
 
     'modChunk' => [
-        'ctred.category_list' => $componentPath . 'core/components/commercetheme_red/elements/chunks/category_list.tpl',
-        'ctred.footer' => $componentPath . 'core/components/commercetheme_red/elements/chunks/footer.tpl',
-        'ctred.header' => $componentPath . 'core/components/commercetheme_red/elements/chunks/header.tpl',
+        'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
+        'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
+        'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],
 ];
 
 if (!createObject('modCategory', [
     'category' => 'CTRed'
-], 'category', false)) {
+], 'category', true)) {
     echo "Error creating category; halting.\n";
     exit(1);
 }

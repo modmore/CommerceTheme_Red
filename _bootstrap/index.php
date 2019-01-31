@@ -54,10 +54,37 @@ foreach ($elements as $type => $records) {
             'static' => true,
             'static_file' => $file,
             'category' => $categoryId,
-        ],$nameFld, false)) {
+        ],$nameFld, true)) {
             echo "Error creating {$type} {$name}.\n";
         }
     }
+}
+//ctred.assets_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.assets_url',
+    'value' => '/assets/components/commercetheme_red/'
+], 'key', false)) {
+    echo "Error creating ctred.assets_url system setting.\n";
+}
+
+
+if (!createObject('modTemplateVar', [
+    'type' => 'commerce_matrix',
+    'name' => 'product_matrix',
+    'caption' => 'Products',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'product_matrix']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
 }
 
 // Clear the cache

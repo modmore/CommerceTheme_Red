@@ -555,7 +555,7 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   flex-wrap: wrap;
 }
 .c-new-shipping-address-wrapper, .c-new-billing-address-wrapper, .c-same-billing-address-wrapper {
-  width: 100%;
+  min-width: 100%;
 }
 .c-shipping-address-wrapper, .c-billing-address-wrapper {
   display: flex;

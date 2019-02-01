@@ -414,16 +414,62 @@
 
                 content.appendChild(name);
 
-                let price = document.createElement('div');
-                price.classList.add('minicart__price');
-                price.innerHTML = item.total_formatted;
+                let priceWrapper = document.createElement('span');
+                priceWrapper.classList.add('minicart__price-wrapper');
 
-                content.appendChild(price);
+                if (item.discount !== 0) {
+                    let discount = document.createElement('span');
+                    discount.classList.add('cart-item__subtotal_old');
+                    discount.innerHTML = item.subtotal_formatted;
+                    priceWrapper.appendChild(discount);
+                }
+
+                let price = document.createElement('span');
+                price.classList.add('minicart__price');
+                price.innerHTML = item.total_before_tax_formatted;
+                priceWrapper.appendChild(price);
+
+                content.appendChild(priceWrapper);
 
                 li.appendChild(content);
 
                 itemWrapper.appendChild(li);
             });
+
+            if (response.order.shipping !== 0) {
+                let shipping = document.createElement('li');
+                shipping.classList.add('minicart__extra');
+
+                let label = document.createElement('span');
+                label.classList.add('minicart__extra-label');
+                label.innerHTML = CommerceConfig.i18n.shipping || 'Shipping';
+                shipping.appendChild(label);
+
+                let value = document.createElement('span');
+                value.classList.add('minicart__extra-value');
+                value.innerHTML = response.order.shipping_formatted;
+                shipping.appendChild(value);
+
+                itemWrapper.appendChild(shipping);
+            }
+
+            // Add taxes if mode is exclusive
+            if (response.order.total_before_tax === response.order.total_ex_tax && response.order.tax !== 0) {
+                let tax = document.createElement('li');
+                tax.classList.add('minicart__extra');
+
+                let label = document.createElement('span');
+                label.classList.add('minicart__extra-label');
+                label.innerHTML = CommerceConfig.i18n.tax || 'Tax';
+                tax.appendChild(label);
+
+                let value = document.createElement('span');
+                value.classList.add('minicart__extra-value');
+                value.innerHTML = response.order.tax_formatted;
+                tax.appendChild(value);
+
+                itemWrapper.appendChild(tax);
+            }
         }
 
         let btn = document.querySelector('.minicart');

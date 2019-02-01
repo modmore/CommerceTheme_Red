@@ -8,7 +8,11 @@
 <script>
     window.CommerceConfig = {
         cart_url: '[[~[[++commerce.cart_resource]]:htmlent]]',
-        checkout_url:  '[[~[[++commerce.checkout_resource]]:htmlent]]'
+        checkout_url:  '[[~[[++commerce.checkout_resource]]:htmlent]]',
+        i18n: {
+            shipping: '[[!%commerce.shipping:htmlent]]',
+            tax: '[[!%commerce.tax:htmlent]]'
+        }
     }
 </script>
 <script src="[[++ctred.assets_url]]js/main.js"></script>

@@ -10203,4 +10203,16 @@ h3 {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.minicart__extra {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.minicart__extra-value {
+  color: #003c4d;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding-left: 0.5rem;
+}
+
 /*# sourceMappingURL=main.css.map */

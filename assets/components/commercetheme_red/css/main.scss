@@ -706,3 +706,16 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   border-radius: 0 0 3px 3px;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
+.minicart__extra {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.minicart__extra-label {
+
+}
+.minicart__extra-value {
+  color: $theme-dark-blue;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding-left: 0.5rem;
+}

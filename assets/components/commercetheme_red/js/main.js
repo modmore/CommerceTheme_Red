@@ -332,15 +332,17 @@
 
                         _updateMiniCartResponse(response);
 
-                        let minicart = document.getElementById('minicart-header-toggler'),
-                            minicartCheckout = document.querySelector('.minicart__checkout');
-                        if (minicart && !minicart.checked) {
-                            minicart.checked = true;
+                        setTimeout(function() {
+                            let minicart = document.getElementById('minicart-header-toggler'),
+                                minicartCheckout = document.querySelector('.minicart__checkout');
+                            if (minicart && !minicart.checked) {
+                                minicart.checked = true;
 
-                            if (minicartCheckout) {
-                                minicartCheckout.focus();
+                                if (minicartCheckout) {
+                                    minicartCheckout.focus();
+                                }
                             }
-                        }
+                        }, 15);
                     });
                 });
 

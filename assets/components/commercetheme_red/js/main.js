@@ -179,6 +179,21 @@
                 _request('POST', form.getAttribute('action'), new FormData(form), _handleCheckoutResponse);
             });
         });
+
+        let steps = checkout.querySelectorAll('.checkout__steps a');
+        steps.forEach(function(btn) {
+            let target = btn.getAttribute('href');
+            if (target.indexOf(CommerceConfig.checkout_url) === -1) {
+                return;
+            }
+
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                checkout.classList.add('commerce-loader');
+                window.history.pushState(null, '', target);
+                _request('GET', target, null, _handleCheckoutResponse);
+            })
+        });
     }
 
     function _handleCheckoutResponse(result) {

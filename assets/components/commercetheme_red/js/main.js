@@ -165,9 +165,14 @@
     }
 
     function initializeCheckoutEnhancements(checkout) {
-        let forms = checkout.querySelectorAll('.checkout-form');
+        let forms = checkout.querySelectorAll('form');
         forms.forEach(function(form) {
             form.addEventListener('submit', function(e) {
+                let target = form.getAttribute('action');
+                if (target.indexOf(CommerceConfig.checkout_url) === -1) {
+                    return;
+                }
+
                 e.preventDefault();
                 checkout.classList.add('commerce-loader');
 
@@ -177,17 +182,6 @@
     }
 
     function _handleCheckoutResponse(result) {
-        console.log(result);
-
-        let responseDom = document.createElement('div');
-        if (result.output) {
-            responseDom.innerHTML = result.output;
-        }
-        else {
-            responseDom.innerHTML = result;
-        }
-        checkout.querySelector('.c-step-wrapper').innerHTML = responseDom.innerHTML;
-
         if (result.redirect) {
             // Account for GET or POST-style redirects
             if (result.redirect_method === 'GET') {
@@ -219,10 +213,17 @@
             }
         }
         else {
+            let responseDom = document.createElement('div');
+            if (result.output) {
+                responseDom.innerHTML = result.output;
+            }
+            else {
+                responseDom.innerHTML = result;
+            }
+            checkout.querySelector('.c-step-wrapper').innerHTML = responseDom.innerHTML;
             checkout.classList.remove('commerce-loader');
+            initializeCheckoutEnhancements(checkout);
         }
-
-        initializeCheckoutEnhancements(checkout);
     }
 
 

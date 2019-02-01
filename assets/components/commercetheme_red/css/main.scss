@@ -570,3 +570,134 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   margin-top: 0;
   padding: 1rem;
 }
+
+
+.minicart {
+  position: relative;
+}
+.minicart__toggler {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+
+  + label {
+
+  }
+  &:checked + label {
+
+  }
+
+  &:checked + label + .minicart__wrapper  {
+    max-height: initial;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    top: 100%;
+  }
+
+}
+.minicart__wrapper {
+  visibility: hidden;
+  transition: all 0.5s;
+  opacity: 0;
+  height: 0;
+  top: 0;
+
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  width: 300px;
+  z-index: 100;
+
+  &:before {
+    top: -1rem;
+    right: 1rem;
+    border: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid $light;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    margin-left: -0.5rem;
+  }
+
+}
+
+.minicart__header {
+  font-size: 0.9rem;
+  padding: 1rem;
+  background: $gray-200;
+  border-radius: 3px 3px 0 0;
+}
+.minicart__total-label, .minicart__quantity-wrapper {
+  color: $gray-700;
+}
+.minicart__total-value {
+  color: $theme-dark-blue;
+  font-weight: bold;
+}
+
+.minicart__cart {
+  color: $primary !important;
+
+  &:hover, &:focus {
+    background: #fff;
+    color: $theme-dark-blue !important;
+  }
+}
+
+.minicart__items {
+  list-style-type: none;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+.minicart__item {
+  display: flex;
+  margin-top: 1rem;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+.minicart__image {
+  max-width: 3rem;
+  max-height: 3rem;
+  margin-right: 1rem;
+  border-radius: 3px;
+}
+.minicart__content {
+  flex: 1;
+  overflow: hidden;
+}
+.minicart__name {
+  color: $gray-900;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.minicart__price {
+  color: $theme-dark-blue;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.minicart__message {
+  padding: 0.5rem;
+  background: $theme-light-blue;
+  color: $theme-dark-blue;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+.minicart__error {
+  background: $danger;
+}
+.minicart__footer {
+  padding: 1rem;
+  background: $gray-200;
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}

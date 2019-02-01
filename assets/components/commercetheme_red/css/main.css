@@ -10070,4 +10070,133 @@ h3 {
   padding: 1rem;
 }
 
+.minicart {
+  position: relative;
+}
+
+.minicart__toggler {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+.minicart__toggler:checked + label + .minicart__wrapper {
+  max-height: initial;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  top: 100%;
+}
+
+.minicart__wrapper {
+  visibility: hidden;
+  transition: all 0.5s;
+  opacity: 0;
+  height: 0;
+  top: 0;
+  position: absolute;
+  right: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  width: 300px;
+  z-index: 100;
+}
+.minicart__wrapper:before {
+  top: -1rem;
+  right: 1rem;
+  border: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid #f8f9fa;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  margin-left: -0.5rem;
+}
+
+.minicart__header {
+  font-size: 0.9rem;
+  padding: 1rem;
+  background: #e9ecef;
+  border-radius: 3px 3px 0 0;
+}
+
+.minicart__total-label, .minicart__quantity-wrapper {
+  color: #495057;
+}
+
+.minicart__total-value {
+  color: #003c4d;
+  font-weight: bold;
+}
+
+.minicart__cart {
+  color: #007bff !important;
+}
+.minicart__cart:hover, .minicart__cart:focus {
+  background: #fff;
+  color: #003c4d !important;
+}
+
+.minicart__items {
+  list-style-type: none;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.minicart__item {
+  display: flex;
+  margin-top: 1rem;
+}
+.minicart__item:first-child {
+  margin-top: 0;
+}
+
+.minicart__image {
+  max-width: 3rem;
+  max-height: 3rem;
+  margin-right: 1rem;
+  border-radius: 3px;
+}
+
+.minicart__content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.minicart__name {
+  color: #212529;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.minicart__price {
+  color: #003c4d;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.minicart__message {
+  padding: 0.5rem;
+  background: #ccf4ff;
+  color: #003c4d;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.minicart__error {
+  background: #dc3545;
+}
+
+.minicart__footer {
+  padding: 1rem;
+  background: #e9ecef;
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 /*# sourceMappingURL=main.css.map */

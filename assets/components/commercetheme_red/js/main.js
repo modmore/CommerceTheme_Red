@@ -364,15 +364,24 @@
             if (response.message) {
                 let msg = document.createElement('li');
                 msg.classList.add('minicart__message');
-                if (response.error) {
-                    msg.classList.add('minicart__error');
-                }
                 msg.innerHTML = response.message;
                 itemWrapper.appendChild(msg);
 
                 setTimeout(function() {
                     itemWrapper.removeChild(msg);
                 }, 5000);
+            }
+            if (response.errors) {
+                response.errors.forEach(function(err) {
+                    let msg = document.createElement('li');
+                    msg.classList.add('minicart__message');
+                    msg.classList.add('minicart__error');
+                    msg.innerHTML = err.message;
+                    itemWrapper.appendChild(msg);
+                    setTimeout(function() {
+                        itemWrapper.removeChild(msg);
+                    }, 7500);
+                })
             }
 
             response.order.items.forEach(function (item) {

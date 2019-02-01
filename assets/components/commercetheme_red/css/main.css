@@ -10186,10 +10186,14 @@ h3 {
   color: #003c4d;
   border-radius: 3px;
   font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.minicart__message:first-child {
+  margin-top: 0;
 }
 
 .minicart__error {
-  background: #dc3545;
+  background: #ffc9ce;
 }
 
 .minicart__footer {

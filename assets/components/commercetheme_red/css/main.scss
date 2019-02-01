@@ -691,9 +691,14 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   color: $theme-dark-blue;
   border-radius: 3px;
   font-size: 0.9rem;
+
+  margin-top: 1rem;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 .minicart__error {
-  background: $danger;
+  background: #ffc9ce;
 }
 .minicart__footer {
   padding: 1rem;

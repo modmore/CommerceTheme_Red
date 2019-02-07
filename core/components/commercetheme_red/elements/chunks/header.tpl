@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="container-fluid bg-dark mb-4">
+<div class="page-header container-fluid bg-dark mb-4">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">[[++site_name]]</a>

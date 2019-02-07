@@ -17,6 +17,10 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+.page-header {
+  border-bottom: 5px solid $theme-light-blue;
+}
+
 .add-to-cart__price_wrapper {
   font-weight: bold;
   margin-bottom: 0;
@@ -584,7 +588,7 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   left: 0;
 
   + label {
-
+    margin-bottom: 0;
   }
   &:checked + label {
 
@@ -605,6 +609,7 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   opacity: 0;
   height: 0;
   top: 0;
+  margin-top: 0.25rem;
 
   position: absolute;
   right: 0;

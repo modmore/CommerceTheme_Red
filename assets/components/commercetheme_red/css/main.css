@@ -9556,6 +9556,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.page-header {
+  border-bottom: 5px solid #ccf4ff;
+}
+
 .add-to-cart__price_wrapper {
   font-weight: bold;
   margin-bottom: 0;
@@ -10082,6 +10086,9 @@ h3 {
   top: 0;
   left: 0;
 }
+.minicart__toggler + label {
+  margin-bottom: 0;
+}
 .minicart__toggler:checked + label + .minicart__wrapper {
   max-height: initial;
   visibility: visible;
@@ -10096,6 +10103,7 @@ h3 {
   opacity: 0;
   height: 0;
   top: 0;
+  margin-top: 0.25rem;
   position: absolute;
   right: 0;
   border-radius: 5px;

@@ -18,7 +18,33 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 .page-header {
-  border-bottom: 5px solid $theme-light-blue;
+  &.bg-dark {
+    border-top: 5px solid $theme-light-blue;
+    background-color: $theme-dark-blue !important;
+
+    .minicart__label {
+      background-color: $theme-light-blue;
+      border-color: $theme-light-blue;
+      color: $theme-dark-blue;
+
+      &:focus, &:hover {
+        color: $black;
+      }
+    }
+  }
+  &.bg-light {
+    border-top: 5px solid $theme-dark-blue;
+    background-color: $theme-light-blue !important;
+
+    .minicart__label {
+      background-color: $theme-dark-blue;
+      border-color: $theme-dark-blue;
+      color: $theme-light-blue;
+      &:focus, &:hover {
+        color: $white;
+      }
+    }
+  }
 }
 
 .add-to-cart__price_wrapper {
@@ -648,11 +674,22 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   font-weight: bold;
 }
 
-.minicart__cart {
-  color: $primary !important;
+.minicart__checkout.btn-primary {
+  border-color: $theme-dark-blue;
+  background: $theme-dark-blue;
+  color: $theme-light-blue;
 
   &:hover, &:focus {
-    background: #fff;
+    background: $black;
+    color: $white;
+  }
+}
+.minicart__cart.btn-outline-primary {
+  border-color: $theme-dark-blue;
+  color: $theme-dark-blue !important;
+
+  &:hover, &:focus {
+    background: $white;
     color: $theme-dark-blue !important;
   }
 }

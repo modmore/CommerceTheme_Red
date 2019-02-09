@@ -23,6 +23,17 @@
                 window.location = window.location.href;
             }
         };
+
+        // Add loader to the checkout form in the minicart
+        let minicartCheckout = document.querySelector('.minicart__footer');
+        if (minicartCheckout && minicartCheckout.nodeName === 'FORM') {
+            minicartCheckout.addEventListener('submit', function() {
+                // We could, theoretically, intercept this submit and run it with AJAX, but we're not sure
+                // at this point if all checkout-related assets are loaded, so we're going with a standard
+                // synchronous submit.
+                minicartCheckout.classList.add('commerce-loader');
+            });
+        }
     });
 
     function onReady (callback) {

@@ -9736,6 +9736,9 @@ h3 {
   transition: opacity 0.5s ease-in-out;
 }
 
+.commerce-loader {
+  position: relative;
+}
 .commerce-loader > * {
   opacity: 0.5;
 }

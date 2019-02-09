@@ -50,7 +50,7 @@
 
                         <ul class="minicart__items"></ul>
 
-                        <form class="minicart__footer" method="post">
+                        <form class="minicart__footer" method="post" action="[[~[[++commerce.checkout_resource]]]]">
                             <input type="hidden" name="checkout" value="1">
 
                             <div class="d-flex btn-group">

@@ -214,6 +214,7 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   }
 }
 .commerce-loader {
+  position: relative;
   > * {
     opacity: 0.5;
   }

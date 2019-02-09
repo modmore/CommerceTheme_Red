@@ -228,14 +228,18 @@
             }
         }
         else {
-            let responseDom = document.createElement('div');
+            let stepWrapperDom = checkout.querySelector('.c-step-wrapper'),
+                responseDom = document.createRange();
             if (result.output) {
-                responseDom.innerHTML = result.output;
+                responseDom = responseDom.createContextualFragment(result.output);
             }
             else {
-                responseDom.innerHTML = result;
+                responseDom = responseDom.createContextualFragment(result);
             }
-            checkout.querySelector('.c-step-wrapper').innerHTML = responseDom.innerHTML;
+            stepWrapperDom.innerHTML = '';
+            responseDom.childNodes.forEach(function(childNode) {
+                stepWrapperDom.appendChild(childNode);
+            });
             checkout.classList.remove('commerce-loader');
             initializeCheckoutEnhancements(checkout);
         }

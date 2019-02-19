@@ -226,13 +226,17 @@
                 form.setAttribute('action', result.redirect);
                 form.setAttribute('method', 'POST');
 
-                result.redirect_data.forEach(function(index, value) {
+
+                for (let key in result.redirect_data) {
+                    if (!result.redirect_data.hasOwnProperty(key)) {
+                        continue;
+                    }
                     let input = document.createElement('input');
                     input.setAttribute('type', 'hidden');
-                    input.setAttribute('name', index);
-                    input.setAttribute('value', value);
+                    input.setAttribute('name', key);
+                    input.setAttribute('value', result.redirect_data[key]);
                     form.appendChild(input);
-                });
+                }
 
                 checkout.appendChild(form);
                 form.submit();

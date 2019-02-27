@@ -9646,6 +9646,7 @@ h3 {
 }
 
 .category-product__card {
+  margin-bottom: 2rem;
   color: #333;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }

@@ -18,6 +18,7 @@
 
             <form method="post" action="[[~[[++commerce.cart_resource]]]]" class="product-add-to-cart add-to-cart add-to-cart__matrix">
                 <input type="hidden" name="add_to_cart" value="1">
+                <input type="hidden" name="link" value="[[*id]]">
 
                 [[!commerce.get_matrix?
                     &matrix=`[[*product_matrix]]`

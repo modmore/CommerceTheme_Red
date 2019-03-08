@@ -252,9 +252,15 @@
                 responseDom = responseDom.createContextualFragment(result);
             }
             stepWrapperDom.innerHTML = '';
-            responseDom.childNodes.forEach(function(childNode) {
-                stepWrapperDom.appendChild(childNode);
-            });
+
+
+            while (responseDom.firstChild) {
+                stepWrapperDom.appendChild(responseDom.firstChild);
+            }
+
+            // responseDom.childNodes.forEach(function(childNode) {
+            //     stepWrapperDom.appendChild(childNode);
+            // });
             checkout.classList.remove('commerce-loader');
             initializeCheckoutEnhancements(checkout);
         }

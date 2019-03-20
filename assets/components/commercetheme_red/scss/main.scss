@@ -793,3 +793,10 @@ $navbar-dark-active-color: $theme-light-blue;
     border-bottom: 1px solid $navbar-dark-active-color;
   }
 }
+
+// forms 
+.alert {
+  p {
+    margin-bottom: 0;
+  }
+}

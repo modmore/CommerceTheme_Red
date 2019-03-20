@@ -571,7 +571,7 @@ $navbar-dark-active-color: $theme-light-blue;
   left: 0.9rem;
 }
 .c-method-radio:checked + .c-method-section {
-  background: $theme-light-blue;
+  background: $gray-100;
 
   .c-method-gateway-form, .c-method-details {
     display: block;

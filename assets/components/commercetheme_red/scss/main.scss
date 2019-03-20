@@ -566,6 +566,10 @@ $navbar-dark-active-color: $theme-light-blue;
   top: 1.25rem;
   left: 1.25rem;
 }
+.c-payment-method-radio {
+  top: 0.9rem;
+  left: 0.9rem;
+}
 .c-method-radio:checked + .c-method-section {
   background: $theme-light-blue;
 

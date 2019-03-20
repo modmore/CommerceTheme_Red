@@ -102,10 +102,20 @@ $navbar-dark-active-color: $theme-light-blue;
   }
 }
 
-.breadcrumb-item a {
-  color: $gray-600;
-  &:hover, &:focus {
+.breadcrumb-item {
+  color: $gray-300;
+  a {
+    color: $gray-600;
+    &:hover, &:focus {
+      color: $primary;
+    }
+  }
+}
+.breadcrumb-item.active {
+  a, a:focus, a:hover {
     color: $primary;
+    cursor: default;
+    text-decoration: none;
   }
 }
 

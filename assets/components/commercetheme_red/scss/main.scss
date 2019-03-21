@@ -1,4 +1,4 @@
-
+// Test
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -10,10 +10,12 @@ $breadcrumb-bg: transparent;
 $breadcrumb-divider: '»';
 $breadcrumb-divider-color: $gray-500;
 $breadcrumb-padding-x: 0;
-$navbar-padding-x: 0;
-
 $theme-light-blue: hsla(193, 100%, 90%, 1);
 $theme-dark-blue: hsla(193, 100%, 15%, 1);
+$navbar-padding-x: 0;
+$navbar-item-margin: 20px;
+$navbar-dark-color: #fff;
+$navbar-dark-active-color: $theme-light-blue;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -100,10 +102,20 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   }
 }
 
-.breadcrumb-item a {
-  color: $gray-600;
-  &:hover, &:focus {
+.breadcrumb-item {
+  color: $gray-300;
+  a {
+    color: $gray-600;
+    &:hover, &:focus {
+      color: $primary;
+    }
+  }
+}
+.breadcrumb-item.active {
+  a, a:focus, a:hover {
     color: $primary;
+    cursor: default;
+    text-decoration: none;
   }
 }
 
@@ -554,8 +566,12 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   top: 1.25rem;
   left: 1.25rem;
 }
+.c-payment-method-radio {
+  top: 0.9rem;
+  left: 0.9rem;
+}
 .c-method-radio:checked + .c-method-section {
-  background: $theme-light-blue;
+  background: $gray-100;
 
   .c-method-gateway-form, .c-method-details {
     display: block;
@@ -762,4 +778,25 @@ $theme-dark-blue: hsla(193, 100%, 15%, 1);
   font-size: 0.9rem;
   font-weight: bold;
   padding-left: 0.5rem;
+}
+
+// navbar
+.navbar-nav {
+  .nav-item {
+    margin: 0 $navbar-item-margin;
+  }
+  .show > .nav-link,
+  .active > .nav-link,
+  .nav-link.show,
+  .nav-link.active {
+    color: $navbar-dark-active-color;
+    border-bottom: 1px solid $navbar-dark-active-color;
+  }
+}
+
+// forms 
+.alert {
+  p {
+    margin-bottom: 0;
+  }
 }

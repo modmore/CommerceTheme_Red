@@ -1,6 +1,5 @@
 (function() {
     let cart, checkout;
-
     onReady(function () {
         initializeMatrixSelects();
 

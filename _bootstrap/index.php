@@ -27,10 +27,17 @@ $elements = [
         'Red - Category' => $componentPath . '/core/components/commercetheme_red/elements/templates/category.tpl',
         'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',
         'Red - Product' => $componentPath . '/core/components/commercetheme_red/elements/templates/product.tpl',
+        'Red - Account' => $componentPath . '/core/components/commercetheme_red/elements/templates/account.tpl',
     ],
 
     'modChunk' => [
         'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
+        'ctred.login_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_form.tpl',
+        'ctred.logout_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/logout_form.tpl',
+        'ctred.forgot_pass' => $componentPath . '/core/components/commercetheme_red/elements/chunks/forgot_pass.tpl',
+        'ctred.account_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/account_form.tpl',
+        'ctred.update_profile_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/update_profile_form.tpl',
+        'ctred.profile_details' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_details.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],

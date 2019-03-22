@@ -74,6 +74,14 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.assets_url system setting.\n";
 }
 
+//ctred.account_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.account_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.account_page_id system setting.\n";
+}
+
 
 if (!createObject('modTemplateVar', [
     'type' => 'commerce_matrix',

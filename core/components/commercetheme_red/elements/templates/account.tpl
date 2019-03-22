@@ -4,9 +4,7 @@
 ]]
 
 <main role="main" class="container">
-
 	[[*content]]
-	
 </main>
 
 [[$ctred.footer?

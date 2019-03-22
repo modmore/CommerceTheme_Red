@@ -91,6 +91,14 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.profile_page_id system setting.\n";
 }
 
+//ctred.password_reset_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.password_reset_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.password_reset_page_id system setting.\n";
+}
+
 if (!createObject('modTemplateVar', [
     'type' => 'commerce_matrix',
     'name' => 'product_matrix',

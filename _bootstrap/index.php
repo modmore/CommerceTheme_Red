@@ -38,6 +38,7 @@ $elements = [
         'ctred.account_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/account_form.tpl',
         'ctred.update_profile_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/update_profile_form.tpl',
         'ctred.profile_details' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_details.tpl',
+        'ctred.login_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_chunk.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],
@@ -82,6 +83,13 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.account_page_id system setting.\n";
 }
 
+//ctred.profile_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.profile_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.profile_page_id system setting.\n";
+}
 
 if (!createObject('modTemplateVar', [
     'type' => 'commerce_matrix',

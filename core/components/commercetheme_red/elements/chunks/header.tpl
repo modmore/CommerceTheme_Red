@@ -16,9 +16,10 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">[[++site_name]]</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <input type="checkbox" id="navbar-toggle-cbox">
+            <label for="navbar-toggle-cbox" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbar-header">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </label>
             <div class="collapse navbar-collapse" id="navbarText">
                 [[pdoMenu?
                     &parents=`0`

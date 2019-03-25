@@ -99,6 +99,134 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.password_reset_page_id system setting.\n";
 }
 
+//ctred.footer_header_one
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.footer_header_one',
+    'value' => 'Pages'
+], 'key', false)) {
+    echo "Error creating ctred.footer_header_one system setting.\n";
+}
+
+//ctred.footer_header_two
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.footer_header_two',
+    'value' => 'Quick links'
+], 'key', false)) {
+    echo "Error creating ctred.footer_header_two system setting.\n";
+}
+
+//ctred.footer_content
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.footer_content',
+    'value' => '<p>Theme #1 for Commerce, dubbed "Red" even though its accent color is blue. Bootstrap based.</p>'
+], 'key', false)) {
+    echo "Error creating ctred.footer_content system setting.\n";
+}
+
+//ctred.footer_bottom_row_content
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.footer_bottom_row_content',
+    'value' => '<p>This is a theme created by ModMore.</p><p>&copy All right Reversed.</p>'
+], 'key', false)) {
+    echo "Error creating ctred.footer_bottom_row_content system setting.\n";
+}
+
+//ctred.quick_link_01_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_01_text',
+    'value' => 'Account'
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_01_text system setting.\n";
+}
+
+//ctred.quick_link_01_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_01_url',
+    'value' => '[[~[[++ctred.account_page_id]]]]'
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_01_url system setting.\n";
+}
+
+//ctred.quick_link_02_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_02_text',
+    'value' => 'Profile'
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_02_text system setting.\n";
+}
+
+//ctred.quick_link_02_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_02_url',
+    'value' => '[[~[[++ctred.profile_page_id]]]]'
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_02_url system setting.\n";
+}
+
+//ctred.quick_link_03_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_03_text',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_03_text system setting.\n";
+}
+
+//ctred.quick_link_03_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_03_url',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_03_url system setting.\n";
+}
+
+//ctred.quick_link_04_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_04_text',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_04_text system setting.\n";
+}
+
+//ctred.quick_link_04_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_04_url',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_04_url system setting.\n";
+}
+
+//ctred.quick_link_05_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_05_text',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_05_text system setting.\n";
+}
+
+//ctred.quick_link_05_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_05_url',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_05_url system setting.\n";
+}
+
+//ctred.quick_link_06_text
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_06_text',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_06_text system setting.\n";
+}
+
+//ctred.quick_link_06_url
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.quick_link_06_url',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.quick_link_06_url system setting.\n";
+}
+
 if (!createObject('modTemplateVar', [
     'type' => 'commerce_matrix',
     'name' => 'product_matrix',

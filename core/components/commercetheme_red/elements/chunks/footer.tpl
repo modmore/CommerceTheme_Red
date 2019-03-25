@@ -1,3 +1,63 @@
+<footer id="footer" class="fixed-bottom">
+	<div class="container">
+		<div class="row text-center text-xs-center text-sm-left text-md-left text-white">
+			<div class="col-xs-12 col-sm-4 col-md-4 py-md-3">
+				<h5>[[++ctred.footer_header_one]]</h5>
+				[[pdoMenu?
+                    &parents=`0`
+                    &level=`1`
+                    &outerClass=`list-unstyled quick-links`
+                    &tpl=`@INLINE <li[[+classes]]><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a>[[+wrapper]]</li>`
+                ]]
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-md-4 py-md-3">
+				<h5>[[++ctred.footer_header_two]]</h5>
+				<ul class="list-unstyled quick-links">
+					[[++ctred.quick_link_01_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_01_url]]">[[++ctred.quick_link_01_text]]</a>
+					</li>
+					`]]
+					[[++ctred.quick_link_02_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_02_url]]">[[++ctred.quick_link_02_text]]</a>
+					</li>
+					`]]
+					[[++ctred.quick_link_03_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_03_url]]">[[++ctred.quick_link_03_text]]</a>
+					</li>
+					`]]
+					[[++ctred.quick_link_04_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_04_url]]">[[++ctred.quick_link_04_text]]</a>
+					</li>
+					`]]
+					[[++ctred.quick_link_05_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_05_url]]">[[++ctred.quick_link_05_text]]</a>
+					</li>
+					`]]
+					[[++ctred.quick_link_06_text:notempty=`
+					<li>
+						<a href="[[++ctred.quick_link_06_url]]">[[++ctred.quick_link_06_text]]</a>
+					</li>
+					`]]
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-md-4 py-md-3">
+				<h5>[[++site_name]]</h5>
+				[[++ctred.footer_content]]
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-md-4 py-md-3 text-center text-white">
+				[[++ctred.footer_bottom_row_content]]
+			</div>
+			</hr>
+		</div>	
+	</div>
+</footer>
 [[-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -818,3 +818,19 @@ $navbar-dark-active-color: $theme-light-blue;
     float: right;
   }
 }
+// Footer
+#footer {
+  border-top: 5px solid $theme-light-blue;
+  background: $theme-dark-blue !important;
+}
+#footer a {
+    color: $navbar-dark-color;
+    text-decoration: none;
+    @include hover-focus {
+      color: $navbar-dark-hover-color;
+    }
+
+    &.disabled {
+      color: $navbar-dark-disabled-color;
+    }
+}

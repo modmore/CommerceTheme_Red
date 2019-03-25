@@ -9,15 +9,12 @@
             <h1 class="category__header">[[*longtitle:default=`[[*pagetitle]]`]]</h1>
         </div>
         <div class="col-md-6">
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Filter by category:</a>
-                </li>
-                <li class="nav-item">
-                    <a href="[[~[[*id]]]]" class="nav-link">All</a>
-                </li>
-                [[!TaggerGetTags? &rowTpl=`ctred.tag_list_chunk`]]
-            </ul>
+            [[!TaggerGetTags?
+                &parents=`[[*id]]`
+                &rowTpl=`ctred.tag_list_chunk`
+                &outTpl=`ctred.tag_outer_chunk`
+                &wrapIfEmpty=`0`
+            ]]
         </div>
     </div>
     <div class="row">

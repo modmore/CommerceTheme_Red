@@ -39,6 +39,7 @@ $elements = [
         'ctred.update_profile_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/update_profile_form.tpl',
         'ctred.profile_details' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_details.tpl',
         'ctred.login_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_chunk.tpl',
+        'ctred.tag_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/tag_list_chunk.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],

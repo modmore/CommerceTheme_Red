@@ -26,8 +26,9 @@
                     <input type="submit" name="Login" value="[[+actionMsg]]" class="btn btn-primary" />
                 </div>
             </fieldset>
+            <p><small><a href="[[~[[++ctred.forgot_password_page_id]]]]" class="card-link">Forgot your Password?</a></small></p>
             <hr>
-            <p><a href="[[~[[++ctred.forgot_password_page_id]]]]" class="card-link">Forgot your Password?</a> <a href="[[~[[++ctred.account_page_id]]]]" class="card-link">Back to account page</a></p>
+            <p><a href="[[~[[++commerce.register_resource]]]]" class="card-link">To registration page</a> <a href="[[~[[++ctred.account_page_id]]]]" class="card-link">Back to account page</a></p>
         </form>
     </div>
 </div>

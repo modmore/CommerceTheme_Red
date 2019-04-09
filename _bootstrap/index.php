@@ -29,6 +29,9 @@ $elements = [
         'Red - Product' => $componentPath . '/core/components/commercetheme_red/elements/templates/product.tpl',
         'Red - Account' => $componentPath . '/core/components/commercetheme_red/elements/templates/account.tpl',
         'Red - Account login' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_login.tpl',
+        'Red - Account register' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_register.tpl',
+        'Red - Account activate registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_activate_registration.tpl',
+        'Red - Account thank you registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_thank_you_registration.tpl',
     ],
 
     'modChunk' => [
@@ -37,6 +40,8 @@ $elements = [
         'ctred.logout_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/logout_form.tpl',
         'ctred.forgot_pass' => $componentPath . '/core/components/commercetheme_red/elements/chunks/forgot_pass.tpl',
         'ctred.account_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/account_form.tpl',
+        'ctred.register_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/register_form.tpl',
+        'ctred.register_email' => $componentPath . '/core/components/commercetheme_red/elements/chunks/register_email.tpl',
         'ctred.update_profile_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/update_profile_form.tpl',
         'ctred.profile_details' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_details.tpl',
         'ctred.login_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_chunk.tpl',
@@ -100,6 +105,30 @@ if (!createObject('modSystemSetting', [
     'value' => ''
 ], 'key', false)) {
     echo "Error creating ctred.password_reset_page_id system setting.\n";
+}
+
+//ctred.registration_please_activate_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.registration_please_activate_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.registration_please_activate_page_id system setting.\n";
+}
+
+//ctred.registration_activation_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.registration_activation_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.registration_activation_page_id system setting.\n";
+}
+
+//ctred.registration_thank_you_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.registration_thank_you_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.registration_thank_you_page_id system setting.\n";
 }
 
 //ctred.you_are_logout_page_id

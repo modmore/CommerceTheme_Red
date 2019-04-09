@@ -28,6 +28,7 @@ $elements = [
         'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',
         'Red - Product' => $componentPath . '/core/components/commercetheme_red/elements/templates/product.tpl',
         'Red - Account' => $componentPath . '/core/components/commercetheme_red/elements/templates/account.tpl',
+        'Red - Account login' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_login.tpl',
     ],
 
     'modChunk' => [
@@ -99,6 +100,14 @@ if (!createObject('modSystemSetting', [
     'value' => ''
 ], 'key', false)) {
     echo "Error creating ctred.password_reset_page_id system setting.\n";
+}
+
+//ctred.you_are_logout_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.you_are_logout_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.you_are_logout_page_id system setting.\n";
 }
 
 //ctred.footer_header_one

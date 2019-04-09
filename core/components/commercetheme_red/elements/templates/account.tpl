@@ -8,7 +8,6 @@
 	[[*content]]
 	
 </main>
-
 [[$ctred.footer?
     &extra=``
 ]]

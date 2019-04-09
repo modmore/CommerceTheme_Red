@@ -26,8 +26,8 @@
                     <input type="submit" name="Login" value="[[+actionMsg]]" class="btn btn-primary" />
                 </div>
             </fieldset>
-            <a href="[[~15]]" class="card-link">Forgot your Password?</a> 
-            <a href="[[~8]]" class="card-link">Back to account page</a>
+            <a href="[[~[[++ctred.forgot_password_page_id]]]]" class="card-link">Forgot your Password?</a> 
+            <a href="[[~[[++ctred.account_page_id]]]]" class="card-link">Back to account page</a>
         </form>
     </div>
 </div>

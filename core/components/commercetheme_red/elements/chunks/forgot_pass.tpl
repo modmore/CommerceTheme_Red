@@ -30,4 +30,4 @@
     </form>
 </div>
 <hr>
-<p><a href="[[~9]]" class="btn">Back to login page</a></p>
+<p><a href="[[~[[++commerce.login_resource]]]]" class="btn">Back to login page</a></p>

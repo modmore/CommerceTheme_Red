@@ -110,6 +110,29 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.you_are_logout_page_id system setting.\n";
 }
 
+//ctred.edit_profile_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.edit_profile_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.edit_profile_page_id system setting.\n";
+}
+
+//ctred.account_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.account_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.account_page_id system setting.\n";
+}
+//ctred.forgot_password_page_id
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.forgot_password_page_id',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.forgot_password_page_id system setting.\n";
+}
+
 //ctred.footer_header_one
 if (!createObject('modSystemSetting', [
     'key' => 'ctred.footer_header_one',

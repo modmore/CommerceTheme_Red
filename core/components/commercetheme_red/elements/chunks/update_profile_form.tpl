@@ -1,6 +1,8 @@
 [[!UpdateProfile?
     &excludeExtended=`email:required:email,login-updprof-btn`
     &useExtended=`1`
+    &preHooks=`csrfhelper_login`
+    &csrfKey=`updateprofile`
 ]]
 <div class="update-profile">
     [[+error.message:notempty=`
@@ -16,6 +18,7 @@
     `]]
   
     <form class="form" action="[[~[[*id]]]]" method="post">
+        <input type="hidden" name="csrf_token" value="[[!csrfhelper? &key=`updateprofile` &singleUse=`1`]]">
         <div class="form-group">
             <input type="hidden" name="nospam:blank" value="" />
             <label for="fullname">[[!%login.fullname? &namespace=`login` &topic=`updateprofile`]]

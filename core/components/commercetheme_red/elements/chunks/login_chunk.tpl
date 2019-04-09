@@ -1,4 +1,3 @@
-Test
 [[!Login?
 	&tplType=`modChunk` &loginTpl=`ctred.login_form`
 	&logoutTpl=`ctred.logout_form`

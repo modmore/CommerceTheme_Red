@@ -40,6 +40,6 @@
             </div>
         </form>
         <hr>
-        <p><a href="[[~[[++commerce.register_resource]]]]" class="card-link">Back to account page</a></p>
+        <p><a href="[[~[[++ctred.account_page_id]]]]" class="card-link">Back to account page</a></p>
     </div>
 </div>

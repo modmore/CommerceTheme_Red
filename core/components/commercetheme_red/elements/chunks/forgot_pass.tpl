@@ -6,6 +6,7 @@
     `]]
     <div class="loginFP card-body">
         <form class="loginFPForm" action="[[~[[*id]]]]" method="post">
+            <input type="hidden" name="csrf_token" value="[[!csrfhelper? &key=`changepassword` &singleUse=`1`]]">
             <fieldset class="loginFPFieldset">
                 <div class="form-group">
                     <legend class="loginFPLegend card-title">[[%login.forgot_password]]</legend>

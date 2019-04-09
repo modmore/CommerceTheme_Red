@@ -32,6 +32,7 @@ $elements = [
         'Red - Account register' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_register.tpl',
         'Red - Account activate registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_activate_registration.tpl',
         'Red - Account thank you registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_thank_you_registration.tpl',
+        'Red - Account forgot password' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_password.tpl',
     ],
 
     'modChunk' => [

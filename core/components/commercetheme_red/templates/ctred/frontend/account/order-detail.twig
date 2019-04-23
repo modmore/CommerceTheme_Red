@@ -1,0 +1,65 @@
+<div class="c-order-details">
+    <h2>{{ lex('commerce.order') }} {{ order.reference }}</h2>
+
+    <ul class="c-order-summary">
+        <li>
+            <span class="c-order-summary-label">{{ lex('commerce.date') }}:</span>
+            <span class="c-order-summary-value">{{ order.received_on|date('Y-m-d H:i') }}</span>
+        </li>
+        <li>
+            <span class="c-order-summary-label">{{ lex('commerce.status') }}:</span>
+            <span class="c-order-summary-value">{{ status.name }}</span>
+        </li>
+        <li>
+            <span class="c-order-summary-label">{{ lex('commerce.total') }}:</span>
+            <span class="c-order-summary-value">{{ order.total_formatted }}</span>
+        </li>
+    </ul>
+
+    <h3>{{ lex('commerce.order_summary') }}</h3>
+
+    <table class="c-order-details-table c-order-items table">
+        <thead>
+        <tr>
+            <th>{{ lex('commerce.quantity') }}</th>
+            <th>{{ lex('commerce.product') }}</th>
+            <th>{{ lex('commerce.total_ex_tax') }}</th>
+            <th>{{ lex('commerce.tax') }}</th>
+            <th>{{ lex('commerce.total') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td class="c-order-item-quantity">{{ item.quantity }}</td>
+                <td class="c-order-item-name">{{ item.name }}</td>
+                <td class="c-order-item-ex-tax">{{ item.total_ex_tax_formatted }}</td>
+                <td class="c-order-item-tax">{{ item.tax_formatted }}</td>
+                <td class="c-order-item-tax">{{ item.total_formatted }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <th>{{ order.total_ex_tax_formatted }}</th>
+            <th>{{ order.tax_formatted }}</th>
+            <th>{{ order.total_formatted }}</th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <h3>{{ lex('commerce.transactions') }}</h3>
+
+    <ul class="c-order-details-list c-order-transactions">
+        {% for transaction in transactions %}
+            <li>
+                <span class="c-order-transaction-method">{{ transaction.method.name }}</span>
+                <span class="c-order-transaction-amount">{{ transaction.amount_formatted }}</span>
+                <span class="c-order-transaction-status">{{ transaction.status }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="[[~[[++commerce.orders_resource]]]]" class="c-button c-primary-button">{{ lex('commerce.back_to_orders') }}</a></p>
+</div>

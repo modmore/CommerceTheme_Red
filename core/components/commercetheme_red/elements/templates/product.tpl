@@ -59,9 +59,23 @@
         </div>
     </div>
 
-    [[*content]]
-
-    <h2>Related kittens</h2>
+    <div class="row">
+        <div class="col-md-12">
+            [[*content]]
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Related products</h3>
+        </div>
+        [[!pdoResources?
+            &parents=`[[*parent]]`
+            &where=`[[!TaggerGetResourcesWhere]]`
+            &tpl=`ctred.related_list`
+            &includeTVs=`product_matrix`
+            &limit=`3`
+        ]]
+    </div>
 </main>
 
 [[$ctred.footer?

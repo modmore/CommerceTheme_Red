@@ -39,6 +39,7 @@ $elements = [
 
     'modChunk' => [
         'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
+        'ctred.related_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_list.tpl',
         'ctred.login_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_form.tpl',
         'ctred.logout_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/logout_form.tpl',
         'ctred.forgot_pass' => $componentPath . '/core/components/commercetheme_red/elements/chunks/forgot_pass.tpl',

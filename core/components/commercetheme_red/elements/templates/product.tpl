@@ -76,6 +76,15 @@
             &limit=`3`
         ]]
     </div>
+    <div class="row">
+        [[getRelated?
+            &tplOuter=`ctred.related_outer`
+            &tplRow=`ctred.related_outer_list`
+            &fields=`pagetitle:1,description:2,tv.product_matrix:3`
+            &returnFields=`pagetitle,description`
+            &returnTVs=`product_matrix`
+        ]]
+    </div>
 </main>
 
 [[$ctred.footer?

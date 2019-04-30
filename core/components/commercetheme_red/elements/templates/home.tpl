@@ -3,11 +3,9 @@
     &showBreadcrumbs=`0`
 ]]
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="background-image: url([[*ctred.hero_image]]);">
     <div class="container">
-        <h1 class="display-4">Fluid jumbotron</h1>
-        <p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        <button type="button" class="btn btn-primary">See products</button>
+        [[*ctred.hero_content]]
     </div>
 </div>
 <main role="main" class="container">

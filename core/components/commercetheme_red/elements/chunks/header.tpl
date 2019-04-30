@@ -12,9 +12,9 @@
 </head>
 <body>
 
-<div class="page-header container-fluid bg-dark mb-4">
+<div class="page-header container-fluid">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">[[++site_name]]</a>
             <input type="checkbox" id="navbar-toggle-cbox">
             <label for="navbar-toggle-cbox" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbar-header">

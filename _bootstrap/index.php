@@ -23,6 +23,7 @@ $componentPath = dirname(dirname(__FILE__));
 
 $elements = [
     'modTemplate' => [
+        'Red - Home' => $componentPath . '/core/components/commercetheme_red/elements/templates/home.tpl',
         'Red - Cart' => $componentPath . '/core/components/commercetheme_red/elements/templates/cart.tpl',
         'Red - Category' => $componentPath . '/core/components/commercetheme_red/elements/templates/category.tpl',
         'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',

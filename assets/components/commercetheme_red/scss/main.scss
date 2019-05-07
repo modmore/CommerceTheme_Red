@@ -100,8 +100,6 @@ $navbar-dark-active-color: $primary;
 .category-product__card {
   margin-bottom: 2rem;
   color: $body-color;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
   &:hover, &:focus {
     text-decoration: none;
     box-shadow: 0 0 5px $primary;

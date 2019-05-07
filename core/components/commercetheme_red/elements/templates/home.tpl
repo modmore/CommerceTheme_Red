@@ -43,6 +43,7 @@
     &tplWrapper=`ctred.category_list_home_outer_chunk`
     &wrapIfEmpty=`0`
 ]]
+<!--
 <div class="container section-title-container mt-5 mb-5">
     <h3 class="section-title section-title-center">
         <b></b><span class="section-title-main">News</span><b></b>
@@ -80,7 +81,7 @@
         </div>
       </div>
 </section>
-
+-->
 [[$ctred.footer?
     &extra=``
 ]]

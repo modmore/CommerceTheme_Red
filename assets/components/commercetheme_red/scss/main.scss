@@ -849,3 +849,25 @@ input.tab_input:checked + label.tab_label {
 #tab4:checked ~ #content4 {
   display: block;
 }
+// Section title
+.section-title-container {
+  margin-bottom: 1.5em;
+}
+.section-title {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.section-title b {
+  display: block;
+  flex: 1;
+  height: 2px;
+  background-color: $gray-200;
+}
+.section-title-center span {
+  text-align: center;
+  margin: 0 15px;
+}

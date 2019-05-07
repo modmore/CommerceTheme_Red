@@ -9,16 +9,20 @@
     </div>
 </div>
 
-<main role="main" class="container">
+<div role="main" class="container">
     <div class="row">
         <div class="col-md-12">
             [[*content]]
         </div>
     </div>
+</div>
+<div class="container section-title-container mt-5 mb-5">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">Featured products</span><b></b>
+    </h3>
+</div>
+<div class="container">
     <div class="row">
-        <div class="col-md-12 mt-3 mb-3">
-            <h3>Featured products</h3>
-        </div>
         [[!pdoResources?
             &parents=`0`
             &tpl=`ctred.item_list`
@@ -28,7 +32,7 @@
             &prepareTVs=`1`
         ]]
     </div>
-</main>
+</div>
 [[pdoResources?
     &parents=`0`
     &where=`{"template:=":3}`
@@ -39,12 +43,12 @@
     &tplWrapper=`ctred.category_list_home_outer_chunk`
     &wrapIfEmpty=`0`
 ]]
+<div class="container section-title-container mt-5 mb-5">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">News</span><b></b>
+    </h3>
+</div>
 <section class="container">
-    <div class="row">
-        <div class="col-md-12 mt-3 mb-3">
-            <h3>Latest news</h3>
-        </div>
-    </div>
     <div class="row mb-2">
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">

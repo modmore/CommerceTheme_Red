@@ -314,6 +314,15 @@ if (!createObject('modTemplateVar', [
 }
 
 if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred_featured_product',
+    'caption' => 'Featured product',
+    'description' => 'Make this product a featured product.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
     'type' => 'image',
     'name' => 'ctred.hero_image',
     'caption' => 'Hero background image',
@@ -322,6 +331,17 @@ if (!createObject('modTemplateVar', [
 }
 
 $tv = $modx->getObject('modTemplateVar', ['name' => 'product_matrix']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred_featured_product']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
 $tmplId = $tmpl ? $tmpl->get('id') : 0;

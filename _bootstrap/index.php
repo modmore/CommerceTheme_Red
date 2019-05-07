@@ -41,6 +41,8 @@ $elements = [
     'modChunk' => [
         'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
         'ctred.item_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/item_list.tpl',
+        'ctred.category_list_home_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_home_outer_chunk.tpl',
+        'ctred.category_list_home_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_home_chunk.tpl',
         'ctred.category_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_chunk.tpl',
         'ctred.category_list_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_outer_chunk.tpl',
         'ctred.related_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_list.tpl',
@@ -334,6 +336,15 @@ if (!createObject('modTemplateVar', [
 }
 
 if (!createObject('modTemplateVar', [
+    'type' => 'image',
+    'name' => 'ctred_category_image',
+    'caption' => 'Category image',
+    'description' => 'The image to display for this category.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
     'type' => 'textfield',
     'name' => 'ctred.product_tab_show',
     'caption' => 'Show tab section',
@@ -506,6 +517,17 @@ if (!createObject('modTemplateVarTemplate', [
 $tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_3_content']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred_category_image']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Category']);
 $tmplId = $tmpl ? $tmpl->get('id') : 0;
 if (!createObject('modTemplateVarTemplate', [
     'tmplvarid' => $tvId,

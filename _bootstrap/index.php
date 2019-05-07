@@ -40,6 +40,8 @@ $elements = [
 
     'modChunk' => [
         'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
+        'ctred.category_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_chunk.tpl',
+        'ctred.category_list_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_outer_chunk.tpl',
         'ctred.related_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_list.tpl',
         'ctred.related_outer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_outer.tpl',
         'ctred.related_outer_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_outer_list.tpl',

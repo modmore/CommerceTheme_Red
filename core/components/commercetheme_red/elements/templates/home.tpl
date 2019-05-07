@@ -21,9 +21,9 @@
         </div>
         [[!pdoResources?
             &parents=`0`
-            &tpl=`ctred.related_list`
+            &tpl=`ctred.item_list`
             &includeTVs=`product_matrix,ctred_featured_product`
-            &limit=`3`
+            &limit=`4`
             &where=`{"ctred_featured_product":"true"}` 
             &prepareTVs=`1`
         ]]

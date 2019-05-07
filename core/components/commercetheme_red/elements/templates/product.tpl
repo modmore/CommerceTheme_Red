@@ -65,15 +65,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-3 mb-3">
             <h3>Related products</h3>
         </div>
         [[!pdoResources?
             &parents=`[[*parent]]`
             &where=`[[!TaggerGetResourcesWhere]]`
-            &tpl=`ctred.related_list`
+            &tpl=`ctred.item_list`
             &includeTVs=`product_matrix`
-            &limit=`3`
+            &limit=`4`
         ]]
     </div>
     <div class="row">
@@ -83,6 +83,7 @@
             &fields=`pagetitle:1,description:2,tv.product_matrix:3`
             &returnFields=`pagetitle,description`
             &returnTVs=`product_matrix`
+            &limit=`4`
         ]]
     </div>
 </main>

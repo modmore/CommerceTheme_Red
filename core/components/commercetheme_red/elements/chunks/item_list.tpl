@@ -3,7 +3,7 @@
         <img class="card-img-top category-product__image"
                 onerror="this.style.display = 'none'"
                 src="[[!commerce.get_matrix_first_product?
-                    &matrix=`[[+product_matrix]]`
+                    &matrix=`[[+tv.product_matrix]]`
                     &withImage=`1`
                     &withStock=`0`
                     &field=`image`

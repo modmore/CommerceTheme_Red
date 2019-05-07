@@ -812,3 +812,40 @@ $navbar-dark-active-color: $primary;
       color: $navbar-dark-disabled-color;
     }
 }
+// CSS tabs
+section.tab_section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid $gray-200;
+}
+
+input.tab_input {
+  display: none;
+}
+
+label.tab_label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+label.tab_label:hover {
+  cursor: pointer;
+}
+
+input.tab_input:checked + label.tab_label {
+  color: $theme-primary;
+  border: 1px solid $gray-200;
+  border-top: 2px solid $gray-200;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}

@@ -333,6 +333,66 @@ if (!createObject('modTemplateVar', [
     echo "Error creating modTemplateVar system setting.\n";
 }
 
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_show',
+    'caption' => 'Show tab section',
+    'description' => 'Enter true to show the tabs.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_1_content',
+    'caption' => 'Tab 1 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_1_title',
+    'caption' => 'Tab 1 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_2_content',
+    'caption' => 'Tab 2 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_2_title',
+    'caption' => 'Tab 2 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_3_content',
+    'caption' => 'Tab 3 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_3_title',
+    'caption' => 'Tab 3 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
 $tv = $modx->getObject('modTemplateVar', ['name' => 'product_matrix']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
@@ -369,6 +429,83 @@ if (!createObject('modTemplateVarTemplate', [
 $tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.hero_image']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Home']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_show']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_1_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_1_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_2_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_2_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_3_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_3_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
 $tmplId = $tmpl ? $tmpl->get('id') : 0;
 if (!createObject('modTemplateVarTemplate', [
     'tmplvarid' => $tvId,

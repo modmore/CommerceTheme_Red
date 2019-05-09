@@ -15,7 +15,7 @@
 <div class="page-header container-fluid">
     <div class="container pl-0 pl-md-3 pr-0 pr-md-3">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">[[++site_name]]</a>
+            <a class="navbar-brand" href="[[~[[++site_start]]]]">[[++site_name]]</a>
             <input type="checkbox" id="navbar-toggle-cbox">
             <label for="navbar-toggle-cbox" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbar-header">
                 <span class="navbar-toggler-icon"></span>

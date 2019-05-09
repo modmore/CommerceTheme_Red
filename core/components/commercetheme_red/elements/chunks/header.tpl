@@ -28,6 +28,11 @@
                     &rowClass=`nav-item`
                     &tpl=`@INLINE <li[[+classes]]><a href="[[+link]]" [[+attributes]] class="nav-link">[[+menutitle]]</a>[[+wrapper]]</li>`
                 ]]
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="[[~[[++commerce.login_resource]]]]">Account</a>
+                    </li>
+                </ul>
 
                 [[!commerce.get_cart?
                     &itemTpl=`ctred.minicart_item`

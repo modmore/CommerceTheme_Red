@@ -30,7 +30,12 @@
                 ]]
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="[[~[[++commerce.login_resource]]]]">Account</a>
+                        <a href="[[~[[++commerce.login_resource]]]]">
+                            [[pdoField?
+                                &id=`[[++commerce.login_resource]]`
+                                &field=`pagetitle`
+                            ]]
+                        </a>
                     </li>
                 </ul>
 

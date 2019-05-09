@@ -13,7 +13,7 @@
 <body>
 
 <div class="page-header container-fluid">
-    <div class="container">
+    <div class="container pl-0 pl-md-3 pr-0 pr-md-3">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">[[++site_name]]</a>
             <input type="checkbox" id="navbar-toggle-cbox">
@@ -24,7 +24,7 @@
                 [[pdoMenu?
                     &parents=`0`
                     &level=`1`
-                    &outerClass=`navbar-nav ml-2 mr-auto`
+                    &outerClass=`navbar-nav ml-md-2 mr-auto`
                     &rowClass=`nav-item`
                     &tpl=`@INLINE <li[[+classes]]><a href="[[+link]]" [[+attributes]] class="nav-link">[[+menutitle]]</a>[[+wrapper]]</li>`
                 ]]

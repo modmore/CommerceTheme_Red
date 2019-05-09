@@ -20,9 +20,6 @@ $navbar-dark-active-color: $primary;
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-.page-header {
-  box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
-}
 .jumbotron {
   background-position: center;
   background-repeat: no-repeat;
@@ -759,7 +756,9 @@ $navbar-dark-active-color: $primary;
 // navbar
 .navbar-nav {
   .nav-item {
-    margin: 0 $navbar-item-margin;
+    @media (min-width: 768px) {
+      margin: 0 $navbar-item-margin;
+    }
   }
   .show > .nav-link,
   .active > .nav-link,
@@ -783,8 +782,7 @@ $navbar-dark-active-color: $primary;
    display: none;
 }
 .navbar-toggler {
-  background-color: $primary !important;
-  border-color: hsla(0,0%,100%,.1);
+  border-color: $primary;
   border: 1px solid transparent;
   border-radius: .25rem;
   -webkit-appearance: none;

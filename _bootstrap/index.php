@@ -36,6 +36,7 @@ $elements = [
         'Red - Account forgot password' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_password.tpl',
         'Red - Account Order' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_order.tpl',
         'Red - Account Orders' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_orders.tpl',
+        'Red - Account Edit profile' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_edit_pofile.tpl',
     ],
 
     'modChunk' => [
@@ -59,6 +60,7 @@ $elements = [
         'ctred.login_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_chunk.tpl',
         'ctred.tag_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/tag_list_chunk.tpl',
         'ctred.tag_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/tag_outer_chunk.tpl',
+        'ctred.profile_menu' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_menu.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],

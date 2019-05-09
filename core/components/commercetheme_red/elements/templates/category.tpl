@@ -5,15 +5,15 @@
 
 <main role="main" class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-lg-2">
             
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-lg-10">
             <h1 class="category__header">[[*longtitle:default=`[[*pagetitle]]`]]</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-lg-2">
             <aside>
                 [[pdoResources?
                     &parents=`0`
@@ -31,7 +31,7 @@
                 ]]
             </aside>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-lg-10">
             <div class="row">
                 <div class="col-md-12">
                     [[*content]]

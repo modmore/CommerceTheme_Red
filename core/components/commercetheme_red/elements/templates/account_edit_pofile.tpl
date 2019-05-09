@@ -2,7 +2,6 @@
     &extra=``
     &showBreadcrumbs=`1`
 ]]
-
 <main role="main" class="container">
 	<div class="row">
         <div class="col-md-3 col-lg-2">
@@ -14,23 +13,18 @@
     </div>
     <div class="row">
         <div class="col-md-3 col-lg-2">
-            [[$ctred.profile_menu]]
+        	[[$ctred.profile_menu]]
         </div>
         <div class="col-md-9 col-lg-10">
             <div class="row">
                 <div class="col-md-12">
                 	[[*content]]
-                	[[!pdoPage?
-						&element=`commerce.get_orders`
-						&limit=`10`
-					]]
-					[[!+page.nav]]
+                	[[$ctred.update_profile_form]]
                 </div>
             </div>
         </div>
 	</div>
 </main>
-
 [[$ctred.footer?
     &extra=``
 ]]

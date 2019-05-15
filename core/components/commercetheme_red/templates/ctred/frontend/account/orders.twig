@@ -1,0 +1,30 @@
+{% if orders|length > 0 %}
+<table class="c-orders-table table">
+    <thead>
+    <tr class="c-order-header">
+        <th>{{ lex('commerce.order') }}</th>
+        <th>{{ lex('commerce.date') }}</th>
+        <th>{{ lex('commerce.amount') }}</th>
+        <th>{{ lex('commerce.status') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+        <tr class="c-order c-order-status-{{ order.status.id }} c-order-state-{{ order.state }}">
+            <td><a href="[[~[[++commerce.order_resource]]? &order=`{{ order.id }}`]]">{{ order.reference }}</a></td>
+            <td>{{ order.received_on|date('Y-m-d') }}</td>
+            <td>{{ order.total_formatted }}</td>
+            <td>{{ order.status.name }}</td>
+        </tr>
+        {#
+            There's a lot more data available in this view, if you'd like. For example {{ order.state }}, {{ order.status.STATUS_FIELD }},
+            {{ order.items }}, {{ order.billing_address }}, {{ order.shipping_address }}, {{ order.transactions }} etc
+        #}
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="c-orders-none">
+    <p>{{ lex('commerce.no_orders_yet') }}</p>
+</div>
+{% endif %}

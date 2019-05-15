@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+<div class="col-md-3 d-flex">
     <a class="card category-product__card" href="[[~[[+id]]]]">
         <img class="card-img-top category-product__image"
                 onerror="this.style.display = 'none'"
@@ -21,11 +21,6 @@
                     &inStockOnly=`1`
                 ]]
             </p>
-            <p class="card-text">[[+description]]</p>
-        </div>
-        <div class="card-footer category-product__footer d-flex">
-            <button class="btn btn-primary flex-grow-1 mr-3">Learn more</button>
-            <button class="btn btn-outline-danger">❤︎ Wishlist</button>
         </div>
     </a>
 </div>

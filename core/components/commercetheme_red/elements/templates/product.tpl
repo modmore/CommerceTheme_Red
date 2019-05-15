@@ -59,9 +59,68 @@
         </div>
     </div>
 
-    [[*content]]
-
-    <h2>Related kittens</h2>
+    <div class="row">
+        <div class="col-md-12 mt-3 mb-3">
+            [[*content]]
+        </div>
+    </div>
+    [[*ctred.product_tab_show:is=`true`:then=`
+    <div class="row">
+        <div class="col-md-12 mt-3 mb-3">
+            <div class="tab_container">
+                [[*ctred.product_tab_1_title:notempty=`
+                <input id="tab1" type="radio" name="tabs" class="tab_input" checked>
+                <label for="tab1" class="tab_label">Description</label>
+                `]]
+                [[*ctred.product_tab_2_title:notempty=`
+                <input id="tab2" type="radio" name="tabs" class="tab_input">
+                <label for="tab2" class="tab_label">Additional information</label>
+                `]]
+                [[*ctred.product_tab_3_title:notempty=`
+                <input id="tab3" type="radio" name="tabs" class="tab_input">
+                <label for="tab3" class="tab_label">Reviews</label>
+                `]]
+                [[*ctred.product_tab_1_title:notempty=`
+                <section id="content1" class="tab_section">
+                    [[*ctred.product_tab_1_content]]
+                </section>
+                `]]
+                [[*ctred.product_tab_1_title:notempty=`
+                <section id="content2" class="tab_section">
+                    [[*ctred.product_tab_2_content]]
+                </section>
+                `]]
+                [[*ctred.product_tab_1_title:notempty=`
+                <section id="content3" class="tab_section">
+                    [[*ctred.product_tab_3_content]]
+                </section>
+                `]]
+            </div>
+        </div>
+    </div>
+    `]]
+    <div class="row">
+        <div class="col-md-12 mt-3 mb-3">
+            <h3>Related products</h3>
+        </div>
+        [[!pdoResources?
+            &parents=`[[*parent]]`
+            &where=`[[!TaggerGetResourcesWhere]]`
+            &tpl=`ctred.item_list`
+            &includeTVs=`product_matrix`
+            &limit=`4`
+        ]]
+    </div>
+    <div class="row">
+        [[getRelated?
+            &tplOuter=`ctred.related_outer`
+            &tplRow=`ctred.related_outer_list`
+            &fields=`pagetitle:1,description:2,tv.product_matrix:3`
+            &returnFields=`pagetitle,description`
+            &returnTVs=`product_matrix`
+            &limit=`4`
+        ]]
+    </div>
 </main>
 
 [[$ctred.footer?

@@ -1,9 +1,5 @@
-<ul class="nav justify-content-end">
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Filter by category:</a>
-    </li>
-    <li class="nav-item">
-        <a href="[[~[[*id]]]]" class="nav-link">All</a>
-    </li>
+<h5>Filter by category</h5>
+<ul class="list-group mb-5">
+    <a href="[[~[[*id]]]]" class="list-group-item">All</a>
     [[+tags]]
 </ul>

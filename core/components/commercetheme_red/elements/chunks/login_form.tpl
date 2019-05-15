@@ -1,10 +1,10 @@
-<div class="loginForm card">
+<div class="loginForm">
     [[+errors:notempty=`
     <div class="alert alert-danger loginMessage" role="alert">
         [[+errors]]
     </div>
     `]]
-    <div class="loginLogin card-body">
+    <div class="loginLogin">
         <form class="loginLoginForm" action="[[~[[*id]]]]" method="post">
             <input type="hidden" name="csrf_token" value="[[!csrfhelper? &key=`login` &singleUse=`1`]]">
             <input class="returnUrl" type="hidden" name="returnUrl" value="[[+request_uri]]" />
@@ -27,8 +27,6 @@
                 </div>
             </fieldset>
             <p><small><a href="[[~[[++ctred.forgot_password_page_id]]]]" class="card-link">Forgot your Password?</a></small></p>
-            <hr>
-            <p><a href="[[~[[++commerce.register_resource]]]]" class="card-link">To registration page</a> <a href="[[~[[++ctred.account_page_id]]]]" class="card-link">Back to account page</a></p>
         </form>
     </div>
 </div>

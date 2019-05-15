@@ -1,4 +1,4 @@
-<div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+<div class="col-md-4 d-flex">
     <a class="card category-product__card" href="[[~[[+id]]]]">
         <img class="card-img-top category-product__image"
                 onerror="this.style.display = 'none'"

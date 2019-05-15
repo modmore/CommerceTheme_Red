@@ -23,6 +23,7 @@ $componentPath = dirname(dirname(__FILE__));
 
 $elements = [
     'modTemplate' => [
+        'Red - Home' => $componentPath . '/core/components/commercetheme_red/elements/templates/home.tpl',
         'Red - Cart' => $componentPath . '/core/components/commercetheme_red/elements/templates/cart.tpl',
         'Red - Category' => $componentPath . '/core/components/commercetheme_red/elements/templates/category.tpl',
         'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',
@@ -33,10 +34,21 @@ $elements = [
         'Red - Account activate registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_activate_registration.tpl',
         'Red - Account thank you registration' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_thank_you_registration.tpl',
         'Red - Account forgot password' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_password.tpl',
+        'Red - Account Order' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_order.tpl',
+        'Red - Account Orders' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_orders.tpl',
+        'Red - Account Edit profile' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_edit_pofile.tpl',
     ],
 
     'modChunk' => [
         'ctred.category_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list.tpl',
+        'ctred.item_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/item_list.tpl',
+        'ctred.category_list_home_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_home_outer_chunk.tpl',
+        'ctred.category_list_home_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_home_chunk.tpl',
+        'ctred.category_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_chunk.tpl',
+        'ctred.category_list_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/category_list_outer_chunk.tpl',
+        'ctred.related_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_list.tpl',
+        'ctred.related_outer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_outer.tpl',
+        'ctred.related_outer_list' => $componentPath . '/core/components/commercetheme_red/elements/chunks/related_outer_list.tpl',
         'ctred.login_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_form.tpl',
         'ctred.logout_form' => $componentPath . '/core/components/commercetheme_red/elements/chunks/logout_form.tpl',
         'ctred.forgot_pass' => $componentPath . '/core/components/commercetheme_red/elements/chunks/forgot_pass.tpl',
@@ -48,6 +60,7 @@ $elements = [
         'ctred.login_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/login_chunk.tpl',
         'ctred.tag_list_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/tag_list_chunk.tpl',
         'ctred.tag_outer_chunk' => $componentPath . '/core/components/commercetheme_red/elements/chunks/tag_outer_chunk.tpl',
+        'ctred.profile_menu' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_menu.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
     ],
@@ -299,9 +312,224 @@ if (!createObject('modTemplateVar', [
     echo "Error creating modTemplateVar system setting.\n";
 }
 
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.hero_content',
+    'caption' => 'Hero content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred_featured_product',
+    'caption' => 'Featured product',
+    'description' => 'Make this product a featured product.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'image',
+    'name' => 'ctred.hero_image',
+    'caption' => 'Hero background image',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'image',
+    'name' => 'ctred_category_image',
+    'caption' => 'Category image',
+    'description' => 'The image to display for this category.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_show',
+    'caption' => 'Show tab section',
+    'description' => 'Enter true to show the tabs.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_1_content',
+    'caption' => 'Tab 1 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_1_title',
+    'caption' => 'Tab 1 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_2_content',
+    'caption' => 'Tab 2 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_2_title',
+    'caption' => 'Tab 2 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'richtext',
+    'name' => 'ctred.product_tab_3_content',
+    'caption' => 'Tab 3 content',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'textfield',
+    'name' => 'ctred.product_tab_3_title',
+    'caption' => 'Tab 3 title',
+    'description' => 'Leave blank to not show the tab.',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
 $tv = $modx->getObject('modTemplateVar', ['name' => 'product_matrix']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred_featured_product']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.hero_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Home']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.hero_image']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Home']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_show']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_1_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_1_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_2_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_2_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_3_title']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred.product_tab_3_content']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'ctred_category_image']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Category']);
 $tmplId = $tmpl ? $tmpl->get('id') : 0;
 if (!createObject('modTemplateVarTemplate', [
     'tmplvarid' => $tvId,

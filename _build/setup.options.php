@@ -65,6 +65,10 @@ HTML;
     margin: 0;
     padding: 0;
 }
+.cti .nested-element {
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
 .cti .element {
     
 }
@@ -153,7 +157,75 @@ HTML;
         }
         $chunks = implode("\n", $chunks);
 
-        $resources = '';
+
+        $resources = [];
+        foreach ($def['resources'] as $alias => $resource) {
+            $children = [];
+            foreach ($resource['children'] as $childAlias => $childResource) {
+
+
+                $nestedChildren = [];
+                foreach ($childResource['children'] as $nestedChildAlias => $nestedChildResource) {
+                    $displayName = $nestedChildResource['pagetitle'];
+                    $flag = '';
+                    $attributes = 'checked="checked"';
+                    $nestedChildren[] = <<<HTML
+<li class="element">
+    <label>
+        <input type="checkbox" name="resources[]" value="{$alias}.{$childAlias}.{$nestedChildAlias}" class="element-checkbox" {$attributes}>
+        <span class="element-name">{$displayName}</span>
+        <span class="element-flag">{$flag}</span>
+    </label>
+</li>
+HTML;
+                }
+                $nestedChildren = implode("\n", $nestedChildren);
+                if (!empty($nestedChildren)) {
+                    $nestedChildren = <<<HTML
+<ul class="nested-element">
+    {$nestedChildren}
+</ul>
+HTML;
+                }
+
+                $displayName = $childResource['pagetitle'];
+                $flag = '';
+                $attributes = 'checked="checked"';
+                $children[] = <<<HTML
+<li class="element">
+    <label>
+        <input type="checkbox" name="resources[]" value="{$alias}.{$childAlias}" class="element-checkbox" {$attributes}>
+        <span class="element-name">{$displayName}</span>
+        <span class="element-flag">{$flag}</span>
+    </label>
+    {$nestedChildren}
+</li>
+HTML;
+            }
+            $children = implode("\n", $children);
+            if (!empty($children)) {
+                $children = <<<HTML
+<ul class="nested-element">
+    {$children}
+</ul>
+HTML;
+            }
+
+            $displayName = $resource['pagetitle'];
+            $flag = '';
+            $attributes = 'checked="checked"';
+            $resources[] = <<<HTML
+<li class="element">
+    <label>
+        <input type="checkbox" name="resources[]" value="{$alias}" class="element-checkbox" {$attributes}>
+        <span class="element-name">{$displayName}</span>
+        <span class="element-flag">{$flag}</span>
+    </label>
+    {$children}
+</li>
+HTML;
+        }
+        $resources = implode("\n", $resources);
 
         $output[] = <<<HTML
 <div class="cti">
@@ -164,7 +236,7 @@ HTML;
         </div>
         <div class="element-column">
             <h3>Templates</h3>
-            <p class="element-meta">Prefix: "{$def['template_prefix']}"</p>
+            <p class="element-meta">Includes TVs. Prefix: "{$def['template_prefix']}"</p>
             <ul class="element-list">
                 {$templates}
             </ul>
@@ -184,7 +256,10 @@ HTML;
                     <option value="web">Web</option>
                     <option value="web2">Web2</option>
                 </select>
-            </div>
+                </div>
+            <p class="element-meta">
+                <b>Important:</b> <b>new resources</b> are created when checked, regardless if they already exist, and associated (context) settings will be updated.<br>
+            </p>
             <ul class="element-list">
                 {$resources}
             </ul>

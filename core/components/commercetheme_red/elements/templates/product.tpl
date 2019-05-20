@@ -70,27 +70,27 @@
             <div class="tab_container">
                 [[*ctred.product_tab_1_title:notempty=`
                 <input id="tab1" type="radio" name="tabs" class="tab_input" checked>
-                <label for="tab1" class="tab_label">Description</label>
+                <label for="tab1" class="tab_label">[[*ctred.product_tab_1_title]]</label>
                 `]]
                 [[*ctred.product_tab_2_title:notempty=`
                 <input id="tab2" type="radio" name="tabs" class="tab_input">
-                <label for="tab2" class="tab_label">Additional information</label>
+                <label for="tab2" class="tab_label">[[*ctred.product_tab_2_title]]</label>
                 `]]
                 [[*ctred.product_tab_3_title:notempty=`
                 <input id="tab3" type="radio" name="tabs" class="tab_input">
-                <label for="tab3" class="tab_label">Reviews</label>
+                <label for="tab3" class="tab_label">[[*ctred.product_tab_3_title]]</label>
                 `]]
                 [[*ctred.product_tab_1_title:notempty=`
                 <section id="content1" class="tab_section">
                     [[*ctred.product_tab_1_content]]
                 </section>
                 `]]
-                [[*ctred.product_tab_1_title:notempty=`
+                [[*ctred.product_tab_2_title:notempty=`
                 <section id="content2" class="tab_section">
                     [[*ctred.product_tab_2_content]]
                 </section>
                 `]]
-                [[*ctred.product_tab_1_title:notempty=`
+                [[*ctred.product_tab_3_title:notempty=`
                 <section id="content3" class="tab_section">
                     [[*ctred.product_tab_3_content]]
                 </section>

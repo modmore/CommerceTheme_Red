@@ -6,7 +6,7 @@ if (!isset($modx)) {
     $modx = new modX();
     $modx->initialize('mgr');
     $modx->getService('error','error.modError', '', '');
-    $modx->loadClass('transport.modPackageBuilder');
+    $modx->loadClass('transport.modPackageBuilder',MODX_CORE_PATH, true, true);
     $modx->loadClass('transport.xPDOTransport', XPDO_CORE_PATH, true, true);
 }
 
@@ -107,7 +107,7 @@ HTML;
             if ($el = $modx->getObject('modTemplate', $template['primary'])) {
                 $props = $el->get('properties');
                 $props = is_array($props) ? $props : [];
-                $hash = (string)$props['_theme_hash'];
+                $hash = array_key_exists('_theme_hash', $props) ? (string)$props['_theme_hash']['value'] : '';
                 if ($hash !== sha1($el->get('content'))) {
                     $flag = $flagModified;
                     $attributes = '';
@@ -136,7 +136,7 @@ HTML;
             if ($el = $modx->getObject('modChunk', $chunk['primary'])) {
                 $props = $el->get('properties');
                 $props = is_array($props) ? $props : [];
-                $hash = (string)$props['_theme_hash'];
+                $hash = array_key_exists('_theme_hash', $props) ? (string)$props['_theme_hash']['value'] : '';
                 if ($hash !== sha1($el->get('content'))) {
                     $flag = $flagModified;
                     $attributes = '';
@@ -275,5 +275,128 @@ HTML;
         $output = '';
     break;
 }
-echo $output; exit(); //@fixme
-return $output;
+echo <<<HTML
+<form method="post" action="setup.options.php">
+{$output}
+<button type="submit">Submit</button>
+</form>
+HTML;
+
+if (!isset($_POST) || empty($_POST)) {
+    exit(); // @fixme
+}
+$options = $_POST;
+$static = true;
+
+$category = $modx->getObject('modCategory', ['category' => $def['category']]);
+if (!$category) {
+    $category = $modx->newObject('modCategory');
+    $category->set('category', $def['category']);
+    $category->save();
+}
+
+foreach ($options['templates'] as $templateName) {
+    $template = array_key_exists($templateName, $def['templates']) ? $def['templates'][$templateName] : null;
+    if (!is_array($template)) {
+        echo 'Template "' . $templateName . '" not found <br>';
+        continue;
+    }
+
+    $verb = 'Updated';
+    $el = $modx->getObject('modTemplate', [
+        'templatename' => $templateName
+    ]);
+    if (!$el) {
+        $el = $modx->newObject('modTemplate');
+        $el->set('templatename', $templateName);
+        $verb = 'Created';
+    }
+    $el->set('category', $category->get('id'));
+    $el->set('content', $template['content']);
+    if ($static) {
+        $el->set('static', true);
+        $el->set('static_file', $template['file']);
+    }
+    $el->setProperties(['_theme_hash' => $template['hash']], true);
+    if ($el->save()) {
+        echo "{$verb} template {$templateName}<br>";
+        if (!array_key_exists('template_variables', $template)) {
+            continue;
+        }
+        foreach ($template['template_variables'] as $tvName => $tvInfo) {
+            /** @var modTemplateVar $tv */
+            $tv = $modx->getObject('modTemplateVar', ['name' => $tvName]);
+            if (!$tv) {
+                $tv = $modx->newObject('modTemplateVar');
+                $tv->set('name', $tvName);
+            }
+            $tv->set('type', $tvInfo['type']);
+            $tv->set('caption', $tvInfo['caption']);
+            $tv->set('category', $category->get('id'));
+            if ($tv->save()) {
+                /** @var modTemplateVarTemplate $templateVarTemplate */
+                $templateVarTemplate = $modx->getObject('modTemplateVarTemplate', [
+                    'tmplvarid' => $tv->get('id'),
+                    'templateid' => $el->get('id'),
+                ]);
+                if (!$templateVarTemplate) {
+                    $templateVarTemplate = $modx->newObject('modTemplateVarTemplate');
+                    $templateVarTemplate->fromArray([
+                        'tmplvarid' => $tv->get('id'),
+                        'templateid' => $el->get('id'),
+                    ], '', true);
+                    if ($templateVarTemplate->save()) {
+                        echo "- Added modTemplateVarTemplate for {$tv->get('name')} on {$el->get('templatename')}<br>";
+                    }
+                    else {
+                        echo "- Failed creating modTemplateVarTemplate for {$tv->get('name')} on {$el->get('templatename')}<br>";
+
+                    }
+                }
+                else {
+                    echo "- modTemplateVarTemplate already exists for {$tv->get('name')} on {$el->get('templatename')}<br>";
+
+                }
+            }
+            else {
+                echo "- Failed saving modTemplateVar {$tv->get('name')}<br>";
+            }
+        }
+    }
+    else {
+        echo "Couldn't save template {$templateName}<br>";
+    }
+}
+foreach ($options['chunks'] as $chunkName) {
+    $chunk = array_key_exists($chunkName, $def['chunks']) ? $def['chunks'][$chunkName] : null;
+    if (!is_array($chunk)) {
+        echo 'Chunk "' . $chunkName . '" not found <br>';
+    }
+    else {
+        $verb = 'Updated';
+        $el = $modx->getObject('modChunk', [
+            'name' => $chunkName
+        ]);
+        if (!$el) {
+            $el = $modx->newObject('modChunk');
+            $el->set('name', $chunkName);
+            $verb = 'Created';
+        }
+        $el->set('category', $category->get('id'));
+        $el->set('content', $chunk['content']);
+        if ($static) {
+            $el->set('static', true);
+            $el->set('static_file', $chunk['file']);
+        }
+        $el->setProperties(['_theme_hash' => $chunk['hash']], true);
+        if ($el->save()) {
+            echo "{$verb} chunk {$chunkName}<br>";
+        }
+        else {
+            echo "Couldn't save chunk {$chunkName}<br>";
+        }
+    }
+}
+var_dump($options);
+
+exit(); //@fixme

@@ -6,21 +6,114 @@ $templatePrefix = 'Red - ';
 
 // Template Name => path/to/file.tpl
 $templates = [
-    $templatePrefix . 'Account' => $componentPath . 'elements/templates/account.tpl',
-    $templatePrefix . 'Account - Activate registration' => $componentPath . 'elements/templates/account_activate_registration.tpl',
-    $templatePrefix . 'Account - Edit profile' => $componentPath . 'elements/templates/account_edit_profile.tpl',
-    $templatePrefix . 'Account - Login' => $componentPath . 'elements/templates/account_login.tpl',
-    $templatePrefix . 'Account - Order' => $componentPath . 'elements/templates/account_order.tpl',
-    $templatePrefix . 'Account - Orders' => $componentPath . 'elements/templates/account_orders.tpl',
-    $templatePrefix . 'Account - Forgot password' => $componentPath . 'elements/templates/account_password.tpl',
-    $templatePrefix . 'Account - Register' => $componentPath . 'elements/templates/account_register.tpl',
-    $templatePrefix . 'Account - Thank you registration' => $componentPath . 'elements/templates/account_thank_you_registration.tpl',
-    $templatePrefix . 'Account - Forgot password' => $componentPath . 'elements/templates/account_password.tpl',
-    $templatePrefix . 'Cart' => $componentPath . 'elements/templates/cart.tpl',
-    $templatePrefix . 'Category' => $componentPath . 'elements/templates/category.tpl',
-    $templatePrefix . 'Checkout' => $componentPath . 'elements/templates/checkout.tpl',
-    $templatePrefix . 'Home' => $componentPath . 'elements/templates/home.tpl',
-    $templatePrefix . 'Product' => $componentPath . 'elements/templates/product.tpl',
+    $templatePrefix . 'Account' => [
+        'file' => $componentPath . 'elements/templates/account.tpl',
+    ],
+    $templatePrefix . 'Account - Activate registration' => [
+        'file' => $componentPath . 'elements/templates/account_activate_registration.tpl',
+    ],
+    $templatePrefix . 'Account - Edit profile' => [
+        'file' => $componentPath . 'elements/templates/account_edit_profile.tpl',
+    ],
+    $templatePrefix . 'Account - Login' => [
+        'file' => $componentPath . 'elements/templates/account_login.tpl',
+    ],
+    $templatePrefix . 'Account - Order' => [
+        'file' => $componentPath . 'elements/templates/account_order.tpl',
+    ],
+    $templatePrefix . 'Account - Orders' => [
+        'file' => $componentPath . 'elements/templates/account_orders.tpl',
+    ],
+    $templatePrefix . 'Account - Forgot password' => [
+        'file' => $componentPath . 'elements/templates/account_password.tpl',
+    ],
+    $templatePrefix . 'Account - Register' => [
+        'file' => $componentPath . 'elements/templates/account_register.tpl',
+    ],
+    $templatePrefix . 'Account - Thank you registration' => [
+        'file' => $componentPath . 'elements/templates/account_thank_you_registration.tpl',
+    ],
+    $templatePrefix . 'Account - Forgot password' => [
+        'file' => $componentPath . 'elements/templates/account_password.tpl',
+    ],
+    $templatePrefix . 'Cart' => [
+        'file' => $componentPath . 'elements/templates/cart.tpl',
+    ],
+    $templatePrefix . 'Category' => [
+        'file' => $componentPath . 'elements/templates/category.tpl',
+        'template_variables' => [
+            'ctred_category_image' => [
+                'type' => 'image',
+                'caption' => 'Category image'
+            ],
+        ]
+    ],
+    $templatePrefix . 'Checkout' => [
+        'file' => $componentPath . 'elements/templates/checkout.tpl',
+    ],
+    $templatePrefix . 'Home' => [
+        'file' => $componentPath . 'elements/templates/home.tpl',
+        'template_variables' => [
+            'ctred.hero_image' => [
+                'type' => 'image',
+                'caption' => 'Hero (background) image',
+            ],
+            'ctred.hero_content' => [
+                'type' => 'richtext',
+                'caption' => 'Hero content'
+            ],
+        ],
+    ],
+    $templatePrefix . 'Product' => [
+        'file' => $componentPath . 'elements/templates/product.tpl',
+        'template_variables' => [
+            'product_matrix' => [
+                'type' => 'commerce_matrix',
+                'caption' => 'Products',
+            ],
+            'ctred.hero_content' => [
+                'type' => 'richtext',
+                'caption' => 'Hero content'
+            ],
+            'ctred_featured_product' => [
+                'type' => 'textfield', //@todo checkbox? select yes/no?
+                'caption' => 'Featured product',
+                'description' => 'Makes this product a feature product, which will be shown on the homepage.'
+            ],
+            'ctred.product_tab_show' => [
+                'type' => 'textfield', //@todo checkbox? select yes/no?
+                'caption' => 'Show tab section',
+                'description' => 'Enter true to show the tabs.',
+            ],
+            'ctred.product_tab_1_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 1 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_1_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 1 content',
+            ],
+            'ctred.product_tab_2_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 2 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_2_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 2 content',
+            ],
+            'ctred.product_tab_3_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 3 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_3_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 3 content',
+            ],
+        ],
+    ],
 ];
 
 // chunk.name_here => path/to/file.tpl
@@ -57,6 +150,7 @@ $resources = [
         'pagetitle' => 'Home',
         'template' => $templatePrefix . 'Home',
         'content' => '',
+        'children' => [],
     ],
     'category-1' => [
         'setting' => '',
@@ -78,12 +172,14 @@ $resources = [
         'pagetitle' => 'Cart',
         'template' => $templatePrefix . 'Cart',
         'content' => '',
+        'children' => [],
     ],
     'checkout' => [
         'setting' => 'commerce.checkout_resource',
         'pagetitle' => 'Checkout',
         'template' => $templatePrefix . 'Checkout',
         'content' => '',
+        'children' => [],
     ],
     'signup' => [
         'setting' => 'commerce.register_resource',
@@ -98,6 +194,7 @@ $resources = [
                 'template' => $templatePrefix . 'Account - Activate registration',
                 'content' => '',
                 'hidemenu' => true,
+                'children' => [],
             ],
             'thank-you' => [
                 'setting' => 'ctred.registration_thank_you_page_id',
@@ -105,6 +202,7 @@ $resources = [
                 'template' => $templatePrefix . 'Account - Thank you registration',
                 'content' => '',
                 'hidemenu' => true,
+                'children' => [],
             ],
         ]
     ],
@@ -132,12 +230,14 @@ $resources = [
                 'pagetitle' => 'Login',
                 'template' => $templatePrefix . 'Account - Login',
                 'content' => '',
+                'children' => [],
             ],
             'edit-profile' => [
                 'setting' => '',
                 'pagetitle' => 'Edit profile',
                 'template' => $templatePrefix . 'Account - Edit profile',
                 'content' => '',
+                'children' => [],
             ],
             'orders' => [
                 'setting' => 'commerce.orders_resource',
@@ -170,6 +270,7 @@ $packages = [
 ];
 
 $def = [
+    'category' => 'Red',
     'template_prefix' => $templatePrefix,
     'chunk_prefix' => $chunkPrefix,
     'templates' => [],
@@ -179,12 +280,14 @@ $def = [
 ];
 
 foreach ($templates as $templateName => $template) {
-    $content = file_get_contents($template);
+    $content = file_get_contents($template['file']);
     $def['templates'][$templateName] = [
         'class' => 'modTemplate',
         'primary' => ['templatename' => $templateName],
         'hash' => sha1($content),
         'content' => $content,
+        'file' => $template['file'],
+        'template_variables' => $template['template_variables'] ?: [],
     ];
 }
 
@@ -195,6 +298,7 @@ foreach ($chunks as $chunkName => $chunk) {
         'primary' => ['name' => $chunkName],
         'hash' => sha1($content),
         'content' => $content,
+        'file' => $chunk,
     ];
 }
 

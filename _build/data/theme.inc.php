@@ -4,6 +4,7 @@ $componentPath = dirname(__DIR__, 2)  . '/core/components/commercetheme_red/';
 $chunkPrefix = 'ctred.';
 $namespace = 'commercetheme_red';
 $templatePrefix = 'Red - ';
+$category = 'Red';
 
 // Template Name => path/to/file.tpl
 $templates = [
@@ -153,6 +154,7 @@ $resources = [
         'pagetitle' => 'Home',
         'template' => $templatePrefix . 'Home',
         'content' => '',
+        'hidemenu' => true,
         'children' => [],
     ],
     'category-1' => [
@@ -222,22 +224,27 @@ $resources = [
                 'template' => $templatePrefix . 'Account - Login',
                 'content' => '',
                 'children' => [
-                    'reset' => [
+                    'forgot' => [
                         'setting' => 'ctred.forgot_password_page_id',
                         'pagetitle' => 'Forgot password?',
                         'template' => $templatePrefix . 'Account - Forgot password',
-                    ]
+                    ],
+                    'reset' => [
+                        'setting' => 'ctred.password_reset_page_id',
+                        'pagetitle' => 'Reset Password',
+                        'template' => $templatePrefix . 'Account - Forgot password',
+                    ],
                 ]
             ],
             'logout' => [
-                'setting' => '',
+                'setting' => 'ctred.logout_page_id',
                 'pagetitle' => 'Logout',
                 'template' => $templatePrefix . 'Account - Login',
                 'content' => '',
                 'children' => [],
             ],
             'edit-profile' => [
-                'setting' => '',
+                'setting' => 'ctred.edit_profile_page_id',
                 'pagetitle' => 'Edit profile',
                 'template' => $templatePrefix . 'Account - Edit profile',
                 'content' => '',
@@ -274,7 +281,7 @@ $packages = [
 ];
 
 $def = [
-    'category' => 'Red',
+    'category' => $category,
     'template_prefix' => $templatePrefix,
     'chunk_prefix' => $chunkPrefix,
     'namespace' => $namespace,
@@ -292,8 +299,8 @@ foreach ($templates as $templateName => $template) {
         'hash' => sha1($content),
         'content' => $content,
         'file' => $template['file'],
-        'template_variables' => $template['template_variables'] ?: [],
-        'setting' => $template['setting'] ?: '',
+        'template_variables' => array_key_exists('template_variables', $template) ? $template['template_variables'] : [],
+        'setting' => array_key_exists('setting', $template) ? $template['setting'] : '',
     ];
 }
 

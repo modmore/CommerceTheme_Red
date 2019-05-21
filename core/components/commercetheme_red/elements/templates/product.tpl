@@ -64,7 +64,7 @@
             [[*content]]
         </div>
     </div>
-    [[*ctred.product_tab_show:is=`true`:then=`
+    [[*ctred.product_tab_show:notempty=`
     <div class="row">
         <div class="col-md-12 mt-3 mb-3">
             <div class="tab_container">

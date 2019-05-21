@@ -15,10 +15,10 @@ $navbar-item-margin: 20px;
 $navbar-dark-color: #fff;
 $navbar-dark-active-color: $primary;
 
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 .jumbotron {
   background-position: center;

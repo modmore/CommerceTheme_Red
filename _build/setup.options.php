@@ -524,6 +524,28 @@ foreach ($options['resources'] as $path) {
     }
 }
 
+$assetsPath = $modx->getOption($def['namespace'] . '.assets_path', null, MODX_ASSETS_PATH . 'components/' . $def['namespace'] . '/', true);
+$css = $assetsPath . 'css/main.css';
+if (array_key_exists('write_assets', $options) || !file_exists($css)) {
+    if (!is_dir($assetsPath . 'css/')) {
+        mkdir($assetsPath . 'css/', 0755);
+    }
+    if (!is_dir($assetsPath . 'scss/')) {
+        mkdir($assetsPath . 'scss/', 0755);
+    }
+    $files = [
+        'dist/css/main.css' => 'css/main.css',
+        'dist/scss/main.scss' => 'scss/main.scss',
+    ];
+
+    foreach ($files as $dist => $target) {
+        if (file_exists($assetsPath . $target)) {
+            rename($assetsPath . $target, $assetsPath . $target . '.backup_' . date('Y_m_d-H_i_s'));
+        }
+        copy($assetsPath . $dist, $assetsPath . $target);
+    }
+}
+
 $modx->getCacheManager()->refresh();
 
 exit(); //@fixme

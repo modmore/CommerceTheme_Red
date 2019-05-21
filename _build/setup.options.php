@@ -20,7 +20,7 @@ $flagModified = <<<HTML
 <span class="icon icon-warning-sign" title="It looks like this element was modified since its initial installation. Choosing to upgrade it will overwrite your modifications.">[modified]</span>
 HTML;
 
-//var_dump($def);
+$assetsPath = $modx->getOption($def['namespace'] . '.assets_path', null, MODX_ASSETS_PATH . 'components/' . $def['namespace'] . '/', true);
 
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
@@ -29,16 +29,16 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         $output = array();
 
         $output[] = '<h2>Theme Red Installation</h2>';
-        $output[] = '<p>Please choose the elements that you would like to create and/or update. For a first installation, choosing all options is recommended to make sure you start with a fully functional template. For updates you will need to make sure any custom changes are not overwritten (unless you want them too).</p>';
+        $output[] = '<p>Please choose the elements that you would like to create and/or update. For a first installation, choose all options. When updating, choose which modified elements and resources you want to overwrite. </p>';
 
-        $attributes = 'checked="checked"';
+        $attributes = file_exists($assetsPath . 'css/main.css') ? '' : 'checked="checked"';
         $output[] = <<<HTML
 <p>
     <label>
         <input type="checkbox" name="write_assets" value="1" {$attributes}>
-        <b>Create/Overwrite JavaScript/CSS</b>
+        <b>Overwrite custom JavaScript/CSS</b>
     </label>
-    Check this to overwrite the JavaScript/CSS. Theme Red allows you to <a href="#docs">write custom assets</a> that extend the default and are safe from upgrades, but if you want to revert to the standard (or if this is the first installation), check this box to create them fresh for you.
+    Theme Red allows you to compile your own styles based on the distribution. Instructions on how to do that can be found in the readme under assets/components/commercetheme_red/. If you want to revert to the defaults, tick this box. It may be necessary to manually apply styling changes if you do not overwrite the custom styling.
 </p>
 HTML;
 
@@ -267,7 +267,7 @@ HTML;
                 </select>
                 </div>
             <p class="element-meta">
-                <b>Important:</b> <b>existing resources with matching aliases are overwritten</b when checked, and associated (context) settings will be updated.<br>
+                <b>Important:</b> resources with <b>matching aliases</b> will be modified. Also sets relevant (context) settings.<br>
             </p>
             <ul class="element-list">
                 {$resources}

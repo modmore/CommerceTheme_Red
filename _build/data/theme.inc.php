@@ -172,6 +172,7 @@ $resources = [
         'pagetitle' => 'Cart',
         'template' => $templatePrefix . 'Cart',
         'content' => '',
+        'hidemenu' => true,
         'children' => [],
     ],
     'checkout' => [
@@ -179,6 +180,7 @@ $resources = [
         'pagetitle' => 'Checkout',
         'template' => $templatePrefix . 'Checkout',
         'content' => '',
+        'hidemenu' => true,
         'children' => [],
     ],
     'signup' => [
@@ -227,7 +229,7 @@ $resources = [
             ],
             'logout' => [
                 'setting' => '',
-                'pagetitle' => 'Login',
+                'pagetitle' => 'Logout',
                 'template' => $templatePrefix . 'Account - Login',
                 'content' => '',
                 'children' => [],

@@ -227,6 +227,16 @@ HTML;
         }
         $resources = implode("\n", $resources);
 
+        $contexts = [];
+        foreach ($modx->getIterator('modContext', ['key:!=' => 'mgr']) as $ctx) {
+            $key = $ctx->get('key');
+            $key = htmlentities($key, ENT_QUOTES, 'utf-8');
+            $name = $ctx->get('name');
+            $name = htmlentities($name, ENT_QUOTES, 'utf-8');
+            $contexts[] = '<option value="' . $key . '">' . $name . ' (' . $key . ')</option>';
+        }
+        $contexts = implode("\n", $contexts);
+
         $output[] = <<<HTML
 <div class="cti">
     <div class="elements-container">
@@ -253,12 +263,11 @@ HTML;
             <div class="element-meta">
                 Context: 
                 <select name="target_context">
-                    <option value="web">Web</option>
-                    <option value="web2">Web2</option>
+                    {$contexts}
                 </select>
                 </div>
             <p class="element-meta">
-                <b>Important:</b> <b>new resources</b> are created when checked, regardless if they already exist, and associated (context) settings will be updated.<br>
+                <b>Important:</b> <b>existing resources with matching aliases are overwritten</b when checked, and associated (context) settings will be updated.<br>
             </p>
             <ul class="element-list">
                 {$resources}
@@ -397,6 +406,110 @@ foreach ($options['chunks'] as $chunkName) {
         }
     }
 }
-var_dump($options);
+
+$targetCtx = array_key_exists('target_context', $options) ? (string)$options['target_context'] : 'web';
+foreach ($options['resources'] as $path) {
+    $parts = explode('.', $path);
+    $resourceDefs = ['children' => $def['resources']];
+    $alias = false;
+    $parent = false;
+    $parentAlias = false;
+    foreach ($parts as $part) {
+        if (array_key_exists($part, $resourceDefs['children'])) {
+            if (array_key_exists('pagetitle', $resourceDefs)) {
+                $parent = $resourceDefs;
+                $parentAlias = $alias;
+            }
+            $alias = $part;
+            $resourceDefs = $resourceDefs['children'][$part];
+        }
+    }
+    if (!array_key_exists('pagetitle', $resourceDefs)) {
+        echo "Couldn't find resource {$path} in definition<br>";
+        continue;
+    }
+
+//    var_dump([$path, $parent, $parentAlias, $alias, $resourceDefs]);
+
+    $verb = 'Updated';
+    /** @var modResource $r */
+    $r = $modx->getObject('modResource', [
+        'context_key' => $targetCtx,
+        'alias' => $alias,
+    ]);
+    if (!$r) {
+        $verb = 'Created';
+        $r = $modx->newObject('modResource');
+        $r->set('context_key', $targetCtx);
+        $r->set('alias', $alias);
+    }
+    $r->set('pagetitle', $resourceDefs['pagetitle']);
+
+    if ($parentAlias) {
+        $parent = $modx->getObject('modResource', [
+            'context_key' => $targetCtx,
+            'alias' => $parentAlias,
+        ]);
+        if ($parent instanceof modResource) {
+            $r->set('parent', $parent->get('id'));
+        }
+    }
+
+    $template = $modx->getObject('modTemplate', [
+        'templatename' => $resourceDefs['template']
+    ]);
+    if ($template instanceof modTemplate) {
+        $r->set('template', $template->get('id'));
+    }
+    else {
+        echo "Couldn't find template {$resourceDefs['template']} for {$path}";
+    }
+
+    $r->set('hidemenu', array_key_exists('hidemenu', $resourceDefs) ? $resourceDefs['hidemenu'] : false);
+    $r->set('published', array_key_exists('published', $resourceDefs) ? $resourceDefs['published'] : true);
+
+    if (!empty($resourceDefs['content'])) {
+        $previous = $r->get('content');
+        if (!empty($previous)) {
+            $r->setProperty('content', $previous, '_backup');
+        }
+        $r->set('content', $resourceDefs['content']);
+    }
+
+    if ($r->save()) {
+        echo "{$verb} resource {$path}<br>";
+        if (!empty($resourceDefs['setting'])) {
+            if ($targetCtx === 'web') {
+                $setting = $modx->getObject('modSystemSetting', ['key' => $resourceDefs['setting']]);
+                if (!$setting) {
+                    $setting = $modx->newObject('modSystemSetting');
+                    $setting->set('key', $resourceDefs['setting']);
+                    $setting->set('xtype', 'textfield');
+                }
+                $setting->set('value', $r->get('id'));
+                $setting->save();
+            }
+            else {
+                $setting = $modx->getObject('modContextSetting', [
+                    'key' => $resourceDefs['setting'],
+                    'context_key' => $targetCtx,
+                ]);
+                if (!$setting) {
+                    $setting = $modx->newObject('modContextSetting');
+                    $setting->set('key', $resourceDefs['setting']);
+                    $setting->set('context_key', $targetCtx);
+                    $setting->set('xtype', 'textfield');
+                }
+                $setting->set('value', $r->get('id'));
+                $setting->save();
+            }
+        }
+    }
+    else {
+        echo "Error: couldn't save resource {$path}.";
+    }
+}
+
+$modx->getCacheManager()->refresh();
 
 exit(); //@fixme

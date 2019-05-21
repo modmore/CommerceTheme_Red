@@ -54,8 +54,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 col-md-4 py-md-3 text-center text-white">
 				[[++ctred.footer_bottom_row_content]]
 			</div>
-			</hr>
-		</div>	
+		</div>
 	</div>
 </footer>
 [[-

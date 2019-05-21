@@ -329,6 +329,19 @@ foreach ($options['templates'] as $templateName) {
     $el->setProperties(['_theme_hash' => $template['hash']], true);
     if ($el->save()) {
         echo "{$verb} template {$templateName}<br>";
+
+        if (!empty($template['setting'])) {
+            $setting = $modx->getObject('modSystemSetting', ['key' => $template['setting']]);
+            if (!$setting) {
+                $setting = $modx->newObject('modSystemSetting');
+                $setting->set('key', $template['setting']);
+                $setting->set('namespace', $def['namespace']);
+                $setting->set('xtype', 'textfield');
+            }
+            $setting->set('value', $el->get('id'));
+            $setting->save();
+        }
+
         if (!array_key_exists('template_variables', $template)) {
             continue;
         }
@@ -485,6 +498,7 @@ foreach ($options['resources'] as $path) {
                     $setting = $modx->newObject('modSystemSetting');
                     $setting->set('key', $resourceDefs['setting']);
                     $setting->set('xtype', 'textfield');
+                    $setting->set('namespace', $def['namespace']);
                 }
                 $setting->set('value', $r->get('id'));
                 $setting->save();

@@ -17,7 +17,8 @@
             <aside>
                 [[pdoResources?
                     &parents=`0`
-                    &where=`{"template:=":3}`
+                    &context=`[[*context_key]]`
+                    &where=`{"template:=":[[++ctred.category_template]]}`
                     &depth=`0`
                     &tpl=`ctred.category_list_chunk`
                     &tplWrapper=`ctred.category_list_outer_chunk`

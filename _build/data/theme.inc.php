@@ -2,6 +2,7 @@
 
 $componentPath = dirname(__DIR__, 2)  . '/core/components/commercetheme_red/';
 $chunkPrefix = 'ctred.';
+$namespace = 'commercetheme_red';
 $templatePrefix = 'Red - ';
 
 // Template Name => path/to/file.tpl
@@ -41,6 +42,7 @@ $templates = [
     ],
     $templatePrefix . 'Category' => [
         'file' => $componentPath . 'elements/templates/category.tpl',
+        'setting' => 'ctred.category_template',
         'template_variables' => [
             'ctred_category_image' => [
                 'type' => 'image',
@@ -66,6 +68,7 @@ $templates = [
     ],
     $templatePrefix . 'Product' => [
         'file' => $componentPath . 'elements/templates/product.tpl',
+        'setting' => 'ctred.product_template',
         'template_variables' => [
             'product_matrix' => [
                 'type' => 'commerce_matrix',
@@ -123,7 +126,7 @@ $chunks = [
     $chunkPrefix . 'category_list_chunk' => $componentPath . 'elements/chunks/category_list_chunk.tpl',
     $chunkPrefix . 'category_list_home_chunk' => $componentPath . 'elements/chunks/category_list_home_chunk.tpl',
     $chunkPrefix . 'category_list_home_outer_chunk' => $componentPath . 'elements/chunks/category_list_home_outer_chunk.tpl',
-    $chunkPrefix . 'category_list_outer_chunk' => $componentPath . 'elements/chunks/category_list.tpl',
+    $chunkPrefix . 'category_list_outer_chunk' => $componentPath . 'elements/chunks/category_list_outer_chunk.tpl',
     $chunkPrefix . 'footer' => $componentPath . 'elements/chunks/footer.tpl',
     $chunkPrefix . 'forgot_pass' => $componentPath . 'elements/chunks/forgot_pass.tpl',
     $chunkPrefix . 'header' => $componentPath . 'elements/chunks/header.tpl',
@@ -163,7 +166,6 @@ $resources = [
                 'pagetitle' => 'Product Foo',
                 'template' => $templatePrefix . 'Product',
                 'content' => '',
-                'hidemenu' => true,
             ],
         ]
     ],
@@ -275,6 +277,7 @@ $def = [
     'category' => 'Red',
     'template_prefix' => $templatePrefix,
     'chunk_prefix' => $chunkPrefix,
+    'namespace' => $namespace,
     'templates' => [],
     'chunks' => [],
     'packages' => $packages,
@@ -290,6 +293,7 @@ foreach ($templates as $templateName => $template) {
         'content' => $content,
         'file' => $template['file'],
         'template_variables' => $template['template_variables'] ?: [],
+        'setting' => $template['setting'] ?: '',
     ];
 }
 

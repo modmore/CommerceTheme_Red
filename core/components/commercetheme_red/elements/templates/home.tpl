@@ -23,19 +23,21 @@
 </div>
 <div class="container">
     <div class="row">
-        [[!pdoResources?
+        [[pdoResources?
             &parents=`0`
-            &tpl=`ctred.item_list`
-            &includeTVs=`product_matrix,ctred_featured_product`
+            &context=`[[*context_key]]`
+            &where=`{"ctred_featured_product":"true"}`
             &limit=`4`
-            &where=`{"ctred_featured_product":"true"}` 
+            &includeTVs=`product_matrix,ctred_featured_product`
             &prepareTVs=`1`
+            &tpl=`ctred.item_list`
         ]]
     </div>
 </div>
 [[pdoResources?
     &parents=`0`
-    &where=`{"template:=":3}`
+    &context=`[[*context_key]]`
+    &where=`{"template:=":[[++ctred.category_template]]}`
     &depth=`0`
     &limit=`0`
     &includeTVs=`ctred_category_image`

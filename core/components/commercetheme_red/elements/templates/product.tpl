@@ -103,9 +103,9 @@
         <div class="col-md-12 mt-3 mb-3">
             <h3>Related products</h3>
         </div>
-        [[!pdoResources?
+        [[pdoResources?
             &parents=`[[*parent]]`
-            &where=`[[!TaggerGetResourcesWhere]]`
+            &where=`[[TaggerGetResourcesWhere]]`
             &tpl=`ctred.item_list`
             &includeTVs=`product_matrix`
             &limit=`4`

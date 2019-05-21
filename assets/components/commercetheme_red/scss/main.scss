@@ -816,7 +816,14 @@ section.tab_section {
 }
 
 input.tab_input {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:focus + label.tab_label {
+    text-decoration: underline;
+  }
 }
 
 label.tab_label {

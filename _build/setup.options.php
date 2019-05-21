@@ -79,7 +79,7 @@ HTML;
         foreach ($def['packages'] as $provider => $provPackages) {
             $thisPackages = [];
             foreach ($provPackages as $package) {
-                $attributes = 'checked="checked"';
+                $attributes = 'disabled="disabled"';
                 $thisPackages[] = <<<HTML
     <li class="element">
         <label>
@@ -242,6 +242,7 @@ HTML;
     <div class="elements-container">
         <div class="element-column">
             <h3>Packages</h3>
+            <p class="element-meta">The following (third-party) extras are necessary for the starter pack. Note that these are not yet automatically installed.</p>
             {$packages}
         </div>
         <div class="element-column">

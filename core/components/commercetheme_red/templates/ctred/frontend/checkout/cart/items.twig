@@ -41,7 +41,7 @@
                                id="item-{{ loop.index0 }}-quantity"
                                min="1"
                                step="1"
-                               {% if item.product and item.product.stock %}max="{{ item.product.stock }}"{% endif %}
+                               {% if item.product and item.product.stock and not item.product.stock_infinite %}max="{{ item.product.stock }}"{% endif %}
                                aria-label="{{ lex('commerce.quantity') }}"
                                title="{{ lex('commerce.quantity') }}"
                         >

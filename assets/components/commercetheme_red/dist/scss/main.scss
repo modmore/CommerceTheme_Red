@@ -613,6 +613,7 @@ $optionColor: #555 !default;
 
   + label {
     margin-bottom: 0;
+    cursor: pointer;
   }
   &:checked + label {
 

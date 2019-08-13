@@ -1,3 +1,5 @@
+- Include some new styles for updated gateways in Commerce v1.1 and upcoming MyParcel extension
+
 ++ CommerceTheme Red 1.0.0-rc1
 ++ Released on 2019-05-21
 ++++++++++++++++++++++++++

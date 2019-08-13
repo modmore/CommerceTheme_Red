@@ -15,6 +15,13 @@ $navbar-item-margin: 20px;
 $navbar-dark-color: #fff;
 $navbar-dark-active-color: $primary;
 
+$optionSelectedBorder: $theme-primary !default;
+$optionSelectedBackground: #f1f1f1 !default;
+$optionSelectedColor: inherit !default;
+$optionBackground: #f1f1f1 !default;
+$optionRadius: 3px !default;
+$optionColor: #555 !default;
+
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
@@ -553,9 +560,9 @@ $navbar-dark-active-color: $primary;
 .c-method-section {
   margin: 1em 0 1em 0;
   padding: 0.5em;
-  //background: $progressBackground;
-  //border: 1px solid $progressColor;
-  //border-radius: $progressRadius;
+  //background: $optionBackground;
+  //border: 1px solid $optionColor;
+  //border-radius: $optionRadius;
   > label {
     cursor: pointer;
     padding-left: 1.67em;
@@ -769,17 +776,17 @@ $navbar-dark-active-color: $primary;
   }
 }
 
-// forms 
+// forms
 .alert {
   p {
     margin-bottom: 0;
   }
 }
 #navbar-toggle-cbox:checked ~ .collapse {
-    display:block;
+  display:block;
 }
 #navbar-toggle-cbox {
-   display: none;
+  display: none;
 }
 .navbar-toggler {
   border-color: $primary;
@@ -798,15 +805,15 @@ $navbar-dark-active-color: $primary;
   background: $primary !important;
 }
 #footer a {
-    color: $navbar-dark-color;
-    text-decoration: none;
-    @include hover-focus {
-      color: $navbar-dark-hover-color;
-    }
+  color: $navbar-dark-color;
+  text-decoration: none;
+  @include hover-focus {
+    color: $navbar-dark-hover-color;
+  }
 
-    &.disabled {
-      color: $navbar-dark-disabled-color;
-    }
+  &.disabled {
+    color: $navbar-dark-disabled-color;
+  }
 }
 // CSS tabs
 section.tab_section {
@@ -873,4 +880,124 @@ input.tab_input:checked + label.tab_label {
 .section-title-center span {
   text-align: center;
   margin: 0 15px;
+}
+
+.c-checkout {
+  .c-payment-method-options, .c-shipping-method-options {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    .c-payment-method-issuers__container, .c-shipping-method-opts__container {
+      display: none;
+      border-left: 2px solid $optionSelectedBorder;
+      border-right: 2px solid $optionSelectedBorder;
+      border-bottom: 2px solid $optionSelectedBorder;
+      margin-top: -2px;
+      background: $optionBackground;
+      padding: 0.5rem;
+      border-radius: 0 0 $optionRadius $optionRadius;
+    }
+  }
+
+  .c-payment-method-option__input:checked + .c-payment-method-option__label + .c-payment-method-issuers__container,
+  .c-shipping-method-option__input:checked + .c-shipping-method-option__label + .c-shipping-method-opts__container {
+    display: block;
+  }
+
+  .c-payment-method-issuers, .c-shipping-method-opts {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .c-payment-method-issuer, .c-payment-method-option,
+  .c-shipping-method-opt, .c-shipping-method-option {
+    position: relative;
+    overflow: hidden;
+
+    &:first-child {
+      border-radius: $optionRadius $optionRadius 0 0;
+    }
+    &:last-child {
+      border-radius: 0 0 $optionRadius $optionRadius;
+    }
+  }
+
+  .c-payment-method-issuer__input, .c-payment-method-option__input,
+  .c-shipping-method-opt__input, .c-shipping-method-option__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + {
+      .c-payment-method-issuer__label, .c-payment-method-option__label,
+      .c-shipping-method-opt__label, .c-shipping-method-option__label {
+        font-weight: bold;
+        border-color: $optionSelectedBorder;
+        background: $optionSelectedBackground;
+        color: $optionSelectedColor;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .c-payment-method-issuer__label, .c-payment-method-option__label,
+  .c-shipping-method-opt__label, .c-shipping-method-option__label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-weight: normal;
+    background-color: #fff;
+    margin-bottom: 0;
+  }
+  .c-payment-method-issuer__image, .c-payment-method-option__image,
+  .c-shipping-method-opt__image, .c-shipping-method-option__image {
+    margin-right: 0.5rem;
+  }
+
+  .c-shipping-method-opt__label > span {
+    flex: 1;
+  }
+  .c-shipping-method-opt__price {
+    text-align: right;
+  }
+  .c-shipping-method-extra-opts__label {
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+  }
+  .c-shipping-method-extra-opt, .c-shipping-method-time-opt {
+    margin: 0.5rem 0;
+    border-radius: $optionRadius;
+    overflow: hidden;
+  }
+
+  .c-pickuplocation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .c-pickuplocation__address {
+    margin-top: 0;
+  }
+  .c-pickuplocation__openinghours {
+    list-style-type: none;
+    margin-left: auto;
+    color: $optionColor;
+  }
+  .c-pickuplocation__openinghour {
+    display: flex;
+    > span {
+      flex: 1 0 50%;
+      padding: 0 0.5em;
+      font-size: 0.9em;
+    }
+  }
 }

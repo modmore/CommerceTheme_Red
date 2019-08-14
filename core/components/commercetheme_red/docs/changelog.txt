@@ -1,3 +1,5 @@
+- Some minor gateway-related styling tweaks for Commerce v1.1.
+
 ++ CommerceTheme Red 1.0.0-rc2
 ++ Released on 2019-08-14
 ++++++++++++++++++++++++++

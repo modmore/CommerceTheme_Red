@@ -1,3 +1,6 @@
+++ CommerceTheme Red 1.0.0-rc2
+++ Released on 2019-08-14
+++++++++++++++++++++++++++
 - Include some new styles for updated gateways in Commerce v1.1 and upcoming MyParcel extension
 - Add cursor: pointer to the minicart toggle button
 

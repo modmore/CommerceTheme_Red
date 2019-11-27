@@ -109,8 +109,8 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
         }
 
 
-    if ($success) {
-            $modx->log(xPDO::LOG_LEVEL_INFO, 'Requirements look good! Do note that there are more requirements for enabling live mode on your shop, navigate to Extras > Commerce > Configuration to see if those requirements are met.');
+        if ($success) {
+            $modx->log(xPDO::LOG_LEVEL_INFO, 'Requirements look good!');
         }
         else {
             $modx->log(xPDO::LOG_LEVEL_ERROR, 'Unfortunately, the minimum requirements aren\'t met. Installation cannot continue.');

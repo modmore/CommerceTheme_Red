@@ -258,7 +258,7 @@ $output[] = <<<HTML
     <div class="elements-container">
         <div class="element-column">
             <h3>Packages</h3>
-            <p class="element-meta">The following (third-party) extras are necessary for the starter pack. Note that these are not yet automatically installed.</p>
+            <p class="element-meta">The following (third-party) extras are necessary for the starter pack. <b>Please make sure these are installed.</b></p>
             {$packages}
         </div>
         <div class="element-column">

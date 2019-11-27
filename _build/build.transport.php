@@ -21,10 +21,10 @@ set_time_limit(0);
 
 if (!defined('MOREPROVIDER_BUILD')) {
     /* define version */
-    define('PKG_NAME','Commerce Theme Red');
+    define('PKG_NAME','CommerceTheme Red');
     define('PKG_NAMESPACE','commercetheme_red');
     define('PKG_VERSION','1.0.0');
-    define('PKG_RELEASE','dev16');
+    define('PKG_RELEASE','pl');
 
     /* load modx */
     require_once dirname(dirname(__FILE__)) . '/config.core.php';
@@ -76,12 +76,6 @@ $builder->package->put(
     ),
     array(
         'vehicle_class' => 'xPDOFileVehicle',
-//        'resolve' => array(
-//            array(
-//                'type' => 'php',
-//                'source' => $sources['resolvers'] . 'encryption.resolver.php'
-//            )
-//        ),
         'validate' => array(
             array(
                 'type' => 'php',

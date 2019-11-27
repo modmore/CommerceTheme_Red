@@ -119,6 +119,7 @@
             &returnFields=`pagetitle,description`
             &returnTVs=`product_matrix`
             &limit=`4`
+            &hideContainers=`1`
         ]]
     </div>
 </main>

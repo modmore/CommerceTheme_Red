@@ -1,5 +1,6 @@
 - In Product template, add hideContainers to the getRelated call to not show category resources in the list.
 - Add some bottom margin to the login-or-signup blocks in the checkout
+- Use proper Bootstrap invalid form classes in address step of checkout
 
 ++ CommerceTheme Red 1.0.0-pl
 ++ Released on 2019-11-27

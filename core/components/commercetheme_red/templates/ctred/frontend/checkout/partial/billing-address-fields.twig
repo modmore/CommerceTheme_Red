@@ -1,77 +1,77 @@
 <div class="c-checkout-billing-address-container">
     <div class="c-checkout-billing-address">
 
-        <div class="form-group {% if error_billing_fullname %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-fullname">{{ lex('commerce.address.name') }}</label>
-            <input type="text" class="form-control" name="address[billing][fullname]" id="address-billing-fullname" value="{{ address_billing_fullname }}">
-            {% if error_billing_fullname %}<span class="form-group-error">{{ error_billing_fullname }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_fullname %}is-invalid{% endif %}" name="address[billing][fullname]" id="address-billing-fullname" value="{{ address_billing_fullname }}">
+            {% if error_billing_fullname %}<span class="invalid-feedback">{{ error_billing_fullname }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_email %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-email">{{ lex('commerce.address.email') }}</label>
-            <input type="text" class="form-control" name="address[billing][email]" id="address-billing-email" value="{{ address_billing_email }}">
-            {% if error_billing_email %}<span class="form-group-error">{{ error_billing_email }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_email %}is-invalid{% endif %}" name="address[billing][email]" id="address-billing-email" value="{{ address_billing_email }}">
+            {% if error_billing_email %}<span class="invalid-feedback">{{ error_billing_email }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_company %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-company">{{ lex('commerce.address.company') }} <small>{{ lex('commerce.address.optional') }}</small></label>
-            <input type="text" class="form-control" name="address[billing][company]" id="address-billing-company" value="{{ address_billing_company }}">
-            {% if error_billing_company %}<span class="form-group-error">{{ error_billing_company }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_company %}is-invalid{% endif %}" name="address[billing][company]" id="address-billing-company" value="{{ address_billing_company }}">
+            {% if error_billing_company %}<span class="invalid-feedback">{{ error_billing_company }}</span>{% endif %}
         </div>
 
         {# If you'd like to check VAT registrations on the billing address, uncomment this block #}
-        <div class="form-group {% if error_billing_vat_registration %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-vat-registration">{{ lex('commerce.vat_registration') }} <small>{{ lex('commerce.address.optional') }}</small></label>
-            <input type="text" class="form-control" name="address[billing][properties][vat_registration]" id="address-billing-vat-registration" value="{{ address_billing_properties.vat_registration }}">
-            {% if error_billing_vat_registration %}<span class="form-group-error">{{ error_billing_vat_registration }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_vat_registration %}is-invalid{% endif %}" name="address[billing][properties][vat_registration]" id="address-billing-vat-registration" value="{{ address_billing_properties.vat_registration }}">
+            {% if error_billing_vat_registration %}<span class="invalid-feedback">{{ error_billing_vat_registration }}</span>{% endif %}
         </div>
         {# /end vat_registration block #}
 
-        <div class="form-group {% if error_billing_address1 %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-address1">{{ lex('commerce.address.address') }}</label>
-            <input type="text" class="form-control" name="address[billing][address1]" id="address-billing-address1" value="{{ address_billing_address1 }}">
-            {% if error_billing_address1 %}<span class="form-group-error">{{ error_billing_address1 }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_address1 %}is-invalid{% endif %}" name="address[billing][address1]" id="address-billing-address1" value="{{ address_billing_address1 }}">
+            {% if error_billing_address1 %}<span class="invalid-feedback">{{ error_billing_address1 }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_address2 %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-address2">{{ lex('commerce.address.address2') }} <small>{{ lex('commerce.address.optional') }}</small></label>
-            <input type="text" class="form-control" name="address[billing][address2]" id="address-billing-address2" value="{{ address_billing_address2 }}">
-            {% if error_billing_address2 %}<span class="form-group-error">{{ error_billing_address2 }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_address2 %}is-invalid{% endif %}" name="address[billing][address2]" id="address-billing-address2" value="{{ address_billing_address2 }}">
+            {% if error_billing_address2 %}<span class="invalid-feedback">{{ error_billing_address2 }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_zip %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-zip">{{ lex('commerce.address.zip') }}</label>
-            <input type="text" class="form-control" name="address[billing][zip]" id="address-billing-zip" value="{{ address_billing_zip }}">
-            {% if error_billing_zip %}<span class="form-group-error">{{ error_billing_zip }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_zip %}is-invalid{% endif %}" name="address[billing][zip]" id="address-billing-zip" value="{{ address_billing_zip }}">
+            {% if error_billing_zip %}<span class="invalid-feedback">{{ error_billing_zip }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_city %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-city">{{ lex('commerce.address.city') }}</label>
-            <input type="text" class="form-control" name="address[billing][city]" id="address-billing-city" value="{{ address_billing_city }}">
-            {% if error_billing_city %}<span class="form-group-error">{{ error_billing_city }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_city %}is-invalid{% endif %}" name="address[billing][city]" id="address-billing-city" value="{{ address_billing_city }}">
+            {% if error_billing_city %}<span class="invalid-feedback">{{ error_billing_city }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_state %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-state">{{ lex('commerce.address.state') }}</label>
-            <input type="text" class="form-control" name="address[billing][state]" id="address-billing-state" value="{{ address_billing_state }}">
-            {% if error_billing_state %}<span class="form-group-error">{{ error_billing_state }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_state %}is-invalid{% endif %}" name="address[billing][state]" id="address-billing-state" value="{{ address_billing_state }}">
+            {% if error_billing_state %}<span class="invalid-feedback">{{ error_billing_state }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_country %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-country">{{ lex('commerce.address.country') }}</label>
-            <select name="address[billing][country]" class="form-control" id="address-billing-country">
+            <select name="address[billing][country]" class="form-control {% if error_billing_country %}is-invalid{% endif %}" id="address-billing-country">
                 <option value=""></option>
                 {% for country in countries %}
                     <option value="{{ country.iso }}" {% if address_billing_country == country.iso %}selected="selected"{% endif %}>{{ country.shortname }}</option>
                 {% endfor %}
             </select>
-            {% if error_billing_country %}<span class="form-group-error">{{ error_billing_country }}</span>{% endif %}
+            {% if error_billing_country %}<span class="invalid-feedback">{{ error_billing_country }}</span>{% endif %}
         </div>
 
-        <div class="form-group {% if error_billing_phone %}error{% endif %}">
+        <div class="form-group">
             <label for="address-billing-phone">{{ lex('commerce.address.phone') }} <small>{{ lex('commerce.address.optional') }}</small></label>
-            <input type="text" class="form-control" name="address[billing][phone]" id="address-billing-phone" value="{{ address_billing_phone }}">
-            {% if error_billing_phone %}<span class="form-group-error">{{ error_billing_phone }}</span>{% endif %}
+            <input type="text" class="form-control {% if error_billing_phone %}is-invalid{% endif %}" name="address[billing][phone]" id="address-billing-phone" value="{{ address_billing_phone }}">
+            {% if error_billing_phone %}<span class="invalid-feedback">{{ error_billing_phone }}</span>{% endif %}
         </div>
 
 

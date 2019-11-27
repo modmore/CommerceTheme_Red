@@ -194,7 +194,7 @@
 </div>
 
 {% if shipping_address.id > 0 %}
-    <div class="checkout__shipping_address">
+    <div class="checkout__shipping_address text-right mt-4">
         <h3>{{ lex('commerce.shipping_address') }}</h3>
         {% if shipping_method.id %}
             <p class="c-shipping-summary">
@@ -208,7 +208,7 @@
     </div>
 {% endif %}
 {% if billing_address.id > 0 %}
-    <div class="checkout__billing_address">
+    <div class="checkout__billing_address text-right mt-4">
         <h3>{{ lex('commerce.billing_address') }}</h3>
         <div class="c-billing-address">
             {{ billing_address|format_address }}

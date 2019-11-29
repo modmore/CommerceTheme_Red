@@ -274,6 +274,7 @@ $packages = [
         'commerce',
     ],
     'modx.com' => [
+        'pdotools',
         'login',
         'csrfhelper',
         'tagger',

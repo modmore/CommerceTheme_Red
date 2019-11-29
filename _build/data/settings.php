@@ -1,5 +1,9 @@
 <?php
 return [
+    'assets_url' => [
+        'area' => 'paths',
+        'value' => '{assets_url}components/commercetheme_red/',
+    ],
     'registration_activation_page_id' => [
         'area' => 'resources',
         'value' => 0,

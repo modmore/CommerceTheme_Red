@@ -278,6 +278,7 @@ $packages = [
         'login',
         'csrfhelper',
         'tagger',
+        'getrelated',
     ]
 ];
 

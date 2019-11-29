@@ -2,6 +2,7 @@
 - Add some bottom margin to the login-or-signup blocks in the checkout
 - Use proper Bootstrap invalid form classes in address step of checkout
 - Align addresses right in the checkout, with a bit more margin
+- List pdoTools and getRelated as required packages in the installer
 
 ++ CommerceTheme Red 1.0.0-pl
 ++ Released on 2019-11-27

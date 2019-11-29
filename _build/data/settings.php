@@ -12,6 +12,10 @@ return [
         'area' => 'resources',
         'value' => 0,
     ],
+    'password_reset_page_id' => [
+        'area' => 'resources',
+        'value' => 0,
+    ],
     'account_page_id' => [
         'area' => 'resources',
         'value' => 0,

@@ -7,7 +7,14 @@
     <div class="row equal product-top-container">
         <div class="col-md product-image">
             <div class="product-image__container">
-                <img src="https://placekitten.com/600/400" data-original-image="https://placekitten.com/600/400" class="product-image__img" alt="[[*longtitle:default=`[[*pagetitle]]`:htmlent]]">
+                [[- you can set a different default image      V V V     here     V V V     ]]
+                [[commerce.get_matrix_first_product:default=`https://placekitten.com/600/400`:toPlaceholder=`first_image`?
+                    &matrix=`[[*product_matrix]]`
+                    &withImage=`1`
+                    &withStock=`0`
+                    &field=`image`
+                ]]
+                <img src="[[+first_image]]" data-original-image="[[+first_image]]" class="product-image__img" alt="[[*longtitle:default=`[[*pagetitle]]`:htmlent]]">
             </div>
         </div>
         <div class="col-md product-details">

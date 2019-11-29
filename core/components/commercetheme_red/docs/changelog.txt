@@ -4,6 +4,7 @@
 - Align addresses right in the checkout, with a bit more margin
 - List pdoTools and getRelated as required packages in the installer
 - Make sure ctred.assets_url setting is created on installation
+- Make it easier to change the default image for a product in the template, and make sure it uses the first available image as default
 
 ++ CommerceTheme Red 1.0.0-pl
 ++ Released on 2019-11-27

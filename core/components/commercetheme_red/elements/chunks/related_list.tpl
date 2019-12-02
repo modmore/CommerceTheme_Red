@@ -25,7 +25,6 @@
         </div>
         <div class="card-footer category-product__footer d-flex">
             <button class="btn btn-primary flex-grow-1 mr-3">Learn more</button>
-            <button class="btn btn-outline-danger">❤︎ Wishlist</button>
         </div>
     </a>
 </div>

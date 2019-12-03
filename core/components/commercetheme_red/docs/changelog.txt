@@ -1,3 +1,7 @@
+++ CommerceTheme Red 1.0.2-pl
+++ Released on 2019-12-03
+++++++++++++++++++++++++++
+
 - Remove the non-functional Wishlish button (also resolves issue creating related_list and category_list chunks on non-UTF8 databases)
 
 ++ CommerceTheme Red 1.0.1-pl

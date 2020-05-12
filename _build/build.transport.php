@@ -75,6 +75,7 @@ $builder->package->put(
         'target' => "return MODX_CORE_PATH . 'components/';",
     ),
     array(
+        xPDOTransport::ABORT_INSTALL_ON_VEHICLE_FAIL => true,
         'vehicle_class' => 'xPDOFileVehicle',
         'validate' => array(
             array(

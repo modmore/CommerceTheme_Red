@@ -40,7 +40,6 @@
                 </ul>
 
                 [[!commerce.get_cart?
-                    &itemTpl=`ctred.minicart_item`
                     &toPlaceholders=`cart`
                 ]]
                 <div class="navbar-text header-cart minicart" style="[[!+cart.total_quantity:eq=`0`:then=`display: none;`]]">

@@ -1,4 +1,5 @@
 - Remove unused property in get_cart call in header chunk [S23031]
+- Fix issue confirming registrations in default activate registration template [S23978]
 
 ++ CommerceTheme Red 1.0.2-pl
 ++ Released on 2019-12-03

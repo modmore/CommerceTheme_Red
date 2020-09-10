@@ -5,8 +5,8 @@
 <main role="main" class="container">
 	<div class="row">
         <div class="col-md-6">
-			[[!Register?
-				&submittedResourceId=`[[++ctred.registration_thank_you_page_id]]`
+			[[!ConfirmRegister?
+				&redirectTo=`[[++ctred.registration_thank_you_page_id]]`
 			]]
 		</div>
 		<div class="col-md-6">

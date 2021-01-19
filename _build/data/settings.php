@@ -62,7 +62,7 @@ return [
     ],
     'quick_link_02_url' => [
         'area' => 'footer',
-        'value' => '[[~[[++ctred.profile_page_id]]]]',
+        'value' => '[[~[[++ctred.edit_profile_page_id]]]]',
     ],
     'footer_content' => [
         'area' => 'footer',

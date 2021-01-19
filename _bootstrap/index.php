@@ -105,12 +105,12 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.account_page_id system setting.\n";
 }
 
-//ctred.profile_page_id
+//ctred.edit_profile_page_id
 if (!createObject('modSystemSetting', [
-    'key' => 'ctred.profile_page_id',
+    'key' => 'ctred.edit_profile_page_id',
     'value' => ''
 ], 'key', false)) {
-    echo "Error creating ctred.profile_page_id system setting.\n";
+    echo "Error creating ctred.edit_profile_page_id system setting.\n";
 }
 
 //ctred.password_reset_page_id
@@ -235,7 +235,7 @@ if (!createObject('modSystemSetting', [
 //ctred.quick_link_02_url
 if (!createObject('modSystemSetting', [
     'key' => 'ctred.quick_link_02_url',
-    'value' => '[[~[[++ctred.profile_page_id]]]]'
+    'value' => '[[~[[++ctred.edit_profile_page_id]]]]'
 ], 'key', false)) {
     echo "Error creating ctred.quick_link_02_url system setting.\n";
 }

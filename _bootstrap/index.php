@@ -203,7 +203,7 @@ if (!createObject('modSystemSetting', [
 //ctred.footer_bottom_row_content
 if (!createObject('modSystemSetting', [
     'key' => 'ctred.footer_bottom_row_content',
-    'value' => '<p>This is a theme created by ModMore.</p><p>&copy All right Reversed.</p>'
+    'value' => '<p>Powered by <a href="https://modmore.com/commerce/" target="_blank" rel="noopener">Commerce</a>.</p><p>&copy; All rights reserved.</p>'
 ], 'key', false)) {
     echo "Error creating ctred.footer_bottom_row_content system setting.\n";
 }

@@ -63,6 +63,13 @@
                     <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
                         <span class="c-cart-totals-label c-cart-totals-label-shipping c-cart-totals-label-shipment">
                             {{ shipment.method.name }}
+                            {% if shipment.method.class_key == 'TimeSlotsShippingMethod' and shipment.properties.timeslots_slot_info %}
+                                <br>
+                                <span style="font-weight: normal; opacity: 0.85;">
+                                    {{ shipment.properties.timeslots_date_info.locale_day }},
+                                    {{ shipment.properties.timeslots_slot_info.time_from|date('H:i') }}&ndash;{{ shipment.properties.timeslots_slot_info.time_until|date('H:i') }}
+                                </span>
+                            {% endif %}
                         </span>
                         <span class="c-cart-totals-value c-cart-totals-shipping">
                             {{ shipment.fee_formatted }}
@@ -121,6 +128,13 @@
                     <div class="{% if totalIndex is odd %}c-cart-total-item{% else %}c-cart-total-item-even{% endif %}">
                     <span class="c-cart-totals-label c-cart-totals-label-shipping c-cart-totals-label-shipment">
                         {{ shipment.method.name }}
+                        {% if shipment.method.class_key == 'TimeSlotsShippingMethod' and shipment.properties.timeslots_slot_info %}
+                            <br>
+                            <span style="font-weight: normal; opacity: 0.85;">
+                                {{ shipment.properties.timeslots_date_info.locale_day }},
+                                {{ shipment.properties.timeslots_slot_info.time_from|date('H:i') }}&ndash;{{ shipment.properties.timeslots_slot_info.time_until|date('H:i') }}
+                            </span>
+                        {% endif %}
                     </span>
                         <span class="c-cart-totals-value c-cart-totals-shipping">
                         {{ shipment.fee_formatted }}

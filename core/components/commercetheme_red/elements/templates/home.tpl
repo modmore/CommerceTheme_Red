@@ -28,7 +28,7 @@
             &context=`[[*context_key]]`
             &where=`{"ctred_featured_product":"true"}`
             &limit=`4`
-            &includeTVs=`product_matrix,ctred_featured_product`
+            &includeTVs=`product_matrix,ctred_featured_product,products`
             &prepareTVs=`1`
             &tpl=`ctred.item_list`
         ]]

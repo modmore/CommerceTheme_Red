@@ -2,6 +2,7 @@
     let cart, checkout;
     onReady(function () {
         initializeMatrixSelects();
+        initializeProductListSelect();
 
         cart = document.querySelector('.c-checkout-cart');
         if (cart) {
@@ -265,7 +266,78 @@
         }
     }
 
+    function initializeProductListSelect() {
+        let productListSelector = document.querySelector('.add-to-cart__productlist'),
+            priceDisplay = productListSelector.querySelector('.add-to-cart__price'),
+            stockDisplay = productListSelector.querySelector('.add-to-cart__stock'),
+            skuDisplay = productListSelector.querySelector('.add-to-cart__sku'),
+            imageDisplay = document.querySelector('.product-image__img'),
+            select = document.getElementById('choose-variation');
 
+        select.addEventListener('change', updateSelectedVariation());
+        console.log(productListSelector);
+        console.log(priceDisplay);
+        function updateSelectedVariation() {
+            let opt = select.options[select.selectedIndex];
+            if (opt) {
+                if (priceDisplay) {
+                    console.log('price display');
+                    priceDisplay.innerHTML = opt.getAttribute('data-price-formatted');
+                }
+                if (stockDisplay) {
+                    console.log('stock display');
+                    stockDisplay.innerHTML = opt.getAttribute('data-stock');
+                }
+                if (skuDisplay) {
+                    console.log('sku display');
+                    skuDisplay.innerHTML = opt.getAttribute('data-sku');
+                }
+                if (imageDisplay) {
+                    let image = opt.getAttribute('data-image');
+                    if (!image) {
+                        image = imageDisplay.getAttribute('data-original-image');
+                    }
+                    if (image !== imageDisplay.src) {
+                        let fakeImg = document.createElement('img');
+                        fakeImg.addEventListener('load', function () {
+                            imageDisplay.src = this.src;
+                            this.remove();
+                        });
+                        fakeImg.src = image;
+                    }
+                }
+            }
+
+            productListSelector.addEventListener('submit', function(e) {
+                let target = productListSelector.getAttribute('action');
+                if (target.indexOf(CommerceConfig.cart_url) === -1) {
+                    return;
+                }
+                e.preventDefault();
+
+                productListSelector.classList.add('commerce-loader');
+
+                _request('POST', target, new FormData(productListSelector), function(response) {
+                    productListSelector.classList.remove('commerce-loader');
+
+                    _updateMiniCartResponse(response);
+
+                    setTimeout(function() {
+                        let minicart = document.getElementById('minicart-header-toggler'),
+                            minicartCheckout = document.querySelector('.minicart__checkout');
+                        if (minicart && !minicart.checked) {
+                            minicart.checked = true;
+
+                            if (minicartCheckout) {
+                                minicartCheckout.focus();
+                            }
+                        }
+                    }, 15);
+                });
+            });
+        }
+              
+    }
 
     function initializeMatrixSelects() {
         let matrixSelector = document.querySelectorAll('.add-to-cart__matrix');

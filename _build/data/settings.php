@@ -40,6 +40,10 @@ return [
         'area' => 'templates',
         'value' => 0,
     ],
+    'product_list_template' => [
+        'area' => 'templates',
+        'value' => 0,
+    ],
     'footer_header_one' => [
         'area' => 'footer',
         'value' => 'Sections',

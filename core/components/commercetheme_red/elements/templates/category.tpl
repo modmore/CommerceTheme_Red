@@ -43,7 +43,7 @@
                     &parents=`[[*id]]`
                     &depth=`1`
                     &showHidden=`0`
-                    &includeTVs=`product_matrix`
+                    &includeTVs=`product_matrix,products`
                     &tpl=`ctred.category_list`
                     &limit=`12`
                     &ajaxMode=`default`

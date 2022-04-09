@@ -13,8 +13,9 @@ The starter pack includes a variety of elements and assets to deliver the follow
     - Simple filtering powered by Tagger (single group)
     - Photos, price ranges, and per product, and short description per product
     - Pagination support (pdoPage)
-- Simple product page with:
+- Two simple product pages (Product Matrix and Product List) with:
     - Dependent select boxes for the product variety selection based on the [Product Matrix](https://docs.modmore.com/en/Commerce/v1/Product_Catalog/Product_Matrix.html), with dynamic rendering of available stock and variety price
+    - Select box and quantity selectors when using a Product List TV and template instead of the Product Matrix.
     - AJAX-enhanced add to cart button
     - CSS-only tabs for additional content, filled by TVs on a per-resource basis, to hold anything from reviews or ingredients to more specifications.
     - Automatic list of related products based on the resource tags using Tagger

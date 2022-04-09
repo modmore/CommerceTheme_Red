@@ -1,3 +1,14 @@
+++ CommerceTheme Red 1.1.0-pl
+++ Released on 2022-04-
+++++++++++++++++++++++++++
+
+- Add new template for product list TV [#8]
+- Make sure resources with both TV types can be displayed in related, featured, other listings.
+- Update product_tab_show and featured_product TVs to be checkboxes (added input options to the installer)
+- Added rank values to the TVs so they are in a reasonable order when installed
+- Updated footer to show current year
+- Removed Product Foo and replaced it with Product Matrix and Product List resources
+- Updated main.js to handle variation changes and adding to cart for new Product List template
 - Remove unused property in get_cart call in header chunk [S23031]
 - Fix issue confirming registrations in default activate registration template [S23978]
 

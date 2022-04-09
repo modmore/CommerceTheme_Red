@@ -78,6 +78,12 @@ foreach ($options['templates'] as $templateName) {
             }
             $tv->set('type', $tvInfo['type']);
             $tv->set('caption', $tvInfo['caption']);
+            if (isset($tvInfo['rank'])) {
+                $tv->set('rank', $tvInfo['rank']);
+            }
+            if (isset($tvInfo['input_option_values'])) {
+                $tv->set('elements', $tvInfo['input_option_values']);
+            }
             $tv->set('category', $category->get('id'));
             if ($tv->save()) {
                 /** @var modTemplateVarTemplate $templateVarTemplate */

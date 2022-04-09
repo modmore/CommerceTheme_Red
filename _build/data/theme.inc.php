@@ -118,6 +118,57 @@ $templates = [
             ],
         ],
     ],
+    $templatePrefix . 'Product #2' => [
+        'file' => $componentPath . 'elements/templates/product_list.tpl',
+        'setting' => 'ctred.product_list_template',
+        'template_variables' => [
+            'products' => [
+                'type' => 'commerce_products',
+                'caption' => 'Product List',
+            ],
+            'ctred.hero_content' => [
+                'type' => 'richtext',
+                'caption' => 'Hero content'
+            ],
+            'ctred_featured_product' => [
+                'type' => 'textfield', //@todo checkbox? select yes/no?
+                'caption' => 'Featured product',
+                'description' => 'Makes this product a feature product, which will be shown on the homepage.'
+            ],
+            'ctred.product_tab_show' => [
+                'type' => 'textfield', //@todo checkbox? select yes/no?
+                'caption' => 'Show tab section',
+                'description' => 'Enter true to show the tabs.',
+            ],
+            'ctred.product_tab_1_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 1 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_1_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 1 content',
+            ],
+            'ctred.product_tab_2_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 2 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_2_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 2 content',
+            ],
+            'ctred.product_tab_3_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 3 title',
+                'description' => 'Leave blank to hide the tab.',
+            ],
+            'ctred.product_tab_3_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 3 content',
+            ],
+        ],
+    ],
 ];
 
 // chunk.name_here => path/to/file.tpl
@@ -145,6 +196,7 @@ $chunks = [
     $chunkPrefix . 'tag_list_chunk' => $componentPath . 'elements/chunks/tag_list_chunk.tpl',
     $chunkPrefix . 'tag_outer_chunk' => $componentPath . 'elements/chunks/tag_outer_chunk.tpl',
     $chunkPrefix . 'update_profile_form' => $componentPath . 'elements/chunks/update_profile_form.tpl',
+    $chunkPrefix . 'product_list_option' => $componentPath . 'elements/chunks/product_list_option.tpl',
 ];
 
 // Alias => [...]
@@ -167,6 +219,12 @@ $resources = [
                 'setting' => '',
                 'pagetitle' => 'Product Foo',
                 'template' => $templatePrefix . 'Product',
+                'content' => '',
+            ],
+            'product-bar' => [
+                'setting' => '',
+                'pagetitle' => 'Product Bar',
+                'template' => $templatePrefix . 'Product (List)',
                 'content' => '',
             ],
         ]

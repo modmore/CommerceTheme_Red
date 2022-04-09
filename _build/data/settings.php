@@ -74,6 +74,6 @@ return [
     ],
     'footer_bottom_row_content' => [
         'area' => 'footer',
-        'value' => '<p>&copy; 2019 [[++site_name]]. All right reserved.</p>',
+        'value' => '<p>Powered by <a href="https://modmore.com/commerce/" target="_blank" rel="noopener">Commerce</a>.</p><p>&copy; [[!+nowdate:default=`now`:strtotime:date=`%Y`]] [[++site_name]]. All rights reserved.</p>',
     ],
 ];

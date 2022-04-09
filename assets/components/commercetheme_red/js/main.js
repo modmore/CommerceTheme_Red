@@ -274,22 +274,18 @@
             imageDisplay = document.querySelector('.product-image__img'),
             select = document.getElementById('choose-variation');
 
-        select.addEventListener('change', updateSelectedVariation());
-        console.log(productListSelector);
-        console.log(priceDisplay);
-        function updateSelectedVariation() {
+        select.addEventListener('change', updateSelectedVariation);
+        
+        function updateSelectedVariation(e) {
             let opt = select.options[select.selectedIndex];
             if (opt) {
                 if (priceDisplay) {
-                    console.log('price display');
                     priceDisplay.innerHTML = opt.getAttribute('data-price-formatted');
                 }
                 if (stockDisplay) {
-                    console.log('stock display');
                     stockDisplay.innerHTML = opt.getAttribute('data-stock');
                 }
                 if (skuDisplay) {
-                    console.log('sku display');
                     skuDisplay.innerHTML = opt.getAttribute('data-sku');
                 }
                 if (imageDisplay) {

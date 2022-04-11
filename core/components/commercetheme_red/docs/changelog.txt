@@ -2,6 +2,8 @@
 ++ Released on 2022-04-
 ++++++++++++++++++++++++++
 
+- Fix reset password not working. Added new reset password template with snippet call for the resource to use. [#6]
+- Fix registration not redirecting on submit. Add new resource, template and setting. [#5]
 - Add new template for product list TV [#8]
 - Make sure resources with both TV types can be displayed in related, featured, other listings.
 - Update product_tab_show and featured_product TVs to be checkboxes (added input options to the installer)

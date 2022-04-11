@@ -32,14 +32,14 @@ $templates = [
     $templatePrefix . 'Account - Forgot password' => [
         'file' => $componentPath . 'elements/templates/account_password.tpl',
     ],
+    $templatePrefix . 'Account - Reset password' => [
+        'file' => $componentPath . 'elements/templates/account_reset_password.tpl',
+    ],
     $templatePrefix . 'Account - Register' => [
         'file' => $componentPath . 'elements/templates/account_register.tpl',
     ],
     $templatePrefix . 'Account - Thank you registration' => [
         'file' => $componentPath . 'elements/templates/account_thank_you_registration.tpl',
-    ],
-    $templatePrefix . 'Account - Forgot password' => [
-        'file' => $componentPath . 'elements/templates/account_password.tpl',
     ],
     $templatePrefix . 'Cart' => [
         'file' => $componentPath . 'elements/templates/cart.tpl',
@@ -315,7 +315,7 @@ $resources = [
                     'reset' => [
                         'setting' => 'ctred.password_reset_page_id',
                         'pagetitle' => 'Reset Password',
-                        'template' => $templatePrefix . 'Account - Forgot password',
+                        'template' => $templatePrefix . 'Account - Reset password',
                     ],
                 ]
             ],

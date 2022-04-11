@@ -4,6 +4,10 @@ return [
         'area' => 'paths',
         'value' => '{assets_url}components/commercetheme_red/',
     ],
+    'registration_please_activate_page_id' => [
+        'area' => 'resources',
+        'value' => 0,
+    ],
     'registration_activation_page_id' => [
         'area' => 'resources',
         'value' => 0,

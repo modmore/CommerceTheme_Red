@@ -11,6 +11,9 @@ $templates = [
     $templatePrefix . 'Account' => [
         'file' => $componentPath . 'elements/templates/account.tpl',
     ],
+    $templatePrefix . 'Account - Please activate registration' => [
+        'file' => $componentPath . 'elements/templates/account_please_activate_registration.tpl',
+    ],
     $templatePrefix . 'Account - Activate registration' => [
         'file' => $componentPath . 'elements/templates/account_activate_registration.tpl',
     ],
@@ -266,6 +269,14 @@ $resources = [
         'content' => '',
         'hidemenu' => true,
         'children' => [
+            'please-activate' => [
+                'setting' => 'ctred.registration_please_activate_page_id',
+                'pagetitle' => 'Please activate your account',
+                'template' => $templatePrefix . 'Account - Please activate registration',
+                'content' => '',
+                'hidemenu' => true,
+                'children' => [],
+            ],
             'activate' => [
                 'setting' => 'ctred.registration_activation_page_id',
                 'pagetitle' => 'Activate registration',

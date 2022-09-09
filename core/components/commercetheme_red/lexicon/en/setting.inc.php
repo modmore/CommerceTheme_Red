@@ -9,8 +9,8 @@ $_lang['setting_ctred.registration_please_activate_page_id_desc'] = 'Enter a res
 $_lang['setting_ctred.registration_activation_page_id'] = 'Registration Page - Activation';
 $_lang['setting_ctred.registration_activation_page_id_desc'] = 'Enter a resource ID here. This is the page linked to in the activation email, and is used to activate a new account.';
 
-$_lang['setting_ctred.registration_thankyou_page_id'] = 'Registration Page - Thank You';
-$_lang['setting_ctred.registration_thankyou_page_id_desc'] = 'Enter a resource ID here. After successful account activation, this is the page a customer is redirected to, thanking them for activating their new account.';
+$_lang['setting_ctred.registration_thank_you_page_id'] = 'Registration Page - Thank You';
+$_lang['setting_ctred.registration_thank_you_page_id_desc'] = 'Enter a resource ID here. After successful account activation, this is the page a customer is redirected to, thanking them for activating their new account.';
 
 $_lang['setting_ctred.password_reset_page_id'] = 'Password Reset Page';
 $_lang['setting_ctred.password_reset_page_id_desc'] = 'Enter a resource ID here. This is the page linked to in the "Forgot password" email, sent to a customer when they submit the form.';
@@ -20,6 +20,9 @@ $_lang['setting_ctred.forgot_password_page_id_desc'] = 'Enter a resource ID here
 
 $_lang['setting_ctred.account_page_id'] = 'Account Page';
 $_lang['setting_ctred.account_page_id_desc'] = 'Enter a resource ID here. This is the customer\'s account dashboard that\'s available after logging in.';
+
+$_lang['setting_ctred.logout_page_id'] = 'Logout Page';
+$_lang['setting_ctred.logout_page_id_desc'] = 'Enter a resource ID here. This is the page that logs a customer out of their account.';
 
 $_lang['setting_ctred.edit_profile_page_id'] = 'Edit Profile Page';
 $_lang['setting_ctred.edit_profile_page_id_desc'] = 'Enter a resource ID here. The page where a logged-in customer can update their name and email address.';

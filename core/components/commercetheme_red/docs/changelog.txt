@@ -1,5 +1,5 @@
 ++ CommerceTheme Red 1.1.0-pl
-++ Released on 2022-09-
+++ Released on 2022-09-09
 ++++++++++++++++++++++++++
 
 - Add lexicons for system setting name and descriptions [#4]

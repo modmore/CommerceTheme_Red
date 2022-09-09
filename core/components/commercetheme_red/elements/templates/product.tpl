@@ -8,7 +8,7 @@
         <div class="col-md product-image">
             <div class="product-image__container">
                 [[- you can set a different default image      V V V     here     V V V     ]]
-                [[commerce.get_matrix_first_product:default=`https://placekitten.com/600/400`:toPlaceholder=`first_image`?
+                [[commerce.get_matrix_first_product:default=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.matrix_product_image? &namespace=`commercetheme_red`]]`:toPlaceholder=`first_image`?
                     &matrix=`[[*product_matrix]]`
                     &withImage=`1`
                     &withStock=`0`

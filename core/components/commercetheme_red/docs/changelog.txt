@@ -1,7 +1,8 @@
 ++ CommerceTheme Red 1.1.0-pl
-++ Released on 2022-04-
+++ Released on 2022-09-
 ++++++++++++++++++++++++++
 
+- Replace kitten image placeholders with placeholder.com image placeholders [#2]
 - Fix reset password not working. Added new reset password template with snippet call for the resource to use. [#6]
 - Fix registration not redirecting on submit. Add new resource, template and setting. [#5]
 - Add new template for product list TV [#8]

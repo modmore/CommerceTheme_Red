@@ -13,8 +13,8 @@
                 ]]
                 
                 [[- you can set a different default image      V V V     here     V V V     ]]
-                <img src="[[+product.image:empty=`https://placekitten.com/600/400`]]" 
-                     data-original-image="[[+product.image:empty=`https://placekitten.com/600/400`]]" 
+                <img src="[[+product.image:empty=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.product_list_image? &namespace=`commercetheme_red`]]`]]"
+                     data-original-image="[[+product.image:empty=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.product_list_image? &namespace=`commercetheme_red`]]`]]"
                      class="product-image__img" 
                      alt="[[*longtitle:default=`[[*pagetitle]]`:htmlent]]"
                 >

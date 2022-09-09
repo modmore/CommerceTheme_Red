@@ -32,10 +32,6 @@ return [
         'area' => 'resources',
         'value' => 0,
     ],
-    'reset_password_page_id' => [
-        'area' => 'resources',
-        'value' => 0,
-    ],
     'edit_profile_page_id' => [
         'area' => 'resources',
         'value' => 0,

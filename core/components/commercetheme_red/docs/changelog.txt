@@ -2,6 +2,7 @@
 ++ Released on 2022-09-
 ++++++++++++++++++++++++++
 
+- Add lexicons for system setting name and descriptions [#4]
 - Replace kitten image placeholders with placeholder.com image placeholders [#2]
 - Fix reset password not working. Added new reset password template with snippet call for the resource to use. [#6]
 - Fix registration not redirecting on submit. Add new resource, template and setting. [#5]

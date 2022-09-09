@@ -2,7 +2,7 @@
     <a class="card category-product__card" href="[[~[[+id]]]]">
         <img class="card-img-top category-product__image"
                 onerror="this.style.display = 'none'"
-                src="[[!commerce.get_matrix_first_product?
+                src="[[!commerce.get_matrix_first_product:default=`https://via.placeholder.com/400x300?text=[[%ctred.placeholder.matrix_product_image? &namespace=`commercetheme_red`]]`?
                     &matrix=`[[+tv.product_matrix]]`
                     &withImage=`1`
                     &withStock=`0`

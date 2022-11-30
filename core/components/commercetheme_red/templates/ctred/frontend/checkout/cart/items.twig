@@ -53,7 +53,7 @@
                 {% endif %}
             </div>
             <div class="cart-item__numbers col-sm-12 col-md-3 text-sm-right">
-                {% spaceless %}
+                {% apply spaceless %}
                 {% if tax_exclusive %}
                     {% if item.discount != 0 %}
                         <span class="cart-item__discount">{{ lex('commerce.cart.item.discount', {'discount': item.discount_formatted}) }}</span>
@@ -84,7 +84,7 @@
                         {#<span class="cart-item__tax_incl">{{ lex('commerce.cart.item.incl_taxes', {'tax': item.tax_formatted}) }}</span>#}
                     {#{% endif %}#}
                 {% endif %}
-                {% endspaceless %}
+                {% endapply %}
 
             </div>
         </div>

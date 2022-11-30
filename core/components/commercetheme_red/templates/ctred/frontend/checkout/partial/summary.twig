@@ -22,7 +22,7 @@
             </div>
 
             <div class="cart-item__numbers col-sm-12 col-md-5 text-sm-right">
-                {% spaceless %}
+                {% apply spaceless %}
                     {% if tax_exclusive %}
                         {% if item.discount != 0 %}
                             <span class="cart-item__subtotal_old">{{ item.subtotal_formatted }}</span>
@@ -45,7 +45,7 @@
                             <span class="cart-item__subtotal">{{ item.total_before_tax_formatted }}</span>
                         {% endif %}
                     {% endif %}
-                {% endspaceless %}
+                {% endapply %}
             </div>
 
         </div>

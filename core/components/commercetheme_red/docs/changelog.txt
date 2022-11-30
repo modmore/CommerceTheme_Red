@@ -1,6 +1,12 @@
-++ CommerceTheme Red 1.1.0-pl
-++ Released on 2022-09-09
-++++++++++++++++++++++++++
+CommerceTheme Red 1.1.1-pl
+--------------------------
+Released on 2022-12-01
+
+- Replace {% spaceless %} with {% apply spaceless %} for Commerce 1.3 compatibility
+
+CommerceTheme Red 1.1.0-pl
+--------------------------
+Released on 2022-09-09
 
 - Add lexicons for system setting name and descriptions [#4]
 - Replace kitten image placeholders with placeholder.com image placeholders [#2]
@@ -16,15 +22,15 @@
 - Remove unused property in get_cart call in header chunk [S23031]
 - Fix issue confirming registrations in default activate registration template [S23978]
 
-++ CommerceTheme Red 1.0.2-pl
-++ Released on 2019-12-03
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.2-pl
+--------------------------
+Released on 2019-12-03
 
 - Remove the non-functional Wishlish button (also resolves issue creating related_list and category_list chunks on non-UTF8 databases)
 
-++ CommerceTheme Red 1.0.1-pl
-++ Released on 2019-12-02
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.1-pl
+--------------------------
+Released on 2019-12-02
 
 - In Product template, add hideContainers to the getRelated call to not show category resources in the list.
 - Add some bottom margin to the login-or-signup blocks in the checkout
@@ -35,23 +41,27 @@
 - Make it easier to change the default image for a product in the template, and make sure it uses the first available image as default
 - Add password_reset_page_id setting to the right category (on first install)
 
-++ CommerceTheme Red 1.0.0-pl
-++ Released on 2019-11-27
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.0-pl
+--------------------------
+Released on 2019-11-27
+
 - Official 1.0 release.
 
-++ CommerceTheme Red 1.0.0-rc3
-++ Released on 2019-08-15
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.0-rc3
+---------------------------
+Released on 2019-08-15
+
 - Some more minor gateway-related styling tweaks for Commerce v1.1.
 
-++ CommerceTheme Red 1.0.0-rc2
-++ Released on 2019-08-14
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.0-rc2
+---------------------------
+Released on 2019-08-14
+
 - Include some new styles for updated gateways in Commerce v1.1 and upcoming MyParcel extension
 - Add cursor: pointer to the minicart toggle button
 
-++ CommerceTheme Red 1.0.0-rc1
-++ Released on 2019-05-21
-++++++++++++++++++++++++++
+CommerceTheme Red 1.0.0-rc1
+---------------------------
+Released on 2019-05-21
+
 - First packaged release

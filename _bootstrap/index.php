@@ -28,6 +28,7 @@ $elements = [
         'Red - Category' => $componentPath . '/core/components/commercetheme_red/elements/templates/category.tpl',
         'Red - Checkout' => $componentPath . '/core/components/commercetheme_red/elements/templates/checkout.tpl',
         'Red - Product' => $componentPath . '/core/components/commercetheme_red/elements/templates/product.tpl',
+        'Red - Product (List)' => $componentPath . '/core/components/commercetheme_red/elements/templates/product_list.tpl',
         'Red - Account' => $componentPath . '/core/components/commercetheme_red/elements/templates/account.tpl',
         'Red - Account login' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_login.tpl',
         'Red - Account register' => $componentPath . '/core/components/commercetheme_red/elements/templates/account_register.tpl',
@@ -63,6 +64,7 @@ $elements = [
         'ctred.profile_menu' => $componentPath . '/core/components/commercetheme_red/elements/chunks/profile_menu.tpl',
         'ctred.footer' => $componentPath . '/core/components/commercetheme_red/elements/chunks/footer.tpl',
         'ctred.header' => $componentPath . '/core/components/commercetheme_red/elements/chunks/header.tpl',
+        'ctred.product_list_option' => $componentPath . '/core/components/commercetheme_red/elements/chunks/product_list_option.tpl',
     ],
 ];
 
@@ -304,9 +306,41 @@ if (!createObject('modSystemSetting', [
     echo "Error creating ctred.quick_link_06_url system setting.\n";
 }
 
+//ctred.category_template
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.category_template',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.category_template system setting.\n";
+}
+
+//ctred.product_template
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.product_template',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.product_template system setting.\n";
+}
+
+//ctred.product_list_template
+if (!createObject('modSystemSetting', [
+    'key' => 'ctred.product_list_template',
+    'value' => ''
+], 'key', false)) {
+    echo "Error creating ctred.product_list_template system setting.\n";
+}
+
 if (!createObject('modTemplateVar', [
     'type' => 'commerce_matrix',
     'name' => 'product_matrix',
+    'caption' => 'Products',
+], 'name', false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+if (!createObject('modTemplateVar', [
+    'type' => 'commerce_products',
+    'name' => 'products',
     'caption' => 'Products',
 ], 'name', false)) {
     echo "Error creating modTemplateVar system setting.\n";
@@ -409,6 +443,17 @@ if (!createObject('modTemplateVar', [
 $tv = $modx->getObject('modTemplateVar', ['name' => 'product_matrix']);
 $tvId = $tv ? $tv->get('id') : 0;
 $tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product']);
+$tmplId = $tmpl ? $tmpl->get('id') : 0;
+if (!createObject('modTemplateVarTemplate', [
+    'tmplvarid' => $tvId,
+    'templateid' => $tmplId,
+], ['tmplvarid', 'templateid'], false)) {
+    echo "Error creating modTemplateVar system setting.\n";
+}
+
+$tv = $modx->getObject('modTemplateVar', ['name' => 'products']);
+$tvId = $tv ? $tv->get('id') : 0;
+$tmpl = $modx->getObject('modTemplate', ['templatename' => 'Red - Product (List)']);
 $tmplId = $tmpl ? $tmpl->get('id') : 0;
 if (!createObject('modTemplateVarTemplate', [
     'tmplvarid' => $tvId,

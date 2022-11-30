@@ -23,7 +23,7 @@ if (!defined('MOREPROVIDER_BUILD')) {
     /* define version */
     define('PKG_NAME','CommerceTheme Red');
     define('PKG_NAMESPACE','commercetheme_red');
-    define('PKG_VERSION','1.0.0');
+    define('PKG_VERSION','1.1.0');
     define('PKG_RELEASE','pl');
 
     /* load modx */

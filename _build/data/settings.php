@@ -4,6 +4,10 @@ return [
         'area' => 'paths',
         'value' => '{assets_url}components/commercetheme_red/',
     ],
+    'registration_please_activate_page_id' => [
+        'area' => 'resources',
+        'value' => 0,
+    ],
     'registration_activation_page_id' => [
         'area' => 'resources',
         'value' => 0,
@@ -40,6 +44,10 @@ return [
         'area' => 'templates',
         'value' => 0,
     ],
+    'product_list_template' => [
+        'area' => 'templates',
+        'value' => 0,
+    ],
     'footer_header_one' => [
         'area' => 'footer',
         'value' => 'Sections',
@@ -70,6 +78,6 @@ return [
     ],
     'footer_bottom_row_content' => [
         'area' => 'footer',
-        'value' => '<p>&copy; 2019 [[++site_name]]. All right reserved.</p>',
+        'value' => '<p>Powered by <a href="https://modmore.com/commerce/" target="_blank" rel="noopener">Commerce</a>.</p><p>&copy; [[!+nowdate:default=`now`:strtotime:date=`%Y`]] [[++site_name]]. All rights reserved.</p>',
     ],
 ];

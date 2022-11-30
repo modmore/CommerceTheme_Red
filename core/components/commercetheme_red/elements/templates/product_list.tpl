@@ -7,14 +7,17 @@
     <div class="row equal product-top-container">
         <div class="col-md product-image">
             <div class="product-image__container">
-                [[- you can set a different default image      V V V     here     V V V     ]]
-                [[commerce.get_matrix_first_product:default=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.matrix_product_image? &namespace=`commercetheme_red`]]`:toPlaceholder=`first_image`?
-                    &matrix=`[[*product_matrix]]`
-                    &withImage=`1`
-                    &withStock=`0`
-                    &field=`image`
+                [[commerce.get_product?
+                    &product=`[[*products]]`
+                    &toPlaceholders=`product`
                 ]]
-                <img src="[[+first_image]]" data-original-image="[[+first_image]]" class="product-image__img" alt="[[*longtitle:default=`[[*pagetitle]]`:htmlent]]">
+                
+                [[- you can set a different default image      V V V     here     V V V     ]]
+                <img src="[[+product.image:empty=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.product_list_image? &namespace=`commercetheme_red`]]`]]"
+                     data-original-image="[[+product.image:empty=`https://via.placeholder.com/600x400?text=[[%ctred.placeholder.product_list_image? &namespace=`commercetheme_red`]]`]]"
+                     class="product-image__img" 
+                     alt="[[*longtitle:default=`[[*pagetitle]]`:htmlent]]"
+                >
             </div>
         </div>
         <div class="col-md product-details">
@@ -23,14 +26,25 @@
                 <p class="product-details__introduction">[[*description]]</p>
             `]]
 
-            <form method="post" action="[[~[[++commerce.cart_resource]]]]" class="product-add-to-cart add-to-cart add-to-cart__matrix">
+            <form method="post" action="[[~[[++commerce.cart_resource]]]]" class="product-add-to-cart add-to-cart add-to-cart__productlist">
                 <input type="hidden" name="add_to_cart" value="1">
                 <input type="hidden" name="link" value="[[*id]]">
 
-                [[!commerce.get_matrix?
-                    &matrix=`[[*product_matrix]]`
-                    &tpl=`frontend/matrix/enhanced-select.twig`
-                ]]
+                <div class="form-row add-to-cart__productlist">
+                    <div class="product-variation form-group col-md-10">
+                        <label for="add-quantity">Variation</label>
+                        <select id="choose-variation" class="form-control" name="product">
+                            [[!commerce.get_products?
+                                &products=`[[*products]]`
+                                &tpl=`ctred.product_list_option`
+                            ]]
+                        </select>
+                    </div>
+                    <div class="product-quantity form-group col-md-2">
+                        <label for="add-quantity">Quantity</label>
+                        <input class="form-control" type="number" id="add-quantity" name="quantity" value="1">
+                    </div>
+                </div>
 
                 <div class="d-flex align-items-center">
                     <!--<div class="col add-to-cart__sku_wrapper">
@@ -48,13 +62,6 @@
                         [[-!%commerce.price]]
                         <span class="add-to-cart__price"></span>
                     </div>
-
-                    <!--
-                    <div class="px-2 add-to-cart__quantity_wrapper d-flex align-items-center">
-                        <label for="product-quantity" class="my-0 pr-2">[[!%commerce.quantity]]:</label>
-                        <input type="number" name="quantity" id="product-quantity" min="0" step="1" value="1" style="width: 3rem;">
-                    </div>
-                    -->
 
                     <div class="pl-2 add-to-cart__submit">
                         <button type="submit" class="btn btn-primary add-to-cart__button">[[!%commerce.add_to_cart]]</button>
@@ -114,7 +121,7 @@
             &parents=`[[*parent]]`
             &where=`[[TaggerGetResourcesWhere]]`
             &tpl=`ctred.item_list`
-            &includeTVs=`product_matrix,products`
+            &includeTVs=`products,product_matrix`
             &limit=`4`
         ]]
     </div>
@@ -122,9 +129,9 @@
         [[getRelated?
             &tplOuter=`ctred.related_outer`
             &tplRow=`ctred.related_outer_list`
-            &fields=`pagetitle:1,description:2,tv.product_matrix:3,tv.products:4`
+            &fields=`pagetitle:1,description:2,tv.products:3,tv.product_matrix:4`
             &returnFields=`pagetitle,description`
-            &returnTVs=`product_matrix,products`
+            &returnTVs=`products,product_matrix`
             &limit=`4`
             &hideContainers=`1`
         ]]

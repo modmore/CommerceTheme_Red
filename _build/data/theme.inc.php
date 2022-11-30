@@ -11,6 +11,9 @@ $templates = [
     $templatePrefix . 'Account' => [
         'file' => $componentPath . 'elements/templates/account.tpl',
     ],
+    $templatePrefix . 'Account - Please activate registration' => [
+        'file' => $componentPath . 'elements/templates/account_please_activate_registration.tpl',
+    ],
     $templatePrefix . 'Account - Activate registration' => [
         'file' => $componentPath . 'elements/templates/account_activate_registration.tpl',
     ],
@@ -29,14 +32,14 @@ $templates = [
     $templatePrefix . 'Account - Forgot password' => [
         'file' => $componentPath . 'elements/templates/account_password.tpl',
     ],
+    $templatePrefix . 'Account - Reset password' => [
+        'file' => $componentPath . 'elements/templates/account_reset_password.tpl',
+    ],
     $templatePrefix . 'Account - Register' => [
         'file' => $componentPath . 'elements/templates/account_register.tpl',
     ],
     $templatePrefix . 'Account - Thank you registration' => [
         'file' => $componentPath . 'elements/templates/account_thank_you_registration.tpl',
-    ],
-    $templatePrefix . 'Account - Forgot password' => [
-        'file' => $componentPath . 'elements/templates/account_password.tpl',
     ],
     $templatePrefix . 'Cart' => [
         'file' => $componentPath . 'elements/templates/cart.tpl',
@@ -74,47 +77,112 @@ $templates = [
             'product_matrix' => [
                 'type' => 'commerce_matrix',
                 'caption' => 'Products',
-            ],
-            'ctred.hero_content' => [
-                'type' => 'richtext',
-                'caption' => 'Hero content'
+                'rank' => '0'
             ],
             'ctred_featured_product' => [
-                'type' => 'textfield', //@todo checkbox? select yes/no?
+                'type' => 'checkbox',
                 'caption' => 'Featured product',
-                'description' => 'Makes this product a feature product, which will be shown on the homepage.'
+                'description' => 'Makes this product a featured product, which will be shown on the homepage.',
+                'input_option_values' => 'Feature this product==true',
+                'rank' => '1'
             ],
             'ctred.product_tab_show' => [
-                'type' => 'textfield', //@todo checkbox? select yes/no?
-                'caption' => 'Show tab section',
-                'description' => 'Enter true to show the tabs.',
+                'type' => 'checkbox',
+                'caption' => 'Tabs',
+                'description' => 'Display tabs on the product page.',
+                'input_option_values' => 'Show tab section==true',
+                'rank' => '2'
             ],
             'ctred.product_tab_1_title' => [
                 'type' => 'textfield',
                 'caption' => 'Tab 1 title',
                 'description' => 'Leave blank to hide the tab.',
+                'rank' => '3'
             ],
             'ctred.product_tab_1_content' => [
                 'type' => 'richtext',
                 'caption' => 'Tab 1 content',
+                'rank' => '4'
             ],
             'ctred.product_tab_2_title' => [
                 'type' => 'textfield',
                 'caption' => 'Tab 2 title',
                 'description' => 'Leave blank to hide the tab.',
+                'rank' => '5'
             ],
             'ctred.product_tab_2_content' => [
                 'type' => 'richtext',
                 'caption' => 'Tab 2 content',
+                'rank' => '6'
             ],
             'ctred.product_tab_3_title' => [
                 'type' => 'textfield',
                 'caption' => 'Tab 3 title',
                 'description' => 'Leave blank to hide the tab.',
+                'rank' => '7'
             ],
             'ctred.product_tab_3_content' => [
                 'type' => 'richtext',
                 'caption' => 'Tab 3 content',
+                'rank' => '8'
+            ],
+        ],
+    ],
+    $templatePrefix . 'Product (List)' => [
+        'file' => $componentPath . 'elements/templates/product_list.tpl',
+        'setting' => 'ctred.product_list_template',
+        'template_variables' => [
+            'products' => [
+                'type' => 'commerce_products',
+                'caption' => 'Product List',
+                'rank' => '0'
+            ],
+            'ctred_featured_product' => [
+                'type' => 'checkbox',
+                'caption' => 'Featured product',
+                'description' => 'Makes this product a featured product, which will be shown on the homepage.',
+                'input_option_values' => 'Feature this product==true',
+                'rank' => '1'
+            ],
+            'ctred.product_tab_show' => [
+                'type' => 'checkbox',
+                'caption' => 'Tabs',
+                'description' => 'Display tabs on the product page.',
+                'input_option_values' => 'Show tab section==true',
+                'rank' => '2'
+            ],
+            'ctred.product_tab_1_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 1 title',
+                'description' => 'Leave blank to hide the tab.',
+                'rank' => '3'
+            ],
+            'ctred.product_tab_1_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 1 content',
+                'rank' => '4'
+            ],
+            'ctred.product_tab_2_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 2 title',
+                'description' => 'Leave blank to hide the tab.',
+                'rank' => '5'
+            ],
+            'ctred.product_tab_2_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 2 content',
+                'rank' => '6'
+            ],
+            'ctred.product_tab_3_title' => [
+                'type' => 'textfield',
+                'caption' => 'Tab 3 title',
+                'description' => 'Leave blank to hide the tab.',
+                'rank' => '7'
+            ],
+            'ctred.product_tab_3_content' => [
+                'type' => 'richtext',
+                'caption' => 'Tab 3 content',
+                'rank' => '8'
             ],
         ],
     ],
@@ -145,6 +213,7 @@ $chunks = [
     $chunkPrefix . 'tag_list_chunk' => $componentPath . 'elements/chunks/tag_list_chunk.tpl',
     $chunkPrefix . 'tag_outer_chunk' => $componentPath . 'elements/chunks/tag_outer_chunk.tpl',
     $chunkPrefix . 'update_profile_form' => $componentPath . 'elements/chunks/update_profile_form.tpl',
+    $chunkPrefix . 'product_list_option' => $componentPath . 'elements/chunks/product_list_option.tpl',
 ];
 
 // Alias => [...]
@@ -163,10 +232,16 @@ $resources = [
         'template' => $templatePrefix . 'Category',
         'content' => '',
         'children' => [
-            'product-foo' => [
+            'product-matrix' => [
                 'setting' => '',
-                'pagetitle' => 'Product Foo',
+                'pagetitle' => 'Product Matrix',
                 'template' => $templatePrefix . 'Product',
+                'content' => '',
+            ],
+            'product-list' => [
+                'setting' => '',
+                'pagetitle' => 'Product List',
+                'template' => $templatePrefix . 'Product (List)',
                 'content' => '',
             ],
         ]
@@ -194,6 +269,14 @@ $resources = [
         'content' => '',
         'hidemenu' => true,
         'children' => [
+            'please-activate' => [
+                'setting' => 'ctred.registration_please_activate_page_id',
+                'pagetitle' => 'Please activate your account',
+                'template' => $templatePrefix . 'Account - Please activate registration',
+                'content' => '',
+                'hidemenu' => true,
+                'children' => [],
+            ],
             'activate' => [
                 'setting' => 'ctred.registration_activation_page_id',
                 'pagetitle' => 'Activate registration',
@@ -232,7 +315,7 @@ $resources = [
                     'reset' => [
                         'setting' => 'ctred.password_reset_page_id',
                         'pagetitle' => 'Reset Password',
-                        'template' => $templatePrefix . 'Account - Forgot password',
+                        'template' => $templatePrefix . 'Account - Reset password',
                     ],
                 ]
             ],

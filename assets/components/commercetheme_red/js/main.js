@@ -267,9 +267,8 @@
     }
 
     function initializeProductListSelect() {
-        let productListSelector = document.querySelector('.add-to-cart__productlist');
-        
-        if (productListSelector !== null) {
+        let productListSelectors = document.querySelectorAll('.add-to-cart__productlist');
+        productListSelectors.forEach(function(productListSelector) {
             let priceDisplay = productListSelector.querySelector('.add-to-cart__price'),
             stockDisplay = productListSelector.querySelector('.add-to-cart__stock'),
             skuDisplay = productListSelector.querySelector('.add-to-cart__sku'),
@@ -310,7 +309,7 @@
             productListSelector.addEventListener('submit', function(e) {
                 addToCart(e);
             });
-        }
+        });
     }
 
     function initializeMatrixSelects() {
